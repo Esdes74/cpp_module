@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 15:59:24 by eslamber          #+#    #+#              #
-#    Updated: 2023/03/15 16:17:25 by eslamber         ###   ########.fr        #
+#    Updated: 2023/03/16 15:26:00 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,20 +17,38 @@ NAME := phone_book
 HEADERS := class.hpp
 SRC := contact.cpp \
 	   phonebook.cpp \
+	   getter.cpp \
+	   setter.cpp \
 	   main.cpp
+OBJ := $(SRC:%.cpp=%.o)
 
 all: $(NAME)
 
-$(NAME): $(SRC) $(HEADER)
-	c++ $(FLAGS) $(SRC) -o $@
+$(NAME): $(OBJ)
+	c++ $(FLAGS) $(OBJ) -o $@
+
+%.o: %.cpp $(HEADERS)
+	c++ $(FLAGS) -c $< -o $@
+
+#
+### Debug rules
+#
+
+debug:
+	make "FLAGS = -Wall -Wextra -Werror -g3"
 
 #
 ### Cleanup rules
 #
 
 clean:
-	rm -rfv $(NAME)
+	@rm -rfv $(OBJ)
 
-re: clean all
+fclean: clean
+	@rm -rfv $(NAME)
 
-.PHONY: all clean re
+re: fclean all
+
+re_deb: fclean debug
+
+.PHONY: all clean fclean re debug re_deb
