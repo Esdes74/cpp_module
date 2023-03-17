@@ -6,15 +6,11 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 09:57:27 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/16 15:26:29 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/03/17 10:56:06 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "class.hpp"
-
-Contact::Contact()
-{
-}
 
 Contact::Contact(string f_name, string l_name, string \
 		n_name, string nb, string sec)

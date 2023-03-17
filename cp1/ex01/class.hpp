@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:07:00 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/16 18:34:44 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/03/17 10:56:32 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@ class	Contact{
 		string	number;
 		string	secret;
 	public:
-		// Constructeurs
-		Contact();
-		Contact(string fst_name, string lst_name, string \
-				nickname, string nbr, string secret);
+		// Constructeur
+		Contact(string fst_name = "", string lst_name = "", string \
+				nickname = "", string nbr = "", string secret = "");
 		// Setters
 		void	setFstName(string name);
 		void	setLstName(string name);

@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 09:56:52 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/16 18:34:25 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/03/17 11:13:53 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,8 @@
 
 PhoneBook::PhoneBook()
 {
-	int	i;
-
-	i = 0;
 	current_contact = 0;
 	tab = new Contact[SIZE];
-	while (i < 8)
-	{
-		tab[i].setFstName("");
-		tab[i].setLstName("");
-		tab[i].setNickname("");
-		tab[i].setPhoneNumber("");
-		tab[i].setSecret("");
-		i++;
-	}
 }
 
 /*##############################################################################
