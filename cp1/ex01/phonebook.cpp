@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 09:56:52 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/17 11:13:53 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/03/18 09:23:46 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	PhoneBook::afficher()
 {
 	int	i(0);
 
-	cout << "|  index   | fst name | lst name | nickname |" << endl;
+	cout << "|  index   |  prenom  |   nom    |  surnom  |" << endl;
 	while (i < 8)
 	{
 		cout << "|         " << i + 1 << "|";
@@ -75,19 +75,19 @@ void	PhoneBook::add()
 
 	if (current_contact == 8)
 		current_contact = 0;
-	cout << "First name : ";
+	cout << "Prénom : ";
 	getline(cin, res);
 	tab[current_contact].setFstName(res);
-	cout << "Last name : ";
+	cout << "Nom : ";
 	getline(cin, res);
 	tab[current_contact].setLstName(res);
-	cout << "Nickname : ";
+	cout << "Surnom : ";
 	getline(cin, res);
 	tab[current_contact].setNickname(res);
-	cout << "Phone number : ";
+	cout << "Numéro de téléphone : ";
 	getline(cin, res);
 	tab[current_contact].setPhoneNumber(res);
-	cout << "His worst secret : ";
+	cout << "Son plus lourd secret : ";
 	getline(cin, res);
 	tab[current_contact].setSecret(res);
 	current_contact++;
