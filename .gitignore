@@ -1,3 +1,5 @@
 *megaphone
 *.o
 cp1/ex02/log.log
+*.replace
+*.test
