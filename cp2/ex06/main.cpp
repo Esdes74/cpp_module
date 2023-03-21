@@ -6,15 +6,20 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 13:31:34 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/21 14:28:59 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/03/21 19:02:07 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-int	main()
+int	main(int ac, char **av)
 {
-	Harl	h;
+	if (ac != 2)
+	{
+		cout << "Probably complaining about insignificant problems\n";
+		return (1);
+	}
+	Harl	h(av[1]);
 
 	h.complain("DEBUG");
 	h.complain("INFO");

@@ -6,19 +6,48 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 13:22:30 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/21 14:39:00 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/03/21 19:03:09 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-Harl::Harl()
+Harl::Harl(const char *level)
 {
-	this->logger = {{"DEBUG", &Harl::debug},
-		{"INFO", &Harl::info},
-		{"WARNING", &Harl::warning},
-		{"ERROR", &Harl::error}};
-}
+	if (strcmp(level, "DEBUG") == 0)
+		this->level = DEBUG;
+	else if (strcmp(level, "INFO") == 0)
+		this->level = INFO;
+	else if (strcmp(level, "WARNING") == 0)
+		this->level = WARNING;
+	else if (strcmp(level, "ERROR") == 0)
+		this->level = ERROR;
+	
+	switch (this->level)
+	{
+		case DEBUG:
+			this->logger["DEBUG"] = &Harl::debug;
+			this->logger["INFO"] = &Harl::info;
+			this->logger["WARNING"] = &Harl::warning;
+			this->logger["ERROR"] = &Harl::error;
+			break;
+		case INFO:
+			this->logger["INFO"] = &Harl::info;
+			this->logger["WARNING"] = &Harl::warning;
+			this->logger["ERROR"] = &Harl::error;
+			break;
+		case WARNING:
+			this->logger["WARNING"] = &Harl::warning;
+			this->logger["ERROR"] = &Harl::error;
+			break;
+		case ERROR:
+			this->logger["ERROR"] = &Harl::error;
+			break;
+		default:
+			cout << "Probably complaining about insignificant problems\n";
+			exit(1);
+	}
+}	
 
 void	Harl::debug()
 {
@@ -45,13 +74,8 @@ void	Harl::error()
 
 void	Harl::complain(string level)
 {
-	auto	it = logger.find(level);
+	map<string, void(Harl::*)()>::iterator it = logger.find(level);
 
 	if (it != logger.end())
-		switch (it->second)
-		{
-			case &this->debug():
-				cout << test;
-		}
-		/* (this->*(it->second))(); */
+		(this->*(it->second))();
 }

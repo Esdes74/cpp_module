@@ -6,11 +6,11 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 11:35:58 by eslamber          #+#    #+#              #
-#    Updated: 2023/03/17 11:38:10 by eslamber         ###   ########.fr        #
+#    Updated: 2023/03/21 18:34:00 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FLAGS := -Wall -Wextra -Werror
+FLAGS := -Wall -Wextra -Werror -std=c++98
 
 NAME := BraiiiiiiinnnzzzZ
 
