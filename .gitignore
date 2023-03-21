@@ -4,3 +4,4 @@ cp1/ex02/log.log
 *.replace
 *.test
 cp2/ex04/sed
+cp2/ex06/HarlFilter
