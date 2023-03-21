@@ -6,11 +6,11 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 15:50:23 by eslamber          #+#    #+#              #
-#    Updated: 2023/03/15 16:11:15 by eslamber         ###   ########.fr        #
+#    Updated: 2023/03/21 19:09:34 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FLAGS := -Wall -Wextra -Werror
+FLAGS := -Wall -Wextra -Werror -std=c++98
 
 NAME := megaphone
 

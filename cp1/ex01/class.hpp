@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:07:00 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/17 10:56:32 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/03/21 19:21:15 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CLASS_HPP
 
 # include <iostream>
-# include <string>
+# include <sstream>
 
 using namespace std;
 
