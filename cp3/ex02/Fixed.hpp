@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 10:51:52 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/24 15:24:59 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/03/24 20:30:32 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ class Fixed
 		float	toFloat() const;
 		int		toInt() const;
 
-		Fixed		&min(Fixed &f, Fixed &s);
-		Fixed		&max(Fixed &f, Fixed &s);
-		const Fixed	&min(const Fixed &f, const Fixed &s);
-		const Fixed	&max(const Fixed &f, const Fixed &s);
+		static Fixed		&min(Fixed &f, Fixed &s);
+		static Fixed		&max(Fixed &f, Fixed &s);
+		static const Fixed	&min(const Fixed &f, const Fixed &s);
+		static const Fixed	&max(const Fixed &f, const Fixed &s);
 
 		// Destructeur
 		~Fixed();

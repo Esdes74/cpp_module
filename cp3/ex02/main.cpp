@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 13:31:58 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/24 15:17:20 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/03/24 20:32:28 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main( void )
 	std::cout << a << std::endl;
 	
 	std::cout << b << std::endl;
-	std::cout << Fixed::min( a, b ) << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl;
 	
 	return 0;
 }
