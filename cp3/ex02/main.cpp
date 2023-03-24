@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/22 10:51:52 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/23 19:06:27 by eslamber         ###   ########.fr       */
+/*   Created: 2023/03/23 13:31:58 by eslamber          #+#    #+#             */
+/*   Updated: 2023/03/24 15:17:20 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#include "Fixed.hpp"
 
-# include <iostream>
-using namespace std;
-
-class Fixed
+int main( void ) 
 {
-	private:
-		int					val;
-		static const int	frac;
+	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-	public:
-		// Constructeurs
-		Fixed();
-		Fixed(const Fixed &f);
-
-		// Surcharge de l'opérateur
-		Fixed	&operator=(const Fixed &f);
-
-		// Fonctions membres
-		int		getRawBits() const;
-		void	setRawBits(const int raw);
-
-		// Destructeur
-		~Fixed();
-};
-
-#endif
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	
+	std::cout << b << std::endl;
+	std::cout << Fixed::min( a, b ) << std::endl;
+	
+	return 0;
+}
