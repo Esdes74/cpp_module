@@ -5,31 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/18 09:27:00 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/18 09:42:56 by eslamber         ###   ########.fr       */
+/*   Created: 2023/03/23 13:31:58 by eslamber          #+#    #+#             */
+/*   Updated: 2023/03/24 20:32:28 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
+#include "Fixed.hpp"
 
-using namespace std;
-
-int	main()
+int main( void ) 
 {
-	string	test;
-	string	*stringPTR;
-	string	&stringREF(test);
+	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-	test = "HI THIS IS BRAIN";
-	stringPTR = &test;
-
-	cout << "L'adresse de la string est : " << &test << endl;
-	cout << "L'adresse stockée dans stringPTR est : " << stringPTR << endl;
-	cout << "L'adresse stockée dans stringREF est : " << &stringREF << endl << endl;
-
-	cout << "La valeur stockée dans la string est : " << test << endl;
-	cout << "La valeur pointée par le pointeur stringPTR est : " << *stringPTR \
-		<< endl;
-	cout << "La valeur pointée par stringREF est : " << stringREF << endl;
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	
+	std::cout << b << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl;
+	
+	return 0;
 }

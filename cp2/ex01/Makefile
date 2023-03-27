@@ -5,18 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/17 11:35:58 by eslamber          #+#    #+#              #
-#    Updated: 2023/03/21 18:33:51 by eslamber         ###   ########.fr        #
+#    Created: 2023/03/18 09:48:15 by eslamber          #+#    #+#              #
+#    Updated: 2023/03/22 10:50:57 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS := -Wall -Wextra -Werror -std=c++98
 
-NAME := BraiiiiiiinnnzzzZ
+NAME := Fixed1
 
-HEADERS := Zombie.hpp
-SRC := Zombie.cpp \
-	   zombieHorde.cpp \
+HEADERS := Fixed.hpp
+SRC := Fixed.cpp \
 	   main.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
@@ -33,7 +32,7 @@ $(NAME): $(OBJ)
 #
 
 debug:
-	make "FLAGS = -Wall -Wextra -Werror -g3"
+	make "FLAGS = -Wall -Wextra -Werror -std=c++98 -g3"
 
 #
 ### Cleanup rules

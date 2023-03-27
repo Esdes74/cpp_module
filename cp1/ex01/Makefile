@@ -5,20 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/15 15:59:24 by eslamber          #+#    #+#              #
-#    Updated: 2023/03/21 19:10:09 by eslamber         ###   ########.fr        #
+#    Created: 2023/03/17 11:35:58 by eslamber          #+#    #+#              #
+#    Updated: 2023/03/21 18:33:51 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS := -Wall -Wextra -Werror -std=c++98
 
-NAME := phone_book
+NAME := BraiiiiiiinnnzzzZ
 
-HEADERS := class.hpp
-SRC := contact.cpp \
-	   phonebook.cpp \
-	   getter.cpp \
-	   setter.cpp \
+HEADERS := Zombie.hpp
+SRC := Zombie.cpp \
+	   zombieHorde.cpp \
 	   main.cpp
 OBJ := $(SRC:%.cpp=%.o)
 

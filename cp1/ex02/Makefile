@@ -5,18 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/17 10:35:17 by eslamber          #+#    #+#              #
-#    Updated: 2023/03/17 10:38:29 by eslamber         ###   ########.fr        #
+#    Created: 2023/03/18 09:26:14 by eslamber          #+#    #+#              #
+#    Updated: 2023/03/21 18:33:42 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FLAGS := -Wall -Wextra -Werror
+FLAGS := -Wall -Wextra -Werror -std=c++98
 
-NAME := account
+NAME := cerveau
 
-HEADERS := Account.hpp
-SRC := Account.cpp \
-	   test.cpp
+SRC := main.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
 all: $(NAME)
@@ -24,7 +22,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	c++ $(FLAGS) $(OBJ) -o $@
 
-%.o: %.cpp $(HEADERS)
+%.o: %.cpp
 	c++ $(FLAGS) -c $< -o $@
 
 #

@@ -5,22 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 12:40:10 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/17 13:54:55 by eslamber         ###   ########.fr       */
+/*   Created: 2023/03/23 13:31:58 by eslamber          #+#    #+#             */
+/*   Updated: 2023/03/23 18:04:39 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Fixed.hpp"
 
-int	main()
+int main( void ) 
 {
-	Zombie	*Xavier;
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
 
-	Xavier = newZombie("Xavier");
-	Xavier->announce();
-
-	randomChump("Charle");
+	c = b;
 	
-	delete Xavier;
-	return (0);
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	
+	return 0;
 }

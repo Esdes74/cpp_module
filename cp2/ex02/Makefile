@@ -5,16 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/18 09:26:14 by eslamber          #+#    #+#              #
-#    Updated: 2023/03/21 18:33:42 by eslamber         ###   ########.fr        #
+#    Created: 2023/03/18 09:48:15 by eslamber          #+#    #+#              #
+#    Updated: 2023/03/24 14:34:12 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS := -Wall -Wextra -Werror -std=c++98
 
-NAME := cerveau
+NAME := Fixed2
 
-SRC := main.cpp
+HEADERS := Fixed.hpp
+SRC := Fixed.cpp \
+	   main.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
 all: $(NAME)
@@ -22,7 +24,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	c++ $(FLAGS) $(OBJ) -o $@
 
-%.o: %.cpp
+%.o: %.cpp $(HEADERS)
 	c++ $(FLAGS) -c $< -o $@
 
 #
@@ -30,7 +32,7 @@ $(NAME): $(OBJ)
 #
 
 debug:
-	make "FLAGS = -Wall -Wextra -Werror -g3"
+	make "FLAGS = -Wall -Wextra -Werror -std=c++98 -g3"
 
 #
 ### Cleanup rules

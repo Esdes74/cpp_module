@@ -5,17 +5,20 @@
 #                                                     +:+ +:+         +:+      #
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/18 09:48:15 by eslamber          #+#    #+#              #
-#    Updated: 2023/03/22 10:50:57 by eslamber         ###   ########.fr        #
+#    Created: 2023/03/15 15:59:24 by eslamber          #+#    #+#              #
+#    Updated: 2023/03/21 19:10:09 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS := -Wall -Wextra -Werror -std=c++98
 
-NAME := Fixed1
+NAME := phone_book
 
-HEADERS := Fixed.hpp
-SRC := Fixed.cpp \
+HEADERS := class.hpp
+SRC := contact.cpp \
+	   phonebook.cpp \
+	   getter.cpp \
+	   setter.cpp \
 	   main.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
@@ -32,7 +35,7 @@ $(NAME): $(OBJ)
 #
 
 debug:
-	make "FLAGS = -Wall -Wextra -Werror -std=c++98 -g3"
+	make "FLAGS = -Wall -Wextra -Werror -g3"
 
 #
 ### Cleanup rules
