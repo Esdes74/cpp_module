@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/28 10:59:55 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/28 14:54:01 by eslamber         ###   ########.fr       */
+/*   Created: 2023/03/28 16:32:39 by eslamber          #+#    #+#             */
+/*   Updated: 2023/03/28 16:38:03 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 # include "ClapTrap.hpp"
 
-class Scavtrap: public Claptrap
+class Fragtrap: public Claptrap
 {
 	public:
 		// Constructeurs
-		Scavtrap();
-		Scavtrap(const string &name);
-		Scavtrap(const Scavtrap &cpy);
+		Fragtrap();
+		Fragtrap(const string &name);
+		Fragtrap(const Fragtrap &cpy);
 
 		// Fonctions membres
-		void	attack(const string &target);
-		void	guardGate();
+		void	highFivesGuys();
 
 		// Destructor
-		~Scavtrap();
+		~Fragtrap();
 };
 
 #endif

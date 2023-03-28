@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/18 09:48:15 by eslamber          #+#    #+#              #
-#    Updated: 2023/03/28 08:42:58 by eslamber         ###   ########.fr        #
+#    Updated: 2023/03/28 10:58:10 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,10 @@ FLAGS := -Wall -Wextra -Werror -std=c++98
 
 NAME := scavtrap
 
-HEADERS := ClapTrap.hpp
+HEADERS := ClapTrap.hpp \
+		   ScavTrap.hpp
 SRC := ClapTrap.cpp \
+	   ScavTrap.cpp \
 	   main.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
