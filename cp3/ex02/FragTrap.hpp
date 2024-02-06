@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:32:39 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/28 16:38:03 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/06 13:34:24 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Fragtrap: public Claptrap
 	public:
 		// Constructeurs
 		Fragtrap();
-		Fragtrap(const string &name);
+		Fragtrap(const std::string &name);
 		Fragtrap(const Fragtrap &cpy);
 
 		// Fonctions membres

@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 10:59:55 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/28 14:54:01 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/06 13:30:22 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ class Scavtrap: public Claptrap
 	public:
 		// Constructeurs
 		Scavtrap();
-		Scavtrap(const string &name);
+		Scavtrap(const std::string &name);
 		Scavtrap(const Scavtrap &cpy);
 
 		// Fonctions membres
-		void	attack(const string &target);
+		void	attack(const std::string &target);
 		void	guardGate();
 
 		// Destructor
