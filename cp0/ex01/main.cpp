@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:08:52 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/21 19:20:58 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/06 11:01:09 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ EXIT : Sort du programme\nQue voulez vous faire ?\n";
 	while (true)
 	{
 		getline(cin, res);
+		if (std::cin.eof())
+			break ;
 		while (res != "ADD" && res != "SEARCH" && res != "EXIT")
 		{
 			cout << "Votre commande n'est pas correcte veuillez retaper s'il vous \
