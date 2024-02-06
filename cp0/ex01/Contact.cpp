@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.cpp                                        :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 09:57:27 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/18 09:21:44 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/06 11:54:12 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "class.hpp"
+#include "Contact.hpp"
 
 Contact::Contact(string f_name, string l_name, string \
 		n_name, string nb, string sec)

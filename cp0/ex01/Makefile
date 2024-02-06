@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 15:59:24 by eslamber          #+#    #+#              #
-#    Updated: 2024/02/06 10:54:16 by eslamber         ###   ########.fr        #
+#    Updated: 2024/02/06 11:52:38 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ FLAGS := -Wall -Wextra -Werror -std=c++98
 
 NAME := phone_book
 
-HEADERS := class.hpp
+HEADERS := Contact.hpp \
+		   PhoneBook.hpp
 SRC := Contact.cpp \
 	   PhoneBook.cpp \
 	   getter.cpp \

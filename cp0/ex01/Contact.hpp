@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:07:00 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/21 19:21:15 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/06 11:52:43 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,5 @@ class	Contact{
 		string	getNickname();
 		// Fonctions membres
 		void	afficher();
-};
-
-class	PhoneBook{
-	private:
-		Contact	*tab;
-		int		current_contact;
-	public:
-		// Constructeurs
-		PhoneBook();
-		// Fonctions membres
-		void	afficher();
-		void	search(int ind);
-		void	add();
-		// Destructeur
-		~PhoneBook();
 };
 #endif

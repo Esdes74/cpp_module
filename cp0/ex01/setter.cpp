@@ -6,11 +6,11 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:25:17 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/16 15:25:38 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/06 11:53:49 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "class.hpp"
+#include "Contact.hpp"
 
 void	Contact::setFstName(string name)
 {

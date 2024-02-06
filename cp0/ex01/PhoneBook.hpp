@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   getter.cpp                                         :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 15:24:38 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/06 11:53:56 by eslamber         ###   ########.fr       */
+/*   Created: 2024/02/06 11:49:35 by eslamber          #+#    #+#             */
+/*   Updated: 2024/02/06 11:52:11 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-string	Contact::getFstName()
-{
-	return (fst_name);
-}
+# include"Contact.hpp"
 
-string	Contact::getLstName()
-{
-	return (lst_name);
-}
-
-string	Contact::getNickname()
-{
-	return (nickname);
-}
+class	PhoneBook{
+	private:
+		Contact	*tab;
+		int		current_contact;
+	public:
+		// Constructeurs
+		PhoneBook();
+		// Fonctions membres
+		void	afficher();
+		void	search(int ind);
+		void	add();
+		// Destructeur
+		~PhoneBook();
+};
+#endif
