@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 09:51:19 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/18 10:27:43 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/06 12:06:30 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,20 @@
 
 # include <string>
 # include <iostream>
-using namespace std;
 
 class Weapon
 {
 	private:
-		string	type;
+		std::string	type;
 
 	public:
 		// Constucteur
-		Weapon(string type);
+		Weapon(std::string type);
 
 		// Setter
-		void	setType(string type);
+		void	setType(std::string type);
 		
 		// Getter
-		string	getType();
+		std::string	getType();
 };
 #endif

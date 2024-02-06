@@ -6,13 +6,12 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 09:40:28 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/20 16:05:05 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/06 12:08:48 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fstream>
 #include <iostream>
-using namespace std;
 
 static int	strlen(char *str)
 {
@@ -28,17 +27,17 @@ int	main(int ac, char **av)
 	int		i;
 	int		j;
 	int		s;
-	string	line;
-	string	replace_name;
-	string	p_replace = ".replace";
+	std::string	line;
+	std::string	replace_name;
+	std::string	p_replace = ".replace";
 
 	if (ac != 4)
 		return (1);
-	ifstream file(av[1]);
+	std::ifstream file(av[1]);
 	if (!file)
 		return (1);
-	replace_name = string(av[1]) + p_replace;
-	ofstream replace(replace_name.c_str());
+	replace_name = std::string(av[1]) + p_replace;
+	std::ofstream replace(replace_name.c_str());
 	if (!replace)
 		return (1);
 	while (getline(file, line))

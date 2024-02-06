@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 13:19:50 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/21 14:24:55 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/06 12:12:01 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <iostream>
 # include <map>
-using namespace std;
 
 class Harl
 {

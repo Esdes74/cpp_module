@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 09:56:52 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/06 11:53:26 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/06 12:00:18 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,42 +21,42 @@ PhoneBook::PhoneBook()
 /*##############################################################################
  * Bloc de fonction responsable de l'affichage de l'index */
 
-static void	print_info(string inf)
+static void	print_info(std::string inf)
 {
 	int	i(0);
 
 	if (inf.length() > 10)
 	{
 		while (i < 9)
-			cout << inf[i++];
-		cout << ".";
+			std::cout << inf[i++];
+		std::cout << ".";
 	}
 	else
 	{
 		while ((i++) < (int) (10 - inf.length()))
-			cout << " ";
-		cout << inf;
+			std::cout << " ";
+		std::cout << inf;
 	}
-	cout << "|";
+	std::cout << "|";
 }
 
 void	PhoneBook::afficher()
 {
 	int	i(0);
 
-	cout << "|  index   |  prenom  |   nom    |  surnom  |" << endl;
+	std::cout << "|  index   |  prenom  |   nom    |  surnom  |" << std::endl;
 	while (i < 8)
 	{
-		cout << "|         " << i + 1 << "|";
+		std::cout << "|         " << i + 1 << "|";
 		if (tab[i].getFstName() == "")
-			cout << "          |          |          |";
+			std::cout << "          |          |          |";
 		else
 		{
 			print_info(tab[i].getFstName());
 			print_info(tab[i].getLstName());
 			print_info(tab[i].getNickname());
 		}
-		cout << endl;
+		std::cout << std::endl;
 		i++;
 	}
 }
@@ -71,24 +71,24 @@ void	PhoneBook::search(int ind)
 
 void	PhoneBook::add()
 {
-	string	res;
+	std::string	res;
 
 	if (current_contact == 8)
 		current_contact = 0;
-	cout << "Prénom : ";
-	getline(cin, res);
+	std::cout << "Prénom : ";
+	std::getline(std::cin, res);
 	tab[current_contact].setFstName(res);
-	cout << "Nom : ";
-	getline(cin, res);
+	std::cout << "Nom : ";
+	std::getline(std::cin, res);
 	tab[current_contact].setLstName(res);
-	cout << "Surnom : ";
-	getline(cin, res);
+	std::cout << "Surnom : ";
+	std::getline(std::cin, res);
 	tab[current_contact].setNickname(res);
-	cout << "Numéro de téléphone : ";
-	getline(cin, res);
+	std::cout << "Numéro de téléphone : ";
+	std::getline(std::cin, res);
 	tab[current_contact].setPhoneNumber(res);
-	cout << "Son plus lourd secret : ";
-	getline(cin, res);
+	std::cout << "Son plus lourd secret : ";
+	std::getline(std::cin, res);
 	tab[current_contact].setSecret(res);
 	current_contact++;
 }

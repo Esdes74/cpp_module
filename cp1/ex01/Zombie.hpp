@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 11:39:03 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/17 14:11:55 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/06 12:04:27 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,20 @@
 
 # include <iostream>
 
-using namespace std;
-
 class Zombie
 {
 	private:
-		string	name;
+		std::string	name;
 
 	public:
 		// Constructeur
-		Zombie(string name = "");
+		Zombie(std::string name = "");
 
 		// Fonction membre
 		void	announce();
 
 		// Setter
-		void	setName(string name);
+		void	setName(std::string name);
 
 		// Destructeur
 		~Zombie();
@@ -38,6 +36,6 @@ class Zombie
 
 // Créer une horde de n zombie, les nomme tous pareil et renvois le pointeur 
 // vers le premier
-Zombie	*zombieHorde(int n, string name);
+Zombie	*zombieHorde(int n, std::string name);
 
 #endif

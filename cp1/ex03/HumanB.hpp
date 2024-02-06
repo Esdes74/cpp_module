@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 10:20:10 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/18 10:31:40 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/06 12:06:37 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 class HumanB
 {
 	private:
-		string	name;
+		std::string	name;
 		Weapon	*weapon;
 
 	public:
 		// Constructeur
-		HumanB(string name);
+		HumanB(std::string name);
 
 		// Setter
 		void	setWeapon(Weapon &weapon);

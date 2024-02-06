@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 10:01:16 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/18 10:27:50 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/06 12:06:43 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 class HumanA
 {
 	private:
-		string	name;
+		std::string	name;
 		Weapon	*weapon;
 
 	public:
 		// Constructeur
-		HumanA(string name, Weapon &weapon);
+		HumanA(std::string name, Weapon &weapon);
 
 		// Fonction membre
 		void	attack();

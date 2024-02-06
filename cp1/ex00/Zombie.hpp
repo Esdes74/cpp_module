@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 11:39:03 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/17 13:29:28 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/06 12:01:48 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,14 @@
 
 # include <iostream>
 
-using namespace std;
-
 class Zombie
 {
 	private:
-		string	name;
+		std::string	name;
 
 	public:
 		// Constructeur
-		Zombie(string name);
+		Zombie(std::string name);
 
 		// Fonction membre
 		void	announce();
@@ -34,9 +32,9 @@ class Zombie
 };
 
 // Créer un zombie et le retourne
-Zombie	*newZombie(string name);
+Zombie	*newZombie(std::string name);
 
 // Créer un zombie, le fait beugler et le détruit
-void	randomChump(string name);
+void	randomChump(std::string name);
 
 #endif
