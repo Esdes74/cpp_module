@@ -6,12 +6,13 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 09:40:28 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/06 12:08:48 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/21 19:44:22 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fstream>
 #include <iostream>
+#include <string>
 
 static int	strlen(char *str)
 {
@@ -27,6 +28,7 @@ int	main(int ac, char **av)
 	int		i;
 	int		j;
 	int		s;
+	std::size_t	len;
 	std::string	line;
 	std::string	replace_name;
 	std::string	p_replace = ".replace";
@@ -43,6 +45,7 @@ int	main(int ac, char **av)
 	while (getline(file, line))
 	{
 		i = 0;
+		len = line.length();
 		while (line[i] != '\0')
 		{
 			j = 0;
@@ -56,9 +59,10 @@ int	main(int ac, char **av)
 				while (av[3][j] != '\0')
 					replace << av[3][j++];
 			}
-			else
+			else if (i < (int) len)
 				replace << line[i++];
 		}
+		replace << std::endl;
 	}
 	return (0);
 }

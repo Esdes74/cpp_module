@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 09:51:19 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/06 12:06:30 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/21 10:19:35 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ class Weapon
 		void	setType(std::string type);
 		
 		// Getter
-		std::string	getType();
+		const std::string	&getType();
 };
 #endif

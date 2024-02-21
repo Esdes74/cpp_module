@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/18 09:26:14 by eslamber          #+#    #+#              #
-#    Updated: 2023/03/21 18:33:42 by eslamber         ###   ########.fr        #
+#    Updated: 2024/02/21 09:47:30 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,12 @@ $(NAME): $(OBJ)
 debug:
 	make "FLAGS = -Wall -Wextra -Werror -g3"
 
+ASan:
+	make "FLAGS = -Wall -Wextra -Werror -fsanitize=address"
+
+UBSan:
+	make "FLAGS = -Wall -Wextra -Werror -fsanitize=undefined"
+
 #
 ### Cleanup rules
 #
@@ -45,5 +51,9 @@ fclean: clean
 re: fclean all
 
 re_deb: fclean debug
+
+re_ASan: fclean ASan
+
+re_UBSan: fclean UBSan
 
 .PHONY: all clean fclean re debug re_deb

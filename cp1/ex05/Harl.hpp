@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 13:19:50 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/06 12:12:01 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/20 15:29:11 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define HARL_HPP
 
 # include <iostream>
-# include <map>
 
 class Harl
 {
@@ -23,14 +22,14 @@ class Harl
 		void	info();
 		void	warning();
 		void	error();
-		map<string, void(Harl::*)()> logger;
+		// map<string, void(Harl::*)()> logger;
 
 	public:
 		// Constructeur
 		Harl();
 
 		// Fonctions membres
-		void	complain(string level);
+		void	complain(std::string level);
 };
 
 #endif
