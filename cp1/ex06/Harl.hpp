@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 13:19:50 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/22 15:30:00 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:21:25 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class Harl
 		void		info();
 		void		warning();
 		void		error();
-		void		(Harl::*funcs[4])();
 		std::string	mod[4];
 
 	public:

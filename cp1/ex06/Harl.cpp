@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 13:22:30 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/22 16:19:29 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:21:32 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 
 Harl::Harl()
 {
-	funcs[0] = &Harl::debug;
-	funcs[1] = &Harl::info;
-	funcs[2] = &Harl::warning;
-	funcs[3] = &Harl::error;
 	this->mod[0] = "DEBUG";
 	this->mod[1] = "INFO";
 	this->mod[2] = "WARNING";
