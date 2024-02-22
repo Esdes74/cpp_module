@@ -6,13 +6,13 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/18 09:48:15 by eslamber          #+#    #+#              #
-#    Updated: 2024/02/21 09:48:31 by eslamber         ###   ########.fr        #
+#    Updated: 2024/02/22 16:04:27 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS := -Wall -Wextra -Werror -std=c++98
 
-NAME := HarlFilter
+NAME := harlFilter
 
 HEADERS := Harl.hpp
 SRC := Harl.cpp \

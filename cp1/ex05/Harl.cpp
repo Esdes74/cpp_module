@@ -6,11 +6,12 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 13:22:30 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/22 15:21:09 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/22 15:49:51 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+#include <stdio.h>
 
 Harl::Harl()
 {
@@ -18,10 +19,10 @@ Harl::Harl()
 	funcs[1] = &Harl::info;
 	funcs[2] = &Harl::warning;
 	funcs[3] = &Harl::error;
-	mod[0] = "DEBUG";
-	mod[1] = "INFO";
-	mod[2] = "WARNING";
-	mod[3] = "ERROR";
+	this->mod[0] = "DEBUG";
+	this->mod[1] = "INFO";
+	this->mod[2] = "WARNING";
+	this->mod[3] = "ERROR";
 }
 
 void	Harl::debug()
@@ -52,8 +53,10 @@ void	Harl::complain(std::string level)
 	int	i;
 
 	i = 0;
-	while (i < 4 && mod[i].compare(level))
+	while (i < 4)
+	{
+		if (mod[i] == level)
+			return ((this->*funcs[i])());
 		i++;
-	if (i < 4)
-		(this->*funcs[i])();
+	}
 }

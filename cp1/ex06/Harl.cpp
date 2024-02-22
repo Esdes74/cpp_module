@@ -6,76 +6,75 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 13:22:30 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/21 19:03:09 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:19:29 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+#include <stdio.h>
 
-Harl::Harl(const char *level)
+Harl::Harl()
 {
-	if (strcmp(level, "DEBUG") == 0)
-		this->level = DEBUG;
-	else if (strcmp(level, "INFO") == 0)
-		this->level = INFO;
-	else if (strcmp(level, "WARNING") == 0)
-		this->level = WARNING;
-	else if (strcmp(level, "ERROR") == 0)
-		this->level = ERROR;
-	
-	switch (this->level)
-	{
-		case DEBUG:
-			this->logger["DEBUG"] = &Harl::debug;
-			this->logger["INFO"] = &Harl::info;
-			this->logger["WARNING"] = &Harl::warning;
-			this->logger["ERROR"] = &Harl::error;
-			break;
-		case INFO:
-			this->logger["INFO"] = &Harl::info;
-			this->logger["WARNING"] = &Harl::warning;
-			this->logger["ERROR"] = &Harl::error;
-			break;
-		case WARNING:
-			this->logger["WARNING"] = &Harl::warning;
-			this->logger["ERROR"] = &Harl::error;
-			break;
-		case ERROR:
-			this->logger["ERROR"] = &Harl::error;
-			break;
-		default:
-			cout << "Probably complaining about insignificant problems\n";
-			exit(1);
-	}
-}	
+	funcs[0] = &Harl::debug;
+	funcs[1] = &Harl::info;
+	funcs[2] = &Harl::warning;
+	funcs[3] = &Harl::error;
+	this->mod[0] = "DEBUG";
+	this->mod[1] = "INFO";
+	this->mod[2] = "WARNING";
+	this->mod[3] = "ERROR";
+}
 
 void	Harl::debug()
 {
-	cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-\
+	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-\
 specialketchup burger. I really do !\n";
 }
 
 void	Harl::info()
 {
-	cout << "I cannot believe adding extra bacon costs more money. You didn’t \
+	std::cout << "I cannot believe adding extra bacon costs more money. You didn’t \
 put enough bacon in my burger ! If you did, I wouldn’t be asking for more !\n";
 }
 
 void	Harl::warning()
 {
-	cout << "I think I deserve to have some extra bacon for free. I’ve been \
+	std::cout << "I think I deserve to have some extra bacon for free. I’ve been \
 coming for years whereas you started working here since last month.\n";
 }
 
 void	Harl::error()
 {
-	cout << "This is unacceptable ! I want to speak to the manager now.\n";
+	std::cout << "This is unacceptable ! I want to speak to the manager now.\n";
 }
 
-void	Harl::complain(string level)
+void	Harl::complain(std::string level)
 {
-	map<string, void(Harl::*)()>::iterator it = logger.find(level);
+	int	i;
 
-	if (it != logger.end())
-		(this->*(it->second))();
+	i = 0;
+	while (i < 4)
+	{
+		if (mod[i] == level)
+		{
+			switch (i)
+			{
+				case	0:
+					this->debug();
+					// fall through
+				case	1:
+					this->info();
+					// fall through
+				case	2:
+					this->warning();
+					// fall through
+				case	3:
+					this->error();
+					break;
+				default:
+					std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			}
+		}
+		i++;
+	}
 }
