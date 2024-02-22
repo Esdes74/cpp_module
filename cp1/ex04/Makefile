@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/18 09:48:15 by eslamber          #+#    #+#              #
-#    Updated: 2024/02/21 09:48:03 by eslamber         ###   ########.fr        #
+#    Updated: 2024/02/22 09:59:23 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,9 @@ FLAGS := -Wall -Wextra -Werror -std=c++98
 
 NAME := sed
 
-#HEADERS :=
-SRC := main.cpp
+HEADERS := Sed.hpp
+SRC := main.cpp \
+	   Sed.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
 all: $(NAME)

@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 09:40:28 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/22 11:09:39 by eslamber         ###   ########.fr       */
+/*   Created: 2024/02/22 09:56:42 by eslamber          #+#    #+#             */
+/*   Updated: 2024/02/22 11:06:20 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sed.hpp"
+#ifndef SED_HPP
+# define SED_HPP
 
-int	main(int ac, char **av)
+#include <fstream>
+#include <iostream>
+#include <string>
+
+class Sed
 {
-	if (ac != 4)
-		return (1);
+	private:
+		std::string	name;
 
-	Sed sed(av[1]);
-	if (sed.replace(av[1], av) == 1)
-		return (1);
-	return (0);
-}
+	public:
+		// Constructeur
+		Sed(std::string name);
+
+		// Setter
+		void	setName(std::string name);
+
+		// Fonction membre
+		int	replace(char *filename, char **av);
+};
+
+#endif
