@@ -6,18 +6,21 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 09:42:43 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/23 09:51:53 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/23 13:27:07 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
+# include <ostream>
+# include <iostream>
+
 class Fixed
 {
 	private:
-		int			val;
-		const int	static_value;
+		int					val;
+		static const int	static_value = 8;
 
 	public:
 		// Constructeurs
@@ -33,6 +36,6 @@ class Fixed
 
 		// Destructeur
 		~Fixed();
-}
+};
 
 #endif

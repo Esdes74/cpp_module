@@ -6,13 +6,13 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/18 09:48:15 by eslamber          #+#    #+#              #
-#    Updated: 2024/02/21 09:50:05 by eslamber         ###   ########.fr        #
+#    Updated: 2024/02/23 13:56:41 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS := -Wall -Wextra -Werror -std=c++98
 
-NAME := Fixed2
+NAME := Fixed
 
 HEADERS := Fixed.hpp
 SRC := Fixed.cpp \
