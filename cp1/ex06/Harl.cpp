@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 13:22:30 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/22 16:21:32 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/23 10:46:08 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ void	Harl::complain(std::string level)
 	int	i;
 
 	i = 0;
-	while (i < 4)
+	while (i < 5)
 	{
-		if (mod[i] == level)
+		if (i == 4 || mod[i] == level)
 		{
 			switch (i)
 			{
@@ -66,7 +66,7 @@ void	Harl::complain(std::string level)
 					// fall through
 				case	3:
 					this->error();
-					break;
+					return ;
 				default:
 					std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 			}

@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:05:01 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/06 13:28:25 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/23 09:48:31 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 class Claptrap
 {
 	private:
-		std::string				nom;
-		int					pv;
-		unsigned int		pe;
-		unsigned int		hit;
+		std::string		nom;
+		int				pv;
+		unsigned int	pe;
+		unsigned int	hit;
 
 	public:
 		// Constructors
@@ -40,7 +40,7 @@ class Claptrap
 		void	setHIT(const unsigned int &hit);
 
 		// Getters
-		std::string			&getNom();
+		std::string		&getNom();
 		int				&getPV();
 		unsigned int	&getPE();
 		unsigned int	&getHIT();
