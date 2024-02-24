@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 09:42:43 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/24 09:51:56 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/24 10:49:41 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,30 @@ class Fixed
 
 		// Surcharge d'opérateurs
 		Fixed	&operator=(const Fixed &fixed);
+		bool	operator<(const Fixed &fixed);
+		bool	operator>(const Fixed &fixed);
+		bool	operator==(const Fixed &fixed);
+		bool	operator!=(const Fixed &fixed);
+		bool	operator<=(const Fixed &fixed);
+		bool	operator>=(const Fixed &fixed);
+		Fixed	&operator+(const Fixed &fixed);
+		Fixed	&operator-(const Fixed &fixed);
+		Fixed	&operator*(const Fixed &fixed);
+		Fixed	&operator/(const Fixed &fixed);
+		Fixed	&operator++(void);
+		Fixed	&operator--(void);
+		Fixed	operator++(int);
+		Fixed	operator--(int);
 
 		// Fonctions membre
-		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
-		float	toFloat(void) const;
-		int		toInt(void) const;
+		int					getRawBits(void) const;
+		void				setRawBits(int const raw);
+		float				toFloat(void) const;
+		int					toInt(void) const;
+		static Fixed		&min(Fixed &x, Fixed &y);
+		static Fixed		&max(Fixed &x, Fixed &y);
+		static const Fixed	&min(const Fixed &x, const Fixed &y);
+		static const Fixed	&max(const Fixed &x, const Fixed &y);
 
 		// Destructeur
 		~Fixed();

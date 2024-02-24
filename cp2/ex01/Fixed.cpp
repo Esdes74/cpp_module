@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 09:42:54 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/24 09:56:35 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/24 10:11:36 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,5 @@ Fixed::~Fixed(void)
 // Fonctions statiques
 static float round(const float nb)
 {
-	return (nb > 0.0) ? floor(nb + 0.5) : ceil(nb - 0.5);
+	return ((nb > 0.0) ? floor(nb + 0.5) : ceil(nb - 0.5));
 }
