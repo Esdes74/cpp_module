@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:38:45 by eslamber          #+#    #+#             */
-/*   Updated: 2023/03/28 16:47:57 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:39:20 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 int	main()
 {
-	Scavtrap	*broint = new Scavtrap;
-	Claptrap	*charle = new Claptrap;
-	Fragtrap	alix("alix");
+	ScavTrap	*broint = new ScavTrap;
+	ClapTrap	*charle = new ClapTrap;
+	FragTrap	alix("alix");
 
 	broint->setNom("Broint");
 	charle->setNom("Charle");

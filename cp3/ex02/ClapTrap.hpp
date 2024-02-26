@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:05:01 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/06 13:50:01 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:38:36 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <string>
 # include <iostream>
 
-class Claptrap
+class ClapTrap
 {
 	protected:
 		std::string			nom;
@@ -26,12 +26,12 @@ class Claptrap
 
 	public:
 		// Constructors
-		Claptrap();
-		Claptrap(const std::string &name);
-		Claptrap(const Claptrap &trap);
+		ClapTrap();
+		ClapTrap(const std::string &name);
+		ClapTrap(const ClapTrap &trap);
 
 		// Surcharge d'opérateur
-		Claptrap		&operator=(const Claptrap &trap);
+		ClapTrap		&operator=(const ClapTrap &trap);
 
 		// Setters
 		void			setNom(const std::string &name);
@@ -40,7 +40,7 @@ class Claptrap
 		void			setHIT(const unsigned int &hit);
 
 		// Getters
-		std::string			&getNom();
+		std::string		&getNom();
 		int				&getPV();
 		unsigned int	&getPE();
 		unsigned int	&getHIT();
@@ -51,7 +51,7 @@ class Claptrap
 		void			beRepaired(unsigned int amount);
 
 		// Destructor
-		virtual	~Claptrap();
+		virtual	~ClapTrap();
 };
 
 #endif

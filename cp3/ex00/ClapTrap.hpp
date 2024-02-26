@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:05:01 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/23 09:48:31 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:38:36 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <string>
 # include <iostream>
 
-class Claptrap
+class ClapTrap
 {
 	private:
 		std::string		nom;
@@ -26,32 +26,36 @@ class Claptrap
 
 	public:
 		// Constructors
-		Claptrap();
-		Claptrap(const std::string &name);
-		Claptrap(const Claptrap &trap);
+		ClapTrap();
+		ClapTrap(const std::string &name);
+		ClapTrap(const ClapTrap &trap);
 
 		// Surcharge d'opérateur
-		Claptrap	&operator=(const Claptrap &trap);
+		ClapTrap			&operator=(const ClapTrap &trap);
 
 		// Setters
-		void	setNom(const std::string &name);
-		void	setPV(const int &pv);
-		void	setPE(const unsigned int &pe);
-		void	setHIT(const unsigned int &hit);
+		void				setNom(const std::string &name);
+		void				setPV(const int &pv);
+		void				setPE(const unsigned int &pe);
+		void				setHIT(const unsigned int &hit);
 
 		// Getters
-		std::string		&getNom();
-		int				&getPV();
-		unsigned int	&getPE();
-		unsigned int	&getHIT();
+		const std::string	&Nom() const;
+		const int			&PV() const;
+		const unsigned int	&PE() const;
+		const unsigned int	&HIT() const;
+		std::string			&getNom();
+		int					&getPV();
+		unsigned int		&getPE();
+		unsigned int		&getHIT();
 
 		// Fonctions membres
-		void	attack(const std::string &target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		void				attack(const std::string &target);
+		void				takeDamage(unsigned int amount);
+		void				beRepaired(unsigned int amount);
 
 		// Destructor
-		~Claptrap();
+		~ClapTrap();
 };
 
 #endif

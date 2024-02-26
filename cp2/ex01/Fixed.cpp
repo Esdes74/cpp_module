@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 09:42:54 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/24 10:11:36 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:09:21 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ Fixed::Fixed(const Fixed &fixed)
 Fixed::Fixed(const int val)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->val = val << this->static_value;
+	this->val = val << this->bits;
 }
 
 Fixed::Fixed(const float val)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->val = round(val * (1 << this->static_value));
+	this->val = round(val * (1 << this->bits));
 }
 
 // Surcharge d'opérateurs
@@ -67,12 +67,12 @@ void	Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat(void) const
 {
-	return ((float) this->getRawBits() / (1 << this->static_value));
+	return ((float) this->getRawBits() / (1 << this->bits));
 }
 
 int		Fixed::toInt(void) const
 {
-	return ((int) this->val >> this->static_value);
+	return ((int) this->val >> this->bits);
 }
 
 // Destructeurs

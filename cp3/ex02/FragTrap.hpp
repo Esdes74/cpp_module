@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:32:39 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/06 13:50:43 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:39:45 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 
 # include "ClapTrap.hpp"
 
-class Fragtrap: public Claptrap
+class FragTrap: public ClapTrap
 {
 	public:
 		// Constructeurs
-		Fragtrap();
-		Fragtrap(const std::string &name);
-		Fragtrap(const Fragtrap &cpy);
+		FragTrap();
+		FragTrap(const std::string &name);
+		FragTrap(const FragTrap &cpy);
 
 		// Fonctions membres
-		void	highFivesGuys();
+		void	highFivesGuys() const;
 
 		// Destructor
-		~Fragtrap();
+		~FragTrap();
 };
 
 #endif

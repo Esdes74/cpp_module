@@ -6,14 +6,14 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:22:46 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/06 13:29:12 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:32:37 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 // Constructors
-Claptrap::Claptrap()
+ClapTrap::ClapTrap()
 {
 	std::cout << "Constructeur par defaut appelé\n";
 	nom = "";
@@ -22,7 +22,7 @@ Claptrap::Claptrap()
 	hit = 0;
 }
 
-Claptrap::Claptrap(const std::string &name)
+ClapTrap::ClapTrap(const std::string &name)
 {
 	std::cout << nom << ": Constructeur par nom appelé\n";
 	this->nom = name;
@@ -31,25 +31,23 @@ Claptrap::Claptrap(const std::string &name)
 	hit = 0;
 }
 
-Claptrap::Claptrap(const Claptrap &trap)
+ClapTrap::ClapTrap(const ClapTrap &trap)
 {
 	std::cout << this->nom << ": Constructeur par copie appelé\n";
 	*this = trap;
 }
 
 // Surcharge d'opérateur
-Claptrap	&Claptrap::operator=(const Claptrap &trap)
+ClapTrap	&ClapTrap::operator=(const ClapTrap &trap)
 {
 	std::cout << nom << ": Surcharge d'opérateur d'affectation appelé\n";
 	if (this != &trap)
-	{
 		*this = trap;
-	}
 	return (*this);
 }
 
 // Setters
-void	Claptrap::setNom(const std::string &name)
+void	ClapTrap::setNom(const std::string &name)
 {
 	if (nom == "")
 		std::cout << nom << "Setter nom appelé\n";
@@ -58,51 +56,75 @@ void	Claptrap::setNom(const std::string &name)
 	this->nom = name;
 }
 
-void	Claptrap::setPV(const int &pv)
+void	ClapTrap::setPV(const int &pv)
 {
 	std::cout << nom << ": Setter pv appelé\n";
 	this->pv = pv;
 }
 
-void	Claptrap::setPE(const unsigned int &pe)
+void	ClapTrap::setPE(const unsigned int &pe)
 {
 	std::cout << nom << ": Setter pe appelé\n";
 	this->pe = pe;
 }
 
-void	Claptrap::setHIT(const unsigned int &hit)
+void	ClapTrap::setHIT(const unsigned int &hit)
 {
 	std::cout << nom << ": Setter hit appelé\n";
 	this->hit = hit;
 }
 
 // Getters
-std::string	&Claptrap::getNom()
+const std::string	&ClapTrap::Nom() const
+{
+	std::cout << nom << ": Getter nom constant appelé\n";
+	return (this->nom);
+}
+
+const int	&ClapTrap::PV() const
+{
+	std::cout << nom << ": Getter pv constant appelé\n";
+	return (this->pv);
+}
+
+const unsigned int	&ClapTrap::PE() const
+{
+	std::cout << nom << ": Getter pe constant appelé\n";
+	return (this->pe);
+}
+
+const unsigned int	&ClapTrap::HIT() const
+{
+	std::cout << nom << ": Getter hit constant appelé\n";
+	return (this->hit);
+}
+
+std::string	&ClapTrap::getNom()
 {
 	std::cout << nom << ": Getter nom appelé\n";
 	return (this->nom);
 }
 
-int	&Claptrap::getPV()
+int	&ClapTrap::getPV()
 {
 	std::cout << nom << ": Getter pv appelé\n";
 	return (this->pv);
 }
 
-unsigned int	&Claptrap::getPE()
+unsigned int	&ClapTrap::getPE()
 {
 	std::cout << nom << ": Getter pe appelé\n";
 	return (this->pe);
 }
 
-unsigned int	&Claptrap::getHIT()
+unsigned int	&ClapTrap::getHIT()
 {
 	std::cout << nom << ": Getter hit appelé\n";
 	return (this->hit);
 }
 
 // Fonctions membres
-void	Claptrap::attack(const std::string &target)
+void	ClapTrap::attack(const std::string &target)
 {
 	if (pe > 0)
 	{
@@ -114,7 +136,7 @@ void	Claptrap::attack(const std::string &target)
 		std::cout << nom << " n'a pas assez d'énergie pour attaquer\n";
 }
 
-void	Claptrap::takeDamage(unsigned int amount)
+void	ClapTrap::takeDamage(unsigned int amount)
 {
 	std::cout << nom << " prends " << amount << " point de dommages il passe de ";
 	std::cout << pv << "pv a " << (int) (pv - amount) << "pv\n";
@@ -123,7 +145,7 @@ void	Claptrap::takeDamage(unsigned int amount)
 		delete this;
 }
 
-void	Claptrap::beRepaired(unsigned int amount)
+void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (pe > 0)
 	{
@@ -140,7 +162,7 @@ void	Claptrap::beRepaired(unsigned int amount)
 }
 
 // Destructor
-Claptrap::~Claptrap()
+ClapTrap::~ClapTrap()
 {
 	if (pv <= 0)
 	{
