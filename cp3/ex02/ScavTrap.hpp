@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 10:59:55 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/26 15:38:22 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:43:17 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ class ScavTrap: public ClapTrap
 		ScavTrap();
 		ScavTrap(const std::string &name);
 		ScavTrap(const ScavTrap &cpy);
+
+		// Surcharge d'opérateur
+		ScavTrap		&operator=(const ScavTrap &trap);
 
 		// Fonctions membres
 		void	attack(const std::string &target);

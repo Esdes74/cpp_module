@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:32:39 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/26 15:39:45 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:43:32 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ class FragTrap: public ClapTrap
 		FragTrap();
 		FragTrap(const std::string &name);
 		FragTrap(const FragTrap &cpy);
+
+		// Surcharge d'opérateur
+		FragTrap		&operator=(const FragTrap &trap);
 
 		// Fonctions membres
 		void	highFivesGuys() const;

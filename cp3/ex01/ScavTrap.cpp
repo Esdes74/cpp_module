@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 11:21:42 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/26 15:37:22 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:56:39 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,15 @@ ScavTrap::ScavTrap(const ScavTrap &cpy) : ClapTrap(cpy)
 {
 	std::cout << "ScavTrap: " << nom << "appel du contructeur par copie\n";
 	*this = cpy;
+}
+
+// Surcharge d'opérateur
+ScavTrap	&ScavTrap::operator=(const ScavTrap &trap)
+{
+	std::cout << nom << ": Surcharge d'opérateur d'affectation ScavTrap appelé\n";
+	if (this != &trap)
+		*this = trap;
+	return (*this);
 }
 
 void	ScavTrap::attack(const std::string &target)
