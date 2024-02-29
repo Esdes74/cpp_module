@@ -1,43 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 16:54:02 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/29 19:01:23 by eslamber         ###   ########.fr       */
+/*   Created: 2024/02/29 18:21:24 by eslamber          #+#    #+#             */
+/*   Updated: 2024/02/29 18:53:12 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-# include <string>
-# include <ostream>
-# include <iostream>
+# include "Animal.hpp"
 
-class Animal
+class Dog: public Animal
 {
-	protected:
-		std::string	type;
 	public:
-		// Constructeurs
-		Animal();
-		Animal(const std::string	&name);
-		Animal(const Animal &cpy);
+		// Constructeur
+		Dog();
+		Dog(const Dog &cpy);
 
 		// Surcharge d'opérateur
-		Animal					&operator=(const Animal &cpy);
-
-		// Getters
-		const std::string		&getType() const;
+		Dog		&operator=(const Dog &cpy);
 
 		// Fonctions membres
-		virtual void		makeSound(void) const;
+		void	makeSound(void) const;
 
-		// Destructeurs
-		virtual	~Animal();
+		// Destructeur
+		~Dog();
 };
 
 #endif

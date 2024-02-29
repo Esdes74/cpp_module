@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 16:47:52 by eslamber          #+#    #+#              #
-#    Updated: 2024/02/29 17:20:17 by eslamber         ###   ########.fr        #
+#    Updated: 2024/02/29 18:37:59 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,13 @@ FLAGS := -Wall -Wextra -Werror -std=c++98
 
 NAME := Animal
 
-HEADERS := Animal.hpp
+HEADERS := Animal.hpp \
+		   Dog.hpp \
+		   Cat.hpp
 SRC := main.cpp \
-	   Animal.cpp
+	   Animal.cpp \
+	   Dog.cpp \
+	   Cat.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
 all: $(NAME)

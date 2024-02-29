@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:05:01 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/26 16:10:22 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/29 18:41:07 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class ClapTrap
 {
 	protected:
-		std::string			nom;
+		std::string		nom;
 		int				pv;
 		unsigned int	pe;
 		unsigned int	hit;
