@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 11:21:42 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/26 15:56:39 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/29 17:17:54 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 ScavTrap::ScavTrap()
 {
 	std::cout << "Constructeur par défaut ScavTrap appelé\n";
-	nom = "defaut";
+	nom = "noname";
 	pv = 100;
 	pe = 50;
 	hit = 20;

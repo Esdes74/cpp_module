@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:32:06 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/26 16:43:59 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/02/29 17:17:38 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 FragTrap::FragTrap()
 {
 	std::cout << "Constructeur par défaut FragTrap appelé\n";
-	nom = "defaut";
+	nom = "noname";
 	pv = 100;
 	pe = 100;
 	hit = 30;
