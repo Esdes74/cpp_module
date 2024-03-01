@@ -1,47 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 18:29:27 by eslamber          #+#    #+#             */
-/*   Updated: 2024/03/01 14:58:57 by eslamber         ###   ########.fr       */
+/*   Created: 2024/03/01 14:58:28 by eslamber          #+#    #+#             */
+/*   Updated: 2024/03/01 15:00:56 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
 // Constructeur
-Cat::Cat()
+WrongCat::WrongCat()
 {
-	std::cout << "Constructeur par defaut de la classe Cat appelé" << std::endl;
+	std::cout << "Constructeur par defaut de la classe WrongCat appelé" << std::endl;
 	this->type = "cat";
 }
 
-Cat::Cat(const Cat &cpy) : Animal(cpy)
+WrongCat::WrongCat(const WrongCat &cpy) : WrongAnimal(cpy)
 {
-	std::cout << "Constructeur par copie de la classe Cat appelé" << std::endl;
+	std::cout << "Constructeur par copie de la classe WrongCat appelé" << std::endl;
 	*this = cpy;
 }
 
 // Surcharge d'opérateur
-Cat	&Cat::operator=(const Cat &cpy)
+WrongCat	&WrongCat::operator=(const WrongCat &cpy)
 {
-	std::cout << "Surcharge d'opérateur d'affectation de la classe Cat appelé" << std::endl;
+	std::cout << "Surcharge d'opérateur d'affectation de la classe WrongCat appelé" << std::endl;
 	if (this != &cpy)
 		*this = cpy;
 	return (*this);
 }
 
 // Fonctions membres
-void	Cat::makeSound(void) const
+void	WrongCat::makeSound(void) const
 {
 	std::cout << "Miiiiaaaou !!" << std::endl;
 }
 
 // Destructeur
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
-	std::cout << "Destructeur de la classe Cat appelé" << std::endl;
+	std::cout << "Destructeur de la classe WrongCat appelé" << std::endl;
 }

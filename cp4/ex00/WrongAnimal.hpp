@@ -1,43 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 16:54:02 by eslamber          #+#    #+#             */
-/*   Updated: 2024/03/01 14:54:58 by eslamber         ###   ########.fr       */
+/*   Created: 2024/03/01 14:51:24 by eslamber          #+#    #+#             */
+/*   Updated: 2024/03/01 14:57:50 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 # include <string>
 # include <ostream>
 # include <iostream>
 
-class Animal
+class WrongAnimal
 {
 	protected:
 		std::string	type;
+	
 	public:
-		// Constructeurs
-		Animal();
-		Animal(const std::string &name);
-		Animal(const Animal &cpy);
+		// Constructeur
+		WrongAnimal();
+		WrongAnimal(const WrongAnimal &cpy);
 
 		// Surcharge d'opérateur
-		Animal				&operator=(const Animal &cpy);
+		WrongAnimal				&operator=(const WrongAnimal &cpy);
 
 		// Getters
 		const std::string	&getType() const;
 
 		// Fonctions membres
-		virtual void		makeSound(void) const;
+		void				makeSound(void) const;
 
 		// Destructeurs
-		virtual	~Animal();
+		virtual	~WrongAnimal();
 };
 
 #endif

@@ -1,43 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 16:54:02 by eslamber          #+#    #+#             */
-/*   Updated: 2024/03/01 14:54:58 by eslamber         ###   ########.fr       */
+/*   Created: 2024/03/01 14:57:02 by eslamber          #+#    #+#             */
+/*   Updated: 2024/03/01 14:58:14 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-# include <string>
-# include <ostream>
-# include <iostream>
+# include "WrongAnimal.hpp"
 
-class Animal
+class WrongCat: public WrongAnimal
 {
-	protected:
-		std::string	type;
 	public:
-		// Constructeurs
-		Animal();
-		Animal(const std::string &name);
-		Animal(const Animal &cpy);
+		// Constructeur
+		WrongCat();
+		WrongCat(const WrongCat &cpy);
 
 		// Surcharge d'opérateur
-		Animal				&operator=(const Animal &cpy);
-
-		// Getters
-		const std::string	&getType() const;
+		WrongCat		&operator=(const WrongCat &cpy);
 
 		// Fonctions membres
-		virtual void		makeSound(void) const;
+		void	makeSound(void) const;
 
-		// Destructeurs
-		virtual	~Animal();
+		// Destructeur
+		~WrongCat();
 };
 
 #endif

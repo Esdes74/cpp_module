@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 16:47:52 by eslamber          #+#    #+#              #
-#    Updated: 2024/02/29 18:37:59 by eslamber         ###   ########.fr        #
+#    Updated: 2024/03/01 14:59:39 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,15 @@ NAME := Animal
 
 HEADERS := Animal.hpp \
 		   Dog.hpp \
-		   Cat.hpp
+		   Cat.hpp \
+		   WrongAnimal.hpp \
+		   WrongCat.hpp
 SRC := main.cpp \
 	   Animal.cpp \
 	   Dog.cpp \
-	   Cat.cpp
+	   Cat.cpp \
+	   WrongAnimal.cpp \
+	   WrongCat.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
 all: $(NAME)
