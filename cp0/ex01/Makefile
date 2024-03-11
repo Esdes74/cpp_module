@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 15:59:24 by eslamber          #+#    #+#              #
-#    Updated: 2024/02/21 09:51:13 by eslamber         ###   ########.fr        #
+#    Updated: 2024/03/11 15:22:38 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,6 @@ HEADERS := Contact.hpp \
 		   PhoneBook.hpp
 SRC := Contact.cpp \
 	   PhoneBook.cpp \
-	   getter.cpp \
-	   setter.cpp \
 	   main.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
