@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:07:00 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/06 14:21:21 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/18 15:37:02 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ class	Contact{
 		void	setSecret(std::string sec);
 
 		// Getters
-		std::string	getFstName();
-		std::string	getLstName();
-		std::string	getNickname();
+		std::string	getFstName() const;
+		std::string	getLstName() const;
+		std::string	getNickname() const;
 		
 		// Fonctions membres
 		void	afficher();
