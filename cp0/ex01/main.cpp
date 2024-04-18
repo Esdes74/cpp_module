@@ -15,23 +15,27 @@
 int	main()
 {
 	PhoneBook	book;
-	std::string		res;
+	std::string	res;
 	int			index;
+	int			broken;
 
+	broken = 0;
 	std::cout << "Vous avez le chois entre 3 actions pendant l'éxécution du \
 programme \nADD : Vous permet d'ajouter un membre a votre PhoneBook\nSEARCH : \
 Qui imprime l'index de votre PhoneBook, vous pouvez ainsi demander un contact\n\
 EXIT : Sort du programme\nQue voulez vous faire ?\n";
-	while (true)
+	while (broken == 0)
 	{
 		std::getline(std::cin, res);
 		if (std::cin.eof())
-			break ;
+			broken = 1;
 		while (res != "ADD" && res != "SEARCH" && res != "EXIT")
 		{
 			std::cout << "Votre commande n'est pas correcte veuillez retaper s'il vous \
 plait\n";
 			std::getline(std::cin, res);
+			if (std::cin.eof())
+				broken = 1;
 		}
 		if (res == "EXIT")
 			return (0);
@@ -41,6 +45,8 @@ plait\n";
 			std::cout << "Quelle contact voulez vous voir ? (entrez le numéro de la \
 ligne inscrit dans la colonne indexe)\n";
 			std::getline(std::cin, res);
+			if (std::cin.eof())
+				broken = 1;
 			std::istringstream iss(res);
 			iss >> index;
 			while (index < 0 || index > 8)
@@ -48,6 +54,8 @@ ligne inscrit dans la colonne indexe)\n";
 				std::cout << "Le numéros de ligne que vous avez donné n'est pas bon\
 pouvez vous en redonner un ?\n";
 				std::getline(std::cin, res);
+				if (std::cin.eof())
+					broken = 1;
 				std::istringstream iss(res);
 				iss >> index;
 			}
