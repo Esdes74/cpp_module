@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/18 09:48:15 by eslamber          #+#    #+#              #
-#    Updated: 2024/02/26 15:37:22 by eslamber         ###   ########.fr        #
+#    Updated: 2024/04/24 15:43:28 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,10 +37,10 @@ debug:
 	make "FLAGS = -Wall -Wextra -Werror -std=c++98 -g3"
 
 ASan:
-	make "FLAGS = -Wall -Wextra -Werror -fsanitize=address"
+	make "FLAGS = -Wall -Wextra -Werror -fsanitize=address -g3"
 
 UBSan:
-	make "FLAGS = -Wall -Wextra -Werror -fsanitize=undefined"
+	make "FLAGS = -Wall -Wextra -Werror -fsanitize=undefined -g3"
 
 #
 ### Cleanup rules

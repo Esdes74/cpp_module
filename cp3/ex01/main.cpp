@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:38:45 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/26 15:37:22 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/24 15:46:41 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main()
 
 	broint->setNom("Broint");
 	charle->setNom("Charle");
+	test->attack("Broint");
 	broint->attack("Charle");
 	charle->takeDamage(broint->getHIT());
 	charle->beRepaired(3);
