@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:32:06 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/29 17:17:38 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/24 19:49:04 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,7 @@ FragTrap	&FragTrap::operator=(const FragTrap &trap)
 {
 	std::cout << nom << ": Surcharge d'opérateur d'affectation FragTrap appelé\n";
 	if (this != &trap)
-	{
-		*this = trap;
-	}
+		ClapTrap::operator=(trap);
 	return (*this);
 }
 

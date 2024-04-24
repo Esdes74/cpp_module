@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:22:46 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/26 15:32:37 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/24 19:38:50 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,12 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &trap)
 {
 	std::cout << nom << ": Surcharge d'opérateur d'affectation appelé\n";
 	if (this != &trap)
-		*this = trap;
+	{
+		this->nom = trap.nom;
+		this->pv = trap.pv;
+		this->pe = trap.pe;
+		this->hit = trap.hit;
+	}
 	return (*this);
 }
 
