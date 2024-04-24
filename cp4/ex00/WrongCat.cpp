@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:58:28 by eslamber          #+#    #+#             */
-/*   Updated: 2024/03/01 15:00:56 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/24 19:57:15 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ WrongCat	&WrongCat::operator=(const WrongCat &cpy)
 {
 	std::cout << "Surcharge d'opérateur d'affectation de la classe WrongCat appelé" << std::endl;
 	if (this != &cpy)
-		*this = cpy;
+		WrongAnimal::operator=(cpy);
 	return (*this);
 }
 

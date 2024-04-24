@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:54:41 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/29 19:01:58 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/24 19:55:25 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Animal	&Animal::operator=(const Animal &cpy)
 {
 	std::cout << "Opérateur d'affectation de la classe Animal appelé" << std::endl;
 	if (this != &cpy)
-		*this = cpy;
+		this->type = cpy.type;
 	return (*this);
 }
 

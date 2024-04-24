@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:20:58 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/29 19:02:13 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/24 19:56:16 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Dog		&Dog::operator=(const Dog &cpy)
 {
 	std::cout << "Surcharge d'opérateur d'affectation de la classe Dog appelé" << std::endl;
 	if (this != &cpy)
-		*this = cpy;
+		Animal::operator=(cpy);
 	return (*this);
 }
 

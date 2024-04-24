@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:55:44 by eslamber          #+#    #+#             */
-/*   Updated: 2024/03/01 14:56:55 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/24 19:56:46 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &cpy)
 {
 	std::cout << "Opérateur d'affectation de la classe WrongAnimal appelé" << std::endl;
 	if (this != &cpy)
-		*this = cpy;
+		this->type = cpy.type;
 	return (*this);
 }
 

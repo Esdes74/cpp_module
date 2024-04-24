@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:29:27 by eslamber          #+#    #+#             */
-/*   Updated: 2024/03/01 14:58:57 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/24 19:56:01 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Cat	&Cat::operator=(const Cat &cpy)
 {
 	std::cout << "Surcharge d'opérateur d'affectation de la classe Cat appelé" << std::endl;
 	if (this != &cpy)
-		*this = cpy;
+		Animal::operator=(cpy);
 	return (*this);
 }
 
