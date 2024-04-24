@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:29:44 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/24 15:12:01 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/24 15:17:46 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Cat: public Animal
 
 		// Fonctions membres
 		void		makeSound(void) const;
+		void		putIdea(const std::string idea);
 		std::string	lastIdea(void) const;
 
 		// Destructeur

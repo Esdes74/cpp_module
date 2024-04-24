@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 18:29:44 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/24 15:12:01 by eslamber         ###   ########.fr       */
+/*   Created: 2024/04/23 15:31:01 by eslamber          #+#    #+#             */
+/*   Updated: 2024/04/23 17:11:11 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include <string>
+# include <iostream>
 
-class Cat: public Animal
+class Brain
 {
 	private:
-		Brain	*brain;
-		int		max_idea;
+		std::string	*ideas;
 
 	public:
-		// Constructeur
-		Cat();
-		Cat(const Cat &cpy);
+		// Constructors
+		Brain();
+		Brain(const Brain &cpy);
 
 		// Surcharge d'opérateur
-		Cat			&operator=(const Cat &cpy);
+		Brain		&operator=(const Brain &cpy);
 
-		// Fonctions membres
-		void		makeSound(void) const;
-		std::string	lastIdea(void) const;
+		// Fonction membre
+		std::string	getIdeaNB(const int nb) const;
+		void		putIdea(const int nb, const std::string idea);
 
 		// Destructeur
-		~Cat();
+		~Brain();
 };
-
 #endif

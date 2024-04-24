@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 18:29:27 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/24 15:12:25 by eslamber         ###   ########.fr       */
+/*   Created: 2024/02/29 18:20:58 by eslamber          #+#    #+#             */
+/*   Updated: 2024/04/23 20:22:44 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Dog.hpp"
 
 // Constructeur
-Cat::Cat()
+Dog::Dog()
 {
-	std::cout << "Constructeur par defaut de la classe Cat appelé" << std::endl;
-	this->type = "cat";
+	std::cout << "Constructeur par défaut de la classe Dog appelé" << std::endl;
+	this->type = "dog";
 	this->brain = new Brain();
 	this->max_idea = 0;
-	this->brain->putIdea(0, "chasser");
+	this->brain->putIdea(0, "");
+	this->brain->putIdea(99, "");
 }
 
-Cat::Cat(const Cat &cpy) : Animal(cpy)
+Dog::Dog(const Dog &cpy) : Animal(cpy)
 {
-	std::cout << "Constructeur par copie de la classe Cat appelé" << std::endl;
+	std::cout << "Constructeur par copie de la classe Dog appelé" << std::endl;
 	*this = cpy;
 }
 
 // Surcharge d'opérateur
-Cat	&Cat::operator=(const Cat &cpy)
+Dog		&Dog::operator=(const Dog &cpy)
 {
-	std::cout << "Surcharge d'opérateur d'affectation de la classe Cat appelé" << std::endl;
+	std::cout << "Surcharge d'opérateur d'affectation de la classe Dog appelé" << std::endl;
 	if (this != &cpy)
 	{
 		Animal::operator=(cpy);
@@ -44,12 +45,20 @@ Cat	&Cat::operator=(const Cat &cpy)
 }
 
 // Fonctions membres
-void	Cat::makeSound(void) const
+void	Dog::makeSound(void) const
 {
-	std::cout << "Miiiiaaaou !!" << std::endl;
+	std::cout << "WAAf waaaf" << std::endl;
 }
 
-std::string	Cat::lastIdea(void) const
+void	Dog::putIdea(const std::string idea)
+{
+	if (max_idea == 100)
+		max_idea = 0;
+	this->brain->putIdea(max_idea, idea);
+	max_idea++;
+}
+
+std::string	Dog::lastIdea(void) const
 {
 	if (max_idea == 0 && this->brain->getIdeaNB(99) == "")
 		return (this->brain->getIdeaNB(max_idea));
@@ -60,14 +69,14 @@ std::string	Cat::lastIdea(void) const
 }
 
 // Destructeur
-Cat::~Cat()
+Dog::~Dog()
 {
-	std::cout << "Destructeur de la classe Cat appelé" << std::endl;
+	std::cout << "Destructeur de la classe Dog appelé" << std::endl;
 	delete this->brain;
 }
 
-std::ostream	&operator<<(std::ostream &os, const Cat &cat)
+std::ostream	&operator<<(std::ostream &os, const Dog &dog)
 {
-	os << cat.lastIdea();
+	os << dog.lastIdea();
 	return (os);
 }

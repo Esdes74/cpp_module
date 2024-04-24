@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 18:29:44 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/24 15:12:01 by eslamber         ###   ########.fr       */
+/*   Created: 2024/02/29 18:21:24 by eslamber          #+#    #+#             */
+/*   Updated: 2024/04/23 17:16:27 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
 # include "Animal.hpp"
 # include "Brain.hpp"
 
-class Cat: public Animal
+class Dog: public Animal
 {
 	private:
 		Brain	*brain;
@@ -24,18 +24,21 @@ class Cat: public Animal
 
 	public:
 		// Constructeur
-		Cat();
-		Cat(const Cat &cpy);
+		Dog();
+		Dog(const Dog &cpy);
 
 		// Surcharge d'opérateur
-		Cat			&operator=(const Cat &cpy);
+		Dog			&operator=(const Dog &cpy);
 
 		// Fonctions membres
 		void		makeSound(void) const;
+		void		putIdea(const std::string idea);
 		std::string	lastIdea(void) const;
 
 		// Destructeur
-		~Cat();
+		~Dog();
 };
+
+std::ostream	&operator<<(std::ostream &os, const Dog &dog);
 
 #endif

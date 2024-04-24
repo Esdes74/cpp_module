@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 18:29:44 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/24 15:12:01 by eslamber         ###   ########.fr       */
+/*   Created: 2024/03/01 14:57:02 by eslamber          #+#    #+#             */
+/*   Updated: 2024/03/01 14:58:14 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include "WrongAnimal.hpp"
 
-class Cat: public Animal
+class WrongCat: public WrongAnimal
 {
-	private:
-		Brain	*brain;
-		int		max_idea;
-
 	public:
 		// Constructeur
-		Cat();
-		Cat(const Cat &cpy);
+		WrongCat();
+		WrongCat(const WrongCat &cpy);
 
 		// Surcharge d'opérateur
-		Cat			&operator=(const Cat &cpy);
+		WrongCat		&operator=(const WrongCat &cpy);
 
 		// Fonctions membres
-		void		makeSound(void) const;
-		std::string	lastIdea(void) const;
+		void	makeSound(void) const;
 
 		// Destructeur
-		~Cat();
+		~WrongCat();
 };
 
 #endif

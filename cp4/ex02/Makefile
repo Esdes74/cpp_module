@@ -5,17 +5,28 @@
 #                                                     +:+ +:+         +:+      #
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/02/29 16:48:15 by eslamber          #+#    #+#              #
-#    Updated: 2024/02/29 16:52:34 by eslamber         ###   ########.fr        #
+#    Created: 2024/02/29 16:47:52 by eslamber          #+#    #+#              #
+#    Updated: 2024/04/23 16:54:51 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS := -Wall -Wextra -Werror -std=c++98
 
-NAME := 
+NAME := Animal
 
-HEADERS := 
-SRC := main.cpp
+HEADERS := Animal.hpp \
+		   Brain.hpp \
+		   Dog.hpp \
+		   Cat.hpp \
+		   WrongAnimal.hpp \
+		   WrongCat.hpp
+SRC := main.cpp \
+	   Animal.cpp \
+	   Brain.cpp \
+	   Dog.cpp \
+	   Cat.cpp \
+	   WrongAnimal.cpp \
+	   WrongCat.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
 all: $(NAME)
@@ -34,7 +45,7 @@ debug:
 	make "FLAGS = -Wall -Wextra -Werror -std=c++98 -g3"
 
 ASan:
-	make "FLAGS = -Wall -Wextra -Werror -fsanitize=address"
+	make "FLAGS = -Wall -Wextra -Werror -fsanitize=address -g3"
 
 UBSan:
 	make "FLAGS = -Wall -Wextra -Werror -fsanitize=undefined"

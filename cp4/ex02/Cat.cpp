@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:29:27 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/24 15:12:25 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/24 15:18:03 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,14 @@ Cat	&Cat::operator=(const Cat &cpy)
 void	Cat::makeSound(void) const
 {
 	std::cout << "Miiiiaaaou !!" << std::endl;
+}
+
+void	Cat::putIdea(const std::string idea)
+{
+	if (max_idea == 100)
+		max_idea = 0;
+	this->brain->putIdea(max_idea, idea);
+	max_idea++;
 }
 
 std::string	Cat::lastIdea(void) const
