@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/home/este_lamb/Documents/cpp_module/cp4/ex01",
+      "program": "/home/este_lamb/Documents/cpp_module/cp4/ex01/Animal",
+	  "logging": {
+		"moduleLoad": false,
+		"programOutput": false,
+		"engineLogging": false,
+		"trace": false,
+		"memory": false,
+		"disassembly": false
+		}
+    }
+  ]
+}
