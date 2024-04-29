@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:05:13 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/29 16:32:03 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/29 16:34:54 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,11 @@ void	Bureaucrat::decrementGrade()
 {
 	this->_grade++;
 	Bureaucrat::verifGradeThrow();
+}
+
+void	Bureaucrat::signForm(const std::string &formName) const
+{
+	std::cout << _name << " signed " << formName << std::endl;
 }
 
 // Exceptions

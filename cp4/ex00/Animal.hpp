@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:54:02 by eslamber          #+#    #+#             */
-/*   Updated: 2024/03/01 14:54:58 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/29 16:30:04 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Animal
 {
 	protected:
 		std::string	type;
+		
 	public:
 		// Constructeurs
 		Animal();

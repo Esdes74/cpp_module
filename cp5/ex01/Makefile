@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/26 14:01:21 by eslamber          #+#    #+#              #
-#    Updated: 2024/04/26 14:02:59 by eslamber         ###   ########.fr        #
+#    Updated: 2024/04/29 16:35:21 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,11 @@ FLAGS := -Wall -Wextra -Werror -std=c++98
 
 NAME := Bureaucrat
 
-HEADERS := Bureaucrat.hpp
+HEADERS := Bureaucrat.hpp \
+		   Form.hpp
 SRC := main.cpp \
-	   Bureaucrat.cpp
+	   Bureaucrat.cpp \
+	   Form.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
 all: $(NAME)
