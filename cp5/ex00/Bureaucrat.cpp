@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:05:13 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/26 15:48:01 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/29 12:38:01 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &cpy)
 {
 	this->name = cpy.name;
 	this->grade = cpy.grade;
+	return (*this);
 }
 
 // Getters
@@ -44,22 +45,31 @@ const std::string	&Bureaucrat::getName() const
 	return (this->name);
 }
 
-const int			&Bureaucrat::getGrade() const
+const int	&Bureaucrat::getGrade() const
 {
 	return (this->grade);
 }
 
 // Fonctions membres
-void				Bureaucrat::incrementGrade()
+void	Bureaucrat::verifGradeThrow() const
 {
 	if (this->grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else if (this->grade > 149)
 		throw Bureaucrat::GradeTooLowException();
-	this->grade--;
 }
 
-void				Bureaucrat::decrementGrade();
+void	Bureaucrat::incrementGrade()
+{
+	this->grade--;
+	Bureaucrat::verifGradeThrow();
+}
+
+void	Bureaucrat::decrementGrade()
+{
+	this->grade++;
+	Bureaucrat::verifGradeThrow();
+}
 
 // Exceptions
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
@@ -78,7 +88,8 @@ Bureaucrat::~Bureaucrat()
 	return ;
 }
 
-std::ostream	&operator<<(std::ostream os, const Bureaucrat &out)
+std::ostream	&operator<<(std::ostream &os, const Bureaucrat &out)
 {
-	os << out.getName() << "is graded : " << out.getGrade() << std::endl;
+	os << out.getName() << ", bureaucrat grade " << out.getGrade() << ".";
+	return (os);
 }

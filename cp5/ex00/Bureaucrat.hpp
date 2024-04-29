@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:05:05 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/26 15:42:11 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/29 12:38:16 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdexcept>
 # include <string>
+# include <ostream>
 
 class Bureaucrat
 {
@@ -36,6 +37,7 @@ class Bureaucrat
 		const int			&getGrade() const;
 
 		// Fonctions membres
+		void				verifGradeThrow() const;
 		void				incrementGrade();
 		void				decrementGrade();
 
@@ -43,19 +45,19 @@ class Bureaucrat
 		class GradeTooHighException: public std::exception
 		{
 			public:
-				virtual const char	*what() const noexcept override;
-		}
+				virtual const char	*what() const throw();
+		};
 		
 		class GradeTooLowException: public std::exception
 		{
 			public:
-				virtual const char	*what() const noexcept override;
-		}
+				virtual const char	*what() const throw();
+		};
 
 		// Destructeur
 		~Bureaucrat();
-}
+};
 
-std::ostream	&operator<<(std::ostream os, const Bureaucrat &out);
+std::ostream	&operator<<(std::ostream &os, const Bureaucrat &out);
 
 #endif
