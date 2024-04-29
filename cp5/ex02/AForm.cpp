@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 15:19:21 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/29 19:04:31 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/29 20:05:53 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ const char	*AForm::GradeTooLowException::what() const throw()
 
 const char	*AForm::GradeTooLowSgnException::what() const throw()
 {
-	return ("Grade too Low");
+	return ("Grade too Low to sign");
 }
 
 // Destructeur

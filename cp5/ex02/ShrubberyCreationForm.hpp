@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 19:05:39 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/29 19:42:52 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/29 20:01:22 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ class ShrubberyCreationForm: public AForm
 		virtual void			execute(Bureaucrat const &executor) const;
 
 		// Classes abstraites
+		class GradeTooLowExeException: public std::exception
+		{
+			public:
+				virtual const char	*what() const throw();
+		};
+
 		// Destructeur
 		~ShrubberyCreationForm();
 };

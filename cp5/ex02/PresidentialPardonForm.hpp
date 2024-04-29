@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 19:07:19 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/29 19:43:21 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/29 20:01:36 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ class PresidentialPardonForm: public AForm
 		virtual void			execute(Bureaucrat const &executor) const;
 
 		// Classes abstraites
+		class GradeTooLowExeException: public std::exception
+		{
+			public:
+				virtual const char	*what() const throw();
+		};
+
 		// Destructeur
 		~PresidentialPardonForm();
 };

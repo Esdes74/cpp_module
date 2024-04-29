@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 19:05:39 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/29 19:52:24 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/29 20:06:12 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ const Bureaucrat	&ShrubberyCreationForm::getTarget() const
 virtual void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const;
 
 // Classes abstraites
+const char	*ShrubberyCreationForm::GradeTooLowExeException::what() const throw()
+{
+	return ("Grade too Low to execute")
+}
+
 // Destructeur
 ~ShrubberyCreationForm::ShrubberyCreationForm()
 {

@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 19:07:19 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/29 19:51:54 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/29 20:06:37 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ const Bureaucrat	&PresidentialPardonForm::getTarget() const
 virtual void	PresidentialPardonForm::execute(Bureaucrat const &executor) const;
 
 // Classes abstraites
+const char	*PresidentialPardonForm::GradeTooLowExeException::what() const throw()
+{
+	return ("Grade too Low to execute")
+}
+
 // Destructeur
 ~PresidentialPardonForm::PresidentialPardonForm()
 {
