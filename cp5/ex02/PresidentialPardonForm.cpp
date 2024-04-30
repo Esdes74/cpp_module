@@ -6,20 +6,15 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 19:07:19 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/29 20:06:37 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/30 18:40:35 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
 // Constructeur
-PresidentialPardonForm::PresidentialPardonForm()
-	:AForm("PresidentialPardonForm", 25, 5), target(0)
-{
-}
-
-PresidentialPardonForm::PresidentialPardonForm(const Bureaucrat &target)
-	:AForm("PresidentialPardonForm", 25, 5), target(&target)
+PresidentialPardonForm::PresidentialPardonForm(const std::string target)
+	:AForm("PresidentialPardonForm", 25, 5), _target(target)
 {
 }
 
@@ -27,25 +22,26 @@ PresidentialPardonForm::PresidentialPardonForm(const Bureaucrat &target)
 PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPardonForm &cpy)
 {
 	AForm::operator=(cpy);
+	return (*this);
 }
 
 // Setter
 // Getter
-const Bureaucrat	&PresidentialPardonForm::getTarget() const
+const std::string	PresidentialPardonForm::getTarget() const
 {
-	return (this->target)
+	return (this->_target);
 }
 
 // Fonctions membres
-virtual void	PresidentialPardonForm::execute(Bureaucrat const &executor) const;
-
-// Classes abstraites
-const char	*PresidentialPardonForm::GradeTooLowExeException::what() const throw()
+void	PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
-	return ("Grade too Low to execute")
+	verifNotSignedFormThrow();
+	verifTooLowExeThrow(executor.getGrade());
+	std::cout << _target << " has been pardoned by Zaphod Beeblebrox.\n";
 }
 
+// Classes abstraites
 // Destructeur
-~PresidentialPardonForm::PresidentialPardonForm()
+PresidentialPardonForm::~PresidentialPardonForm()
 {
 }

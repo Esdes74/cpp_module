@@ -6,18 +6,13 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 15:19:21 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/29 20:05:53 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:51:34 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
 // Constructeur
-AForm::AForm()
-	:_name(""), _sgn(false), _reqSgn(100), _reqExe(50)
-{
-}
-
 AForm::AForm(const std::string &name, const int gradeSign, const int gradeExec)
 	:_name(name), _sgn(false), _reqSgn(gradeSign), _reqExe(gradeExec)
 {
@@ -50,23 +45,35 @@ void	AForm::verifGradeThrow() const
 		throw AForm::GradeTooLowException();
 }
 
+void	AForm::verifSignedFormThrow() const
+{
+	if (_sgn)
+		throw AForm::AlreadySignedFormException();
+}
+
+void	AForm::verifNotSignedFormThrow() const
+{
+	if (!_sgn)
+		throw AForm::NotSignedFormException();
+}
+
 void	AForm::verifTooLowSgnThrow(const int grade) const
 {
 	if (grade > this->_reqSgn)
 		throw AForm::GradeTooLowSgnException();
 }
 
+void	AForm::verifTooLowExeThrow(const int grade) const
+{
+	if (grade > this->_reqExe)
+		throw AForm::GradeTooLowExeException();
+}
+
 void	AForm::beSigned(const Bureaucrat &bu)
 {
 	verifTooLowSgnThrow(bu.getGrade());
-	if (this->_sgn)
-		std::cout << bu.getName() << " couldn't sign " << _name << \
-	" because he already signed it\n";
-	else
-	{
-		this->_sgn = true;
-		bu.signForm(_name);
-	}
+	verifSignedFormThrow();
+	this->_sgn = true;
 }
 
 // Getters
@@ -104,6 +111,21 @@ const char	*AForm::GradeTooLowException::what() const throw()
 const char	*AForm::GradeTooLowSgnException::what() const throw()
 {
 	return ("Grade too Low to sign");
+}
+
+const char	*AForm::GradeTooLowExeException::what() const throw()
+{
+	return ("Grade too Low to execute");
+}
+
+const char	*AForm::AlreadySignedFormException::what() const throw()
+{
+	return ("Form already signed");
+}
+
+const char	*AForm::NotSignedFormException::what() const throw()
+{
+	return ("Form not signed");
 }
 
 // Destructeur

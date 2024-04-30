@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 15:19:11 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/29 18:53:43 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:21:17 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class Form
 		// Fonctions membres
 		void				verifGradeThrow() const;
 		void				verifTooLowSgnThrow(const int grade) const;
+		void				verifSignedFormThrow() const;
 		void				beSigned(const Bureaucrat &bu);
 
 		// Getters
@@ -57,6 +58,12 @@ class Form
 		};
 
 		class GradeTooLowSgnException: public std::exception
+		{
+			public:
+				virtual const char	*what() const throw();
+		};
+
+		class AlreadySignedFormException: public std::exception
 		{
 			public:
 				virtual const char	*what() const throw();

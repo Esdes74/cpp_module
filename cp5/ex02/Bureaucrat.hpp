@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:05:05 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/29 16:34:09 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/30 16:17:42 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@
 # include <string>
 # include <iostream>
 
+class AForm;
+
 class Bureaucrat
 {
 	private:
 		std::string	_name;
 		int			_grade;
+
 	
 	public:
 		// Constructeurs
@@ -40,16 +43,23 @@ class Bureaucrat
 		void				verifGradeThrow() const;
 		void				incrementGrade();
 		void				decrementGrade();
-		void				signForm(const std::string &formName) const;
+		void				signForm(AForm &form) const;
+		void				executeForm(AForm const &form) const;
 
 		// Classes d'exceptions
-		class GradeTooHighException: public std::exception
+		class BureaucratException: public std::exception
+		{
+			public:
+				virtual const char	*what() const throw() = 0;
+		};
+
+		class GradeTooHighException: public BureaucratException
 		{
 			public:
 				virtual const char	*what() const throw();
 		};
 		
-		class GradeTooLowException: public std::exception
+		class GradeTooLowException: public BureaucratException
 		{
 			public:
 				virtual const char	*what() const throw();

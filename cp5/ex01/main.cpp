@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:06:13 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/29 18:58:58 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:44:22 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,8 @@ int	main()
 	{
 		robotic.verifGradeThrow();
 		std::cout << robotic << std::endl;
-		robotic.beSigned(bernard);
+		bernard.signForm(robotic);
 		std::cout << robotic << std::endl;
-	}
-	catch (const Form::GradeTooLowSgnException &expt)
-	{
-		std::cerr << bernard.getName() << " : " << expt.what() << \
-		" to sign " << robotic.getName() << std::endl;
-		std::cerr << "--------------------" << std::endl;
 	}
 	catch (const std::exception &expt)
 	{
@@ -88,14 +82,8 @@ int	main()
 	{
 		ai.verifGradeThrow();
 		std::cout << ai << std::endl;
-		ai.beSigned(bernard);
+		bernard.signForm(ai);
 		std::cout << ai << std::endl;
-	}
-	catch (const Form::GradeTooLowSgnException &expt)
-	{
-		std::cerr << bernard.getName() << " : " << expt.what() << \
-		" to sign " << ai.getName() << std::endl;
-		std::cerr << "--------------------" << std::endl;
 	}
 	catch (const std::exception &expt)
 	{
@@ -108,14 +96,8 @@ int	main()
 	{
 		excavation.verifGradeThrow();
 		std::cout << excavation << std::endl;
-		excavation.beSigned(bernard);
+		bernard.signForm(excavation);
 		std::cout << excavation << std::endl;
-	}
-	catch (const Form::GradeTooLowSgnException &expt)
-	{
-		std::cerr << bernard.getName() << " : " << expt.what() << \
-		" to sign " << excavation.getName() << std::endl;
-		std::cerr << "--------------------" << std::endl;
 	}
 	catch (const std::exception &expt)
 	{
@@ -128,14 +110,8 @@ int	main()
 	{
 		command.verifGradeThrow();
 		std::cout << command << std::endl;
-		command.beSigned(bernard);
+		bernard.signForm(command);
 		std::cout << command << std::endl;
-	}
-	catch (const Form::GradeTooLowSgnException &expt)
-	{
-		std::cerr << bernard.getName() << " : " << expt.what() << \
-		" to sign " << command.getName() << std::endl;
-		std::cerr << "--------------------" << std::endl;
 	}
 	catch (const std::exception &expt)
 	{

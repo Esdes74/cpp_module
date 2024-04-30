@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 15:19:21 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/29 18:53:31 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:32:32 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,17 @@ void	Form::verifTooLowSgnThrow(const int grade) const
 		throw Form::GradeTooLowSgnException();
 }
 
+void	Form::verifSignedFormThrow() const
+{
+	if (_sgn)
+		throw Form::AlreadySignedFormException();
+}
+
 void	Form::beSigned(const Bureaucrat &bu)
 {
 	verifTooLowSgnThrow(bu.getGrade());
-	if (this->_sgn)
-		std::cout << bu.getName() << " couldn't sign " << _name << \
-	" because he already signed it\n";
-	else
-	{
-		this->_sgn = true;
-		bu.signForm(_name);
-	}
+	verifSignedFormThrow();
+	this->_sgn = true;
 }
 
 // Getters
@@ -104,6 +104,11 @@ const char	*Form::GradeTooLowException::what() const throw()
 const char	*Form::GradeTooLowSgnException::what() const throw()
 {
 	return ("Grade too Low");
+}
+
+const char	*Form::AlreadySignedFormException::what() const throw()
+{
+	return ("Form already signed");
 }
 
 // Destructeur

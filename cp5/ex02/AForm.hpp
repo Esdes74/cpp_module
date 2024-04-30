@@ -6,13 +6,16 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 15:19:11 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/29 19:16:43 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/30 16:49:56 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 # define FORM_HPP
 
+# include <string>
+# include <iostream>
+# include <ctime>
 # include "Bureaucrat.hpp"
 
 class AForm
@@ -23,9 +26,10 @@ class AForm
 		const int			_reqSgn;
 		const int			_reqExe;
 
+		AForm();
+
 	public:
 		// Constructeur
-		AForm();
 		AForm(const std::string &name, const int gradeSign, const int gradeExec);
 		AForm(const AForm &cpy);
 
@@ -34,7 +38,10 @@ class AForm
 
 		// Fonctions membres
 		void				verifGradeThrow() const;
+		void				verifSignedFormThrow() const;
+		void				verifNotSignedFormThrow() const;
 		void				verifTooLowSgnThrow(const int grade) const;
+		void				verifTooLowExeThrow(const int grade) const;
 		void				beSigned(const Bureaucrat &bu);
 		virtual void		execute(Bureaucrat const &executor) const = 0;
 
@@ -45,19 +52,43 @@ class AForm
 		const int			&getReqExe() const;
 
 		// Classes d'exception
-		class GradeTooHighException: public std::exception
+		class AFormException: public std::exception
+		{
+			public:
+				virtual const char	*what() const throw() = 0;
+		};
+		
+		class GradeTooHighException: public AFormException
 		{
 			public:
 				virtual const char	*what() const throw();
 		};
 
-		class GradeTooLowException: public std::exception
+		class GradeTooLowException: public AFormException
 		{
 			public:
 				virtual const char	*what() const throw();
 		};
 
-		class GradeTooLowSgnException: public std::exception
+		class GradeTooLowSgnException: public AFormException
+		{
+			public:
+				virtual const char	*what() const throw();
+		};
+
+		class GradeTooLowExeException: public AFormException
+		{
+			public:
+				virtual const char	*what() const throw();
+		};
+
+		class AlreadySignedFormException: public AFormException
+		{
+			public:
+				virtual const char	*what() const throw();
+		};
+
+		class NotSignedFormException: public AFormException
 		{
 			public:
 				virtual const char	*what() const throw();

@@ -6,11 +6,12 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:05:13 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/29 16:34:54 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/30 16:23:39 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 // Constructeurs
 Bureaucrat::Bureaucrat()
@@ -71,9 +72,38 @@ void	Bureaucrat::decrementGrade()
 	Bureaucrat::verifGradeThrow();
 }
 
-void	Bureaucrat::signForm(const std::string &formName) const
+void	Bureaucrat::signForm(AForm &form) const
 {
-	std::cout << _name << " signed " << formName << std::endl;
+	try
+	{
+		form.beSigned(*this);
+		std::cout << _name << " signed " << form.getName() << std::endl;
+	}
+	catch (const AForm::AlreadySignedFormException &except)
+	{
+		std::cerr << except.what() << std::endl;
+	}
+	catch (const std::exception &except)
+	{
+		std::cerr << _name << " : " << except.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(AForm const &form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << _name << " has executed form " << form.getName() << std::endl;
+	}
+	catch (const AForm::AlreadySignedFormException &except)
+	{
+		std::cerr << except.what() << std::endl;
+	}
+	catch (const std::exception &except)
+	{
+		std::cerr << _name << " : " << except.what() << std::endl;
+	}
 }
 
 // Exceptions

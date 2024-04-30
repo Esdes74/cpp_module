@@ -6,11 +6,12 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:05:13 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/29 16:34:54 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:45:29 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 // Constructeurs
 Bureaucrat::Bureaucrat()
@@ -71,9 +72,24 @@ void	Bureaucrat::decrementGrade()
 	Bureaucrat::verifGradeThrow();
 }
 
-void	Bureaucrat::signForm(const std::string &formName) const
+void	Bureaucrat::signForm(Form &form) const
 {
-	std::cout << _name << " signed " << formName << std::endl;
+	try
+	{
+		form.beSigned(*this);
+		std::cout << _name << " signed " << form.getName() << std::endl;
+	}
+	catch (const Form::AlreadySignedFormException &except)
+	{
+		std::cerr << except.what() << std::endl;
+		std::cerr << "--------------------" << std::endl;
+	}
+	catch (const std::exception &except)
+	{
+		std::cerr << _name << " : " << except.what() << " to sign ";
+		std::cerr << form.getName() << std::endl;
+		std::cerr << "--------------------" << std::endl;
+	}
 }
 
 // Exceptions
