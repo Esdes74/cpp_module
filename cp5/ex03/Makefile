@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/26 14:01:21 by eslamber          #+#    #+#              #
-#    Updated: 2024/04/26 14:02:59 by eslamber         ###   ########.fr        #
+#    Updated: 2024/04/30 19:31:11 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,19 @@ FLAGS := -Wall -Wextra -Werror -std=c++98
 
 NAME := Bureaucrat
 
-HEADERS := Bureaucrat.hpp
+HEADERS := AForm.hpp \
+		   Bureaucrat.hpp \
+		   PresidentialPardonForm.hpp \
+		   RobotomyRequestForm.hpp \
+		   ShrubberyCreationForm.hpp \
+		   Intern.hpp
 SRC := main.cpp \
-	   Bureaucrat.cpp
+	   AForm.cpp \
+	   Bureaucrat.cpp \
+	   PresidentialPardonForm.cpp \
+	   RobotomyRequestForm.cpp \
+	   ShrubberyCreationForm.cpp \
+	   Intern.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
 all: $(NAME)
@@ -48,7 +58,7 @@ clean:
 	@rm -rfv $(OBJ)
 
 fclean: clean
-	@rm -rfv $(NAME)
+	@rm -rfv $(NAME) *_shrubbery
 
 re: fclean all
 
