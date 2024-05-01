@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 15:19:21 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/30 15:51:34 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/01 12:38:49 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,7 @@ AForm::~AForm()
 {
 }
 
+// Surcharge d'operateur externe
 std::ostream	&operator<<(std::ostream &os, AForm &out)
 {
 	os << out.getName() << " with a required grade " << out.getReqSgn() << " to sign it and ";

@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:06:13 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/30 18:42:27 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/01 12:43:52 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
 int	main()
 {
@@ -23,6 +24,8 @@ int	main()
 	PresidentialPardonForm	president("Anthoine DANIEL");
 	RobotomyRequestForm		robot("bob");
 	ShrubberyCreationForm	shrubbery("home");
+	Intern					intern;
+	AForm					*ret_intern;
 
 	try
 	{
@@ -86,5 +89,10 @@ int	main()
 		std::cerr << president.getName() << " : " << expt.what() << std::endl;
 		std::cerr << "--------------------" << std::endl;
 	}
+
+	ret_intern = intern.makeForm("President Pardon", "Jimmy Mc Guill");
+	ret_intern = intern.makeForm("Presidential Pardon", "Jimmy Mc Guill");
+	bob.executeForm(const_cast<AForm&>(*ret_intern));
+	delete ret_intern;
 	return (0);
 }

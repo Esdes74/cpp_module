@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 15:19:11 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/30 16:49:56 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/01 12:45:14 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ class AForm
 		};
 
 		// Destructeur
-		~AForm();
+		virtual	~AForm();
 };
 
 std::ostream	&operator<<(std::ostream &os, AForm &out);
