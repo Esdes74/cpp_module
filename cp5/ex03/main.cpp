@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:06:13 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/01 12:43:52 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/01 12:48:15 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,12 @@ int	main()
 
 	ret_intern = intern.makeForm("President Pardon", "Jimmy Mc Guill");
 	ret_intern = intern.makeForm("Presidential Pardon", "Jimmy Mc Guill");
+	bob.signForm(*ret_intern);
+	bob.executeForm(const_cast<AForm&>(*ret_intern));
+	delete ret_intern;
+
+	ret_intern = intern.makeForm("Shrubbery Creation", "Jimmy Mc Guill");
+	bob.signForm(*ret_intern);
 	bob.executeForm(const_cast<AForm&>(*ret_intern));
 	delete ret_intern;
 	return (0);
