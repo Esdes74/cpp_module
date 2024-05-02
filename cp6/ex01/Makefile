@@ -6,19 +6,18 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/26 14:01:21 by eslamber          #+#    #+#              #
-#    Updated: 2024/05/01 12:52:34 by eslamber         ###   ########.fr        #
+#    Updated: 2024/05/02 15:41:53 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS := -Wall -Wextra -Werror -std=c++98
 
-NAME := Bureaucrat
+NAME := Serializer
 
-HEADERS := Bureaucrat.hpp \
-		   Form.hpp
+HEADERS := SData.hpp \
+		   Serializer.hpp
 SRC := main.cpp \
-	   Bureaucrat.cpp \
-	   Form.cpp
+	   Serializer.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
 all: $(NAME)
