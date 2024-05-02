@@ -6,25 +6,17 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/26 14:01:21 by eslamber          #+#    #+#              #
-#    Updated: 2024/05/01 12:52:42 by eslamber         ###   ########.fr        #
+#    Updated: 2024/05/02 17:07:15 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS := -Wall -Wextra -Werror -std=c++98
 
-NAME := Bureaucrat
+NAME := Base
 
-HEADERS := AForm.hpp \
-		   Bureaucrat.hpp \
-		   PresidentialPardonForm.hpp \
-		   RobotomyRequestForm.hpp \
-		   ShrubberyCreationForm.hpp
+HEADERS := Base.hpp
 SRC := main.cpp \
-	   AForm.cpp \
-	   Bureaucrat.cpp \
-	   PresidentialPardonForm.cpp \
-	   RobotomyRequestForm.cpp \
-	   ShrubberyCreationForm.cpp
+	   Base.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
 all: $(NAME)
