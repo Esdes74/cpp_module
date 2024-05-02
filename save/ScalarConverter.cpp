@@ -6,14 +6,16 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 16:01:15 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/02 12:51:34 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/02 12:48:00 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
 static void	printChar(const std::string &str);
-static void	printNB(const std::string &str);
+static void	printInt(const std::string &str);
+static void	printDouble(const std::string &str);
+static void	printFloat(const std::string &str);
 static int	checkDoubleOrFloat(const std::string &str);
 static int	checkInt(const std::string &str);
 static bool	checkChar(const std::string &str);
@@ -45,9 +47,16 @@ void	ScalarConverter::convert(const std::string &str)
 	ck_float = checkDoubleOrFloat(str);
 	ck_int = checkInt(str);
 	if (checkChar(str))
-		printChar(str);
-	else if ((ck_float == 0 && ck_int == 1) || ck_float == 1 || ck_float == 2)
-		printNB(str);
+		printDouble(str);
+		// printChar(str);
+	else if (ck_float == 0 && ck_int == 1)
+		printDouble(str);
+		// printInt(str);
+	else if (ck_float == 1)
+		printDouble(str);
+	else if (ck_float == 2)
+		printDouble(str);
+		// printFloat(str);
 	else if (checkException(str))
 		return ;
 	else if (ck_float == 3 || ck_int == 2)
@@ -68,13 +77,67 @@ static void	printChar(const std::string &str)
 	std::cout << "double: " << static_cast<double>(str[0]) << std::endl;
 }
 
-static void	printNB(const std::string &str)
+static void	printInt(const std::string &str)
+{
+	long long			val;
+	std::istringstream	printv(str);
+	
+	printv >> val;
+	if (std::isprint(val))
+		std::cout << "char : " << static_cast<char>(val) << std::endl;
+	else
+		std::cout << "char : " << "impossible" << std::endl;
+	if (val >= std::numeric_limits<int>::min() \
+	&& val <= std::numeric_limits<int>::max())
+		std::cout << "int : " << static_cast<int>(val) << std::endl;
+	else
+		std::cout << "int : " << "impossible" << std::endl;
+	if (val >= -1 * std::numeric_limits<float>::max() \
+	&& val <= std::numeric_limits<float>::max())
+		std::cout << "float : " << static_cast<float>(val) << "f" << std::endl;
+	else
+		std::cout << "float : " << "impossible" << std::endl;
+	if (val >= -1 * std::numeric_limits<double>::max() \
+	&& val <= std::numeric_limits<double>::max())
+		std::cout << "double : " << static_cast<double>(val) << std::endl;
+	else
+		std::cout << "double : " << "impossible" << std::endl;
+}
+
+static void	printDouble(const std::string &str)
 {
 	long double			val;
 	std::istringstream	printv(str);
 	
 	printv >> val;
 	if (val <= 255 && val >= 0 && std::isprint(val))
+		std::cout << "char : " << static_cast<char>(val) << std::endl;
+	else
+		std::cout << "char : " << "impossible" << std::endl;
+	if (val >= std::numeric_limits<int>::min() \
+	&& val <= std::numeric_limits<int>::max())
+		std::cout << "int : " << static_cast<int>(val) << std::endl;
+	else
+		std::cout << "int : " << "impossible" << std::endl;
+	if (val >= -1 * std::numeric_limits<float>::max() \
+	&& val <= std::numeric_limits<float>::max())
+		std::cout << "float : " << static_cast<float>(val) << "f" << std::endl;
+	else
+		std::cout << "float : " << "impossible" << std::endl;
+	if (val >= -1 * std::numeric_limits<double>::max() \
+	&& val <= std::numeric_limits<double>::max())
+		std::cout << "double : " << static_cast<double>(val) << std::endl;
+	else
+		std::cout << "double : " << "impossible" << std::endl;
+}
+
+static void	printFloat(const std::string &str)
+{
+	double				val;
+	std::istringstream	printv(str);
+
+	printv >> val;
+	if (std::isprint(val))
 		std::cout << "char : " << static_cast<char>(val) << std::endl;
 	else
 		std::cout << "char : " << "impossible" << std::endl;

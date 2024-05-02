@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:08:55 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/02 12:29:40 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/02 12:51:49 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	main()
 {
-	ScalarConverter::convert("-2147483564789456489456648");
+	ScalarConverter::convert("inf");
 }
