@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 19:07:16 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/02 20:07:24 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/03 10:26:18 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include <cstddef>
 
-template <typename T>
-void	iter(T *array, size_t len, int func(const T&))
+template <typename T, typename F, typename R>
+void	iter(T *array, size_t len, R func(const F))
 {
 	size_t	i;
 
