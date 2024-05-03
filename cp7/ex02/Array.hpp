@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 19:07:56 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/03 16:25:56 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/03 16:32:44 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <cstddef>
 # include <stdexcept>
-# include <iostream>
 
 template <typename T>
 class Array
@@ -27,23 +26,10 @@ class Array
 	public:
 		// Constructeurs
 		Array()
-			:_array(new T[0]), _size(0)
-		{
-			_array[0] = 0;
-		}
+			:_array(new T[0]), _size(0) {};
 
 		Array(const size_t &n)
 			:_array(new T[n]), _size(n) {};
-		// {
-		// 	size_t	i;
-
-		// 	i = 0;
-		// 	while (i < n)
-		// 	{
-		// 		_array[i] = 0;
-		// 		i++;
-		// 	}
-		// }
 
 		Array(const Array &cpy)
 		{
