@@ -1,21 +1,12 @@
 {
-	"version": "0.2.0",
-	"configurations": [
-	  {
-		"name": "C/C++ Runner: Debug Session",
-		"type": "lldb",
-		"request": "launch",
-		"args": [],
-		"cwd": "/home/este_lamb/Documents/cpp_module/cp7/ex02",
-		"program": "/home/este_lamb/Documents/cpp_module/cp7/ex02/Array",
-		"logging": {
-		  "moduleLoad": false,
-		  "programOutput": false,
-		  "engineLogging": false,
-		  "trace": false,
-		  "memory": false,
-		  "disassembly": false
-		  }
-	  }
-	]
-  }
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "request": "launch",
+      "args": [],
+      "cwd": "/home/este_lamb/Documents/cpp_module/cp8/ex01",
+      "program": "/home/este_lamb/Documents/cpp_module/cp8/ex01/Span",
+    }
+  ]
+}

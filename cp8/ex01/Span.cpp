@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 09:46:34 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/05 11:05:13 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/05 11:26:11 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdexcept>
 #include <algorithm>
 #include <vector>
+#include <iostream>
 
 // Constructeur
 Span::Span()
@@ -49,6 +50,15 @@ void	Span::addNumber(const int &neww)
 	_list.push_back(neww);
 }
 
+void	Span::addNumber(int start, int end)
+{
+	while (start < end)
+	{
+		addNumber(start);
+		start++;
+	}
+}
+
 int		Span::shortestSpan() const
 {
 	std::vector<int>	tmp;
@@ -56,12 +66,12 @@ int		Span::shortestSpan() const
 	size_t				i;
 
 	if (_list.size() < 2)
-		throw std::logic_error("Not enought éléments in Span to apply shortest");
+		throw std::logic_error("Not enought elements in Span to apply shortest");
 	tmp = _list;
 	std::sort(tmp.begin(), tmp.end());
 	ret = tmp[1] - tmp[0];
 	i = 0;
-	while (++i < _size - 1)
+	while (++i < _list.size() - 1)
 		if (ret > tmp[i + 1] - tmp[i])
 			ret = tmp[i + 1] - tmp[i];
 	return (ret);
@@ -73,7 +83,7 @@ int		Span::longestSpan() const
 	int	min;
 
 	if (_list.size() < 2)
-		throw std::logic_error("Not enought éléments in Span to apply longest");
+		throw std::logic_error("Not enought elements in Span to apply longest");
 	max = *std::max_element(_list.begin(), _list.end());
 	min = *std::min_element(_list.begin(), _list.end());
 	return (max - min);

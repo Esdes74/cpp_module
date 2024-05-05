@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 09:46:51 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/05 11:02:29 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/05 11:19:26 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class Span
 
 		// Fonctions membres
 		void	addNumber(const int &neww);
+		void	addNumber(int start, int end);
 		int		shortestSpan() const;
 		int		longestSpan() const;
 
