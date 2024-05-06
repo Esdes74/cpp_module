@@ -6,15 +6,15 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/26 14:01:21 by eslamber          #+#    #+#              #
-#    Updated: 2024/05/02 19:08:16 by eslamber         ###   ########.fr        #
+#    Updated: 2024/05/06 10:23:09 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS := -Wall -Wextra -Werror -std=c++98
 
-NAME := Array
+NAME := MutantStack
 
-HEADERS := Array.hpp
+HEADERS := MutantStack.hpp
 SRC := main.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
