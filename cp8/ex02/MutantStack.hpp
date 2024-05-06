@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 10:07:01 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/06 10:36:24 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/06 11:10:00 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ template <typename T>
 class MutantStack: public std::stack<T>
 {
 	public:
-		// Typedef de l'itérateur pour simplifier l'écriture
+		// Typedef de l'itérateur pour simplifier l'écriture et la réception d'iterateur
 		typedef	typename std::stack<T>::container_type::iterator iterator;
 
 		// Constructeur
