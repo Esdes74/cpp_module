@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:08:52 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/18 16:12:50 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/14 15:00:36 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@ int	main()
 	std::string	res;
 	int			index;
 
-	std::cout << "Vous avez le chois entre 3 actions pendant l'éxécution du \
-programme \nADD : Vous permet d'ajouter un membre a votre PhoneBook\nSEARCH : \
-Qui imprime l'index de votre PhoneBook, vous pouvez ainsi demander un contact\n\
-EXIT : Sort du programme\nQue voulez vous faire ?\n";
+	std::cout << "You can choose between 3 actions\n\
+ADD : add a member to your phonebook\n\
+SEARCH : print index of your phonebook, you can choose a contact and print details\n\
+EXIT: exit the program\n\
+What do you want to do ?\n";
 	while (1)
 	{
 		std::getline(std::cin, res);
@@ -29,8 +30,7 @@ EXIT : Sort du programme\nQue voulez vous faire ?\n";
 			exit(1);
 		while (res != "ADD" && res != "SEARCH" && res != "EXIT")
 		{
-			std::cout << "Votre commande n'est pas correcte veuillez retaper s'il vous \
-plait\n";
+			std::cout << "Wrong command, Please try again : ADD, SEARCH, EXIT\n";
 			std::getline(std::cin, res);
 			if (std::cin.eof())
 				exit(1);
@@ -41,14 +41,12 @@ plait\n";
 		{
 			if (book.getIndMax() == 1)
 			{
-				std::cout << "Il n'y a pas encore de contacts dans l'annuaire, \
-veuillez en ajouter\n";
+				std::cout << "There's nobody in your phonebook, please add some\n";
 			}
 			else
 			{
 				book.afficher();
-				std::cout << "Quelle contact voulez vous voir ? (entrez le \
-numéro de la ligne inscrit dans la colonne indexe)\n";
+				std::cout << "Wich contact do you want to see ? (give number on left column)\n";
 				std::getline(std::cin, res);
 				if (std::cin.eof())
 					exit(1);
@@ -56,8 +54,7 @@ numéro de la ligne inscrit dans la colonne indexe)\n";
 				iss >> index;
 				while (index < 1 || index > book.getIndMax() - 1)
 				{
-					std::cout << "Le numéros de ligne que vous avez donné n'est \
-pas bon pouvez vous en redonner un ?\n";
+					std::cout << "Wrong number try again ?\n";
 					std::getline(std::cin, res);
 					if (std::cin.eof())
 						exit(1);
@@ -70,6 +67,6 @@ pas bon pouvez vous en redonner un ?\n";
 		}
 		else
 			book.add();
-		std::cout << "Que voulez vous faire ?\n";
+		std::cout << "What do you want to do ?\n";
 	}
 }
