@@ -6,11 +6,11 @@
 #    By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/26 14:01:21 by eslamber          #+#    #+#              #
-#    Updated: 2024/05/06 12:12:11 by eslamber         ###   ########.fr        #
+#    Updated: 2024/05/15 10:22:51 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FLAGS := -Wall -Wextra -Werror -std=c++98
+FLAGS := -Wall -Wextra -Werror #-std=c++98
 
 NAME := btc
 
@@ -32,7 +32,7 @@ $(NAME): $(OBJ)
 #
 
 debug:
-	make "FLAGS = -Wall -Wextra -Werror -std=c++98 -g3"
+	make "FLAGS = -Wall -Wextra -Werror -g3"
 
 ASan:
 	make "FLAGS = -Wall -Wextra -Werror -fsanitize=address -g3"
