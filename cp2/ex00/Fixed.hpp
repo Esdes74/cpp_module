@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 09:42:43 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/26 15:09:21 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/16 09:25:24 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Fixed
 {
 	private:
 		int					val;
-		static const int	bits = 8;
+		static const int	bits;
 
 	public:
 		// Constructeurs
