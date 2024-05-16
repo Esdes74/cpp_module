@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 11:57:21 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/16 17:14:22 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/16 17:36:28 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
-
-const int BitcoinExchange::daysInMonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 static void	make_map(std::map<std::string, float> &mymap, char sep);
 static void	verif_line(const std::map<std::string, float>::iterator &myline, int mod);
@@ -86,6 +84,7 @@ static void	verif_line(const std::map<std::string, float>::iterator &myline, int
 	int			year;
 	int			month;
 	int			day;
+	const int	daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 	if (myline->second < 0 || (myline->second > 1000 && mod == 1))
 	{
@@ -96,12 +95,20 @@ static void	verif_line(const std::map<std::string, float>::iterator &myline, int
 
 	std::istringstream	date(myline->first);
 	if (!std::getline(date, year_str, '-') || !std::getline(date, month_str, '-') || !std::getline(date, day_str, '-'))
-	{
-        std::cerr << "Error parsing date string: " << myline->first << std::endl;
-        std::cerr << "Parsed values: year=" << year_str << ", month=" << month_str << ", day=" << day_str << std::endl;
 		throw std::ifstream::failure("Error : Wrong line format");
-	}
 	year = std::stoi(year_str);
 	month = std::stoi(month_str);
 	day = std::stoi(day_str);
+	if (year < 0 || year > 2024)
+		throw std::out_of_range("Error : Year not in range [0, 2024]");
+	if (month < 1 || month > 12)
+		throw std::out_of_range("Error : Month not in range [1, 12]");
+	if (day < 0 || day > daysInMonth[month - 1])
+	{
+		if (day == 29 && month == 2 && year % 4 == 0 && ((year % 100 != 0) || (year % 400 == 0)))
+			return ;
+		if (day == 29 && month == 2)
+			throw std::out_of_range("Error : Invalid day not a lap year");
+		throw std::out_of_range("Error : Invalid day");
+	}
 }
