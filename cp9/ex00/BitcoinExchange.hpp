@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 11:57:54 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/16 17:31:42 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/17 10:52:20 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class BitcoinExchange
 	public:
 		// Fonctions membres
 		static const BitcoinExchange	*getInstance();
+		static void						printChange(const std::string &file);
 
 		// Destructeur
 		~BitcoinExchange();
