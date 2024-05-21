@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:38:45 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/24 19:45:46 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/21 13:05:11 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main()
 	broint->takeDamage(broint->getHIT());
 	test = *broint;
 	test.beRepaired(3);
+	broint->guardGate();
 	delete broint;
 	delete charle;
 	return (0);

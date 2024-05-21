@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 11:21:42 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/24 19:48:21 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/21 12:53:12 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ScavTrap::ScavTrap()
 {
-	std::cout << "Constructeur par défaut ScavTrap appelé\n";
+	std::cout << "Default constructor ScavTrap called\n";
 	nom = "noname";
 	pv = 100;
 	pe = 50;
@@ -23,7 +23,7 @@ ScavTrap::ScavTrap()
 
 ScavTrap::ScavTrap(const std::string &name)
 {
-	std::cout << "Constructeur par nom ScavTrap appelé\n";
+	std::cout << "Name ScavTrap constructor called\n";
 	nom = name;
 	pv = 100;
 	pe = 50;
@@ -32,14 +32,14 @@ ScavTrap::ScavTrap(const std::string &name)
 
 ScavTrap::ScavTrap(const ScavTrap &cpy) : ClapTrap(cpy)
 {
-	std::cout << "ScavTrap: " << nom << "appel du contructeur par copie\n";
+	std::cout << "ScavTrap: " << nom << "copy constructor called\n";
 	*this = cpy;
 }
 
 // Surcharge d'opérateur
 ScavTrap	&ScavTrap::operator=(const ScavTrap &trap)
 {
-	std::cout << nom << ": Surcharge d'opérateur d'affectation ScavTrap appelé\n";
+	std::cout << nom << ": Scavtrap copy assignment operator called\n";
 	if (this != &trap)
 		ClapTrap::operator=(trap);
 	return (*this);
@@ -49,22 +49,22 @@ void	ScavTrap::attack(const std::string &target)
 {
 	if (pe > 0)
 	{
-		std::cout << "Le ScavTrap ";
-		std::cout << nom << " attaque " << target << " et lui fait " << hit;
-		std::cout << " dégats\n";
+		std::cout << "ScavTrap ";
+		std::cout << nom << " attack " << target << " and do him " << hit;
+		std::cout << " damage\n";
 		pe--;
 	}
 	else
-		std::cout << "Le ScavTrap " <<  nom << " n'a pas assez d'énergie pour attaquer\n";
+		std::cout << "ScavTrap " <<  nom << " don't have enought energy to attack\n";
 }
 
 
 void	ScavTrap::guardGate() const
 {
-	std::cout << "ScavTrap: " << nom << " passe en mode gate keeper\n";
+	std::cout << "ScavTrap: " << nom << " goes into gate keeper mode\n";
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "Destructor ScavTrap appelé\n";
+	std::cout << "Destructor ScavTrap called\n";
 }

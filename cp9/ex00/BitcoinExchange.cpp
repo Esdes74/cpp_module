@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 11:57:21 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/17 11:29:48 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/17 12:53:33 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,25 +91,14 @@ static void	make_map(std::map<std::string, float> &mymap, const std::string &fil
 		{
 			line.erase(std::remove_if(line.begin(), line.end(), ::isspace), line.end());
 			std::istringstream	str(line);
-			try
+			if (std::getline(str, date, sep) && std::getline(str, value, sep))
 			{
-				if (std::getline(str, date, sep) && std::getline(str, value, sep))
-				{
-					std::istringstream	v(value);
-					v >> f;
-					mymap.insert(std::make_pair(date, f));
-				}
-				else
-				{
-					std::cout << "date = |" << date << "| ";
-					std::cout << "value = |" << value << "|\n";
-					throw std::ifstream::failure("Error : Wrong line format");
-				}
+				std::istringstream	v(value);
+				v >> f;
+				mymap.insert(std::make_pair(date, f));
 			}
-			catch (const std::exception &expt)
-			{
-				std::cerr << expt.what() << std::endl;
-			}
+			else
+				std::cerr << "Error : Wrong line format" << std::endl;
 		}
 	}
 }
@@ -125,9 +114,7 @@ static void	verif_line(const std::map<std::string, float>::iterator &myline, int
 	// (0 pour le fichier de data et 1 pour l'input qui doit etre compris entre 0 et 1000)
 	if (myline->second < 0 || (myline->second > 1000 && mod == 1))
 	{
-		std::cout << "date = |" << myline->first << "| ";
-		std::cout << "value = |" << myline->second << "|\n";
-		if (mod == 1)
+		if (mod != 1)
 			throw std::out_of_range("Error : Value can't be negatif");
 		throw std::out_of_range("Error : Value not in range [0, 1000]");
 	}
@@ -156,7 +143,7 @@ static void	get_date_values(std::string line, int &year, int &month, int &day)
 
 	std::istringstream	date(line);
 	if (!std::getline(date, year_str, '-') || !std::getline(date, month_str, '-') || !std::getline(date, day_str, '-'))
-		throw std::ifstream::failure("Error : Wrong line format");
+		throw std::ifstream::failure("Error : Wrong date format");
 	year = std::stoi(year_str);
 	month = std::stoi(month_str);
 	day = std::stoi(day_str);
