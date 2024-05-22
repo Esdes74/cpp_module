@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:29:27 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/24 15:12:25 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/22 10:42:03 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Constructeur
 Cat::Cat()
 {
-	std::cout << "Constructeur par defaut de la classe Cat appelé" << std::endl;
+	std::cout << "Default constructor from Cat class called" << std::endl;
 	this->type = "cat";
 	this->brain = new Brain();
 	this->max_idea = 0;
@@ -24,14 +24,14 @@ Cat::Cat()
 
 Cat::Cat(const Cat &cpy) : Animal(cpy)
 {
-	std::cout << "Constructeur par copie de la classe Cat appelé" << std::endl;
+	std::cout << "Copy constructor from Cat class called" << std::endl;
 	*this = cpy;
 }
 
 // Surcharge d'opérateur
 Cat	&Cat::operator=(const Cat &cpy)
 {
-	std::cout << "Surcharge d'opérateur d'affectation de la classe Cat appelé" << std::endl;
+	std::cout << "Assignation operator from Cat class called" << std::endl;
 	if (this != &cpy)
 	{
 		Animal::operator=(cpy);
@@ -62,7 +62,7 @@ std::string	Cat::lastIdea(void) const
 // Destructeur
 Cat::~Cat()
 {
-	std::cout << "Destructeur de la classe Cat appelé" << std::endl;
+	std::cout << "Destructor from Cat class called" << std::endl;
 	delete this->brain;
 }
 
