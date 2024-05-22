@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:29:27 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/22 10:42:03 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/22 13:51:58 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Cat::Cat()
 	this->brain->putIdea(0, "chasser");
 }
 
-Cat::Cat(const Cat &cpy) : Animal(cpy)
+Cat::Cat(const Cat &cpy) : Animal(cpy), brain(0)
 {
 	std::cout << "Copy constructor from Cat class called" << std::endl;
 	*this = cpy;
@@ -35,7 +35,8 @@ Cat	&Cat::operator=(const Cat &cpy)
 	if (this != &cpy)
 	{
 		Animal::operator=(cpy);
-		delete this->brain;
+		if (this->brain != 0)
+			delete this->brain;
 		this->brain = NULL;
 		this->brain = new Brain(*cpy.brain);
 		this->max_idea = cpy.max_idea;

@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:54:02 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/23 18:21:24 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:15:40 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,8 @@ class Animal
 		// Destructeurs
 		virtual	~Animal();
 };
+
+std::ostream	&operator<<(std::ostream &os, const Animal &animal);
+std::ostream	&operator<<(std::ostream &os, Animal &animal);
 
 #endif

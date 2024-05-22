@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:20:58 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/22 10:42:32 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:23:44 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ Dog::Dog()
 	this->type = "dog";
 	this->brain = new Brain();
 	this->max_idea = 0;
-	this->brain->putIdea(0, "");
-	this->brain->putIdea(99, "");
+	this->brain->putIdea(0, "baballe");
+	this->brain->putIdea(99, "baballe");
 }
 
-Dog::Dog(const Dog &cpy) : Animal(cpy)
+Dog::Dog(const Dog &cpy) : Animal(cpy), brain(0)
 {
 	std::cout << "Copy constructor from Dog class called" << std::endl;
 	*this = cpy;
@@ -36,7 +36,8 @@ Dog		&Dog::operator=(const Dog &cpy)
 	if (this != &cpy)
 	{
 		Animal::operator=(cpy);
-		delete this->brain;
+		if (this->brain != 0)
+			delete this->brain;
 		this->brain = NULL;
 		this->brain = new Brain(*cpy.brain);
 		this->max_idea = cpy.max_idea;
@@ -73,10 +74,4 @@ Dog::~Dog()
 {
 	std::cout << "Destructor from Dog class called" << std::endl;
 	delete this->brain;
-}
-
-std::ostream	&operator<<(std::ostream &os, const Dog &dog)
-{
-	os << dog.lastIdea();
-	return (os);
 }

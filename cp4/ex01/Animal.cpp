@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:54:41 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/22 10:40:00 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:15:52 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,16 @@ std::string	Animal::lastIdea(void) const
 Animal::~Animal()
 {
 	std::cout << "Destructor from Animal class called" << std::endl;
+}
+
+std::ostream	&operator<<(std::ostream &os, const Animal &animal)
+{
+	os << animal.lastIdea();
+	return (os);
+}
+
+std::ostream	&operator<<(std::ostream &os, Animal &animal)
+{
+	os << animal.lastIdea();
+	return (os);
 }
