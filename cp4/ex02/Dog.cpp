@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:20:58 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/22 10:50:53 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/22 13:53:00 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Dog::Dog()
 	this->brain->putIdea(99, "");
 }
 
-Dog::Dog(const Dog &cpy) : Animal(cpy)
+Dog::Dog(const Dog &cpy) : Animal(cpy), brain(0)
 {
 	std::cout << "Copy constructor from Dog class called" << std::endl;
 	*this = cpy;
@@ -36,7 +36,8 @@ Dog		&Dog::operator=(const Dog &cpy)
 	if (this != &cpy)
 	{
 		Animal::operator=(cpy);
-		delete this->brain;
+		if (this->brain != 0)
+			delete this->brain;
 		this->brain = NULL;
 		this->brain = new Brain(*cpy.brain);
 		this->max_idea = cpy.max_idea;

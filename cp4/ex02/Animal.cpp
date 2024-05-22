@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:54:41 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/22 10:48:10 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:37:03 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,16 @@ const std::string	&Animal::getType() const
 Animal::~Animal()
 {
 	std::cout << "Destructor from Animal class called" << std::endl;
+}
+
+std::ostream	&operator<<(std::ostream &os, const Animal &animal)
+{
+	os << animal.lastIdea();
+	return (os);
+}
+
+std::ostream	&operator<<(std::ostream &os, Animal &animal)
+{
+	os << animal.lastIdea();
+	return (os);
 }
