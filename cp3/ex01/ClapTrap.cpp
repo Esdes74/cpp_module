@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:22:46 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/24 19:40:57 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/21 13:17:32 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Constructors
 ClapTrap::ClapTrap()
 {
-	std::cout << "Constructeur ClapTrap par defaut appelé\n";
+	std::cout << "Default Claptrap constructor called\n";
 	nom = "";
 	pv = 10;
 	pe = 10;
@@ -24,7 +24,10 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(const std::string &name)
 {
-	std::cout << nom << ": Constructeur ClapTrap par nom appelé\n";
+	if (nom == "")
+		std::cout << name << ": Name Claptrap constructor called\n";
+	else
+		std::cout << nom << ": Name Claptrap constructor called\n";
 	this->nom = name;
 	pv = 10;
 	pe = 10;
@@ -33,14 +36,14 @@ ClapTrap::ClapTrap(const std::string &name)
 
 ClapTrap::ClapTrap(const ClapTrap &trap)
 {
-	std::cout << this->nom << ": Constructeur ClapTrap par copie appelé\n";
+	std::cout << this->nom << ": Copy Claptrap constructor called\n";
 	*this = trap;
 }
 
 // Surcharge d'opérateur
 ClapTrap	&ClapTrap::operator=(const ClapTrap &trap)
 {
-	std::cout << nom << ": Surcharge d'opérateur d'affectation ClapTrap appelé\n";
+	std::cout << nom << ": Copy Claptrap assignment operator called\n";
 	if (this != &trap)
 	{
 		this->nom = trap.nom;
@@ -55,9 +58,9 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &trap)
 void	ClapTrap::setNom(const std::string &name)
 {
 	if (nom == "")
-		std::cout << nom << "Setter nom ClapTrap appelé\n";
+		std::cout << nom << "Setter name ClapTrap called\n";
 	else
-		std::cout << nom << ": Setter nom ClapTrap appelé\n";
+		std::cout << nom << ": Setter name ClapTrap called\n";
 	this->nom = name;
 }
 
@@ -102,49 +105,45 @@ void	ClapTrap::attack(const std::string &target)
 {
 	if (pe > 0)
 	{
-		std::cout << "Le ClapTrap ";
-		std::cout << nom << " attaque " << target << " et lui fait " << hit;
-		std::cout << " dégats\n";
+		std::cout << "ClapTrap ";
+		std::cout << nom << " attack " << target << " and do him " << hit;
+		std::cout << " damage\n";
 		pe--;
 	}
 	else
-		std::cout << "Le ClapTrap " <<  nom << " n'a pas assez d'énergie pour attaquer\n";
+		std::cout << "ClapTrap " <<  nom << " don't have enought energy to attack\n";
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "Le ClapTrap ";
-	std::cout << nom << " prends " << amount << " point de dommages il passe de ";
-	std::cout << pv << "pv a " << (int) (pv - amount) << "pv\n";
+	std::cout << "ClapTrap ";
+	std::cout << nom << " take " << amount << " damage point he goes from ";
+	std::cout << pv << "hp to " << pv - (int) amount << "hp\n";
 	pv -= amount;
+	if (pv <= 0)
+		std::cout << nom << " no longer has hp, he's dies\n";
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (pe > 0)
 	{
-		std::cout << "Le ClapTrap ";
+		std::cout << "ClapTrap ";
 		std::cout << nom;
-		std::cout << " utilise un point d'énergie (passe de " << pe << "pe a " << pe - 1;
-		std::cout << "pe) pour passer de " << pv << "pv a " << (int) (pv + amount);
-		std::cout << "pv\n";
+		std::cout << " use an energy point (goes from " << pe << "pe to " << pe - 1;
+		std::cout << "pe) to goes from " << pv << "hp to " << pv + (int) amount << "hp\n";
 		pe--;
 		pv += amount;
 	}
 	else
 	{
-		std::cout << "Le ClapTrap ";
-		std::cout << nom << " n'a pas suffisemment de point d'énergie pour se réparrer\n";
+		std::cout << "ClapTrap ";
+		std::cout << nom << " don't have enought energy point to repaire himself\n";
 	}
 }
 
 // Destructor
 ClapTrap::~ClapTrap()
 {
-	if (pv <= 0)
-	{
-		std::cout << "Le ClapTrap " << nom << " n'a plus de pv, il meurt\n";
-	}
-	else
-		std::cout << "Le ClapTrap " << nom << " appel son destructeur" << std::endl;
+	std::cout << "ClapTrap " << nom << " call his destructor" << std::endl;
 }

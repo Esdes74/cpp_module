@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:47:34 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/24 15:12:56 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:41:08 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,16 @@
 
 int	main()
 {
+	Animal	*tab[4] = {new Cat(), new Cat(), new Dog(), new Dog()};
+	std::cout << *tab[0] << std::endl;
+	std::cout << *tab[1] << std::endl;
+	std::cout << *tab[2] << std::endl;
+	delete tab[0];
+	delete tab[1];
+	delete tab[2];
+	delete tab[3];
+
+	std::cout << "\n================ Tests =================" << std::endl;
 	Dog	dog0;
 	Dog	dog1;
 	Cat	cat;
@@ -24,6 +34,12 @@ int	main()
 	dog1.putIdea("manger des fraises");
 	dog0 = dog1;
 	Dog dog2(dog1);
+	std::cout << "------------- Test type -----------------" << std::endl;
+	std::cout << dog0.getType() << std::endl;
+	std::cout << dog1.getType() << std::endl;
+	std::cout << dog2.getType() << std::endl;
+	std::cout << cat.getType() << std::endl;
+	std::cout << "------------- Test Ideas ----------------" << std::endl;
 	std::cout << dog0.lastIdea() << std::endl;
 	std::cout << dog1.lastIdea() << std::endl;
 	std::cout << dog2.lastIdea() << std::endl;
@@ -39,10 +55,13 @@ int	main()
 	std::cout << dog2.lastIdea() << std::endl;
 	std::cout << "-----------------------------------------" << std::endl;
 	dog0.putIdea("manger des framboises");
-	std::cout << dog0.lastIdea() << std::endl;
-	std::cout << dog1.lastIdea() << std::endl;
-	std::cout << dog2.lastIdea() << std::endl;
-	std::cout << cat.lastIdea() << std::endl;
+	std::cout << dog0 << std::endl;
+	std::cout << dog1 << std::endl;
+	std::cout << dog2 << std::endl;
+	std::cout << cat << std::endl;
 
+	std::cout << "\n============= Tests Leaks ==============" << std::endl;
+	const Animal	*test = new Dog();
+	delete test;
 	return 0;
 }

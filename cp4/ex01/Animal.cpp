@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:54:41 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/23 18:38:18 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:15:52 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 // Constructeurs
 Animal::Animal()
 {
-	std::cout << "Constructeur par défaut de la classe Animal appelé" << std::endl;
+	std::cout << "Default constructor from Animal class called" << std::endl;
 	type = "animal";
 }
 
 Animal::Animal(const std::string	&name)
 {
-	std::cout << "Constructeur par nom de la classe animal appelé" << std::endl;
+	std::cout << "Name contructor from Animal class called" << std::endl;
 	this->type = name;
 }
 
 Animal::Animal(const Animal &cpy)
 {
-	std::cout << "Constructeur par copie de la classe Animal appelé" << std::endl;
+	std::cout << "Copy constructor from Animal class called" << std::endl;
 	*this = cpy;
 }
 
 // Surcharge d'opérateur
 Animal	&Animal::operator=(const Animal &cpy)
 {
-	std::cout << "Surcharge d'pérateur d'affectation de la classe Animal appelé" << std::endl;
+	std::cout << "Assignation operator from Animal class called" << std::endl;
 	if (this != &cpy)
 		this->type = cpy.type;
 	return (*this);
@@ -43,14 +43,14 @@ Animal	&Animal::operator=(const Animal &cpy)
 // Getters
 const std::string	&Animal::getType() const
 {
-	std::cout << "Getter de la classe animal appelé" << std::endl;
+	std::cout << "Getter from Animal class called" << std::endl;
 	return (this->type);
 }
 
 // Fonctions membres
 void	Animal::makeSound(void) const
 {
-	std::cout << "Un animal quelconque fait un bruit quelconque" << std::endl;
+	std::cout << "Any animal makes any noise" << std::endl;
 }
 
 void		Animal::putIdea(const std::string idea)
@@ -68,5 +68,17 @@ std::string	Animal::lastIdea(void) const
 // Destructeurs
 Animal::~Animal()
 {
-	std::cout << "Destructeur de la classe Animal appelé" << std::endl;
+	std::cout << "Destructor from Animal class called" << std::endl;
+}
+
+std::ostream	&operator<<(std::ostream &os, const Animal &animal)
+{
+	os << animal.lastIdea();
+	return (os);
+}
+
+std::ostream	&operator<<(std::ostream &os, Animal &animal)
+{
+	os << animal.lastIdea();
+	return (os);
 }

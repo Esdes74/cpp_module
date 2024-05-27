@@ -6,11 +6,13 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 09:42:54 by eslamber          #+#    #+#             */
-/*   Updated: 2024/02/23 13:55:09 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/16 09:26:08 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+const int	Fixed::bits = 8;
 
 // Constructeurs
 Fixed::Fixed(void)

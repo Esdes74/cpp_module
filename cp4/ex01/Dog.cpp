@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:20:58 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/23 20:22:44 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:23:44 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,29 @@
 // Constructeur
 Dog::Dog()
 {
-	std::cout << "Constructeur par défaut de la classe Dog appelé" << std::endl;
+	std::cout << "Default constructor from Dog class called" << std::endl;
 	this->type = "dog";
 	this->brain = new Brain();
 	this->max_idea = 0;
-	this->brain->putIdea(0, "");
-	this->brain->putIdea(99, "");
+	this->brain->putIdea(0, "baballe");
+	this->brain->putIdea(99, "baballe");
 }
 
-Dog::Dog(const Dog &cpy) : Animal(cpy)
+Dog::Dog(const Dog &cpy) : Animal(cpy), brain(0)
 {
-	std::cout << "Constructeur par copie de la classe Dog appelé" << std::endl;
+	std::cout << "Copy constructor from Dog class called" << std::endl;
 	*this = cpy;
 }
 
 // Surcharge d'opérateur
 Dog		&Dog::operator=(const Dog &cpy)
 {
-	std::cout << "Surcharge d'opérateur d'affectation de la classe Dog appelé" << std::endl;
+	std::cout << "Assignation operator from Dog class called" << std::endl;
 	if (this != &cpy)
 	{
 		Animal::operator=(cpy);
-		delete this->brain;
+		if (this->brain != 0)
+			delete this->brain;
 		this->brain = NULL;
 		this->brain = new Brain(*cpy.brain);
 		this->max_idea = cpy.max_idea;
@@ -71,12 +72,6 @@ std::string	Dog::lastIdea(void) const
 // Destructeur
 Dog::~Dog()
 {
-	std::cout << "Destructeur de la classe Dog appelé" << std::endl;
+	std::cout << "Destructor from Dog class called" << std::endl;
 	delete this->brain;
-}
-
-std::ostream	&operator<<(std::ostream &os, const Dog &dog)
-{
-	os << dog.lastIdea();
-	return (os);
 }

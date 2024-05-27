@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 09:56:52 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/18 16:18:27 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/14 15:05:54 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	PhoneBook::afficher()
 {
 	int	i(0);
 
-	std::cout << "|  index   |  prenom  |   nom    |  surnom  |" << std::endl;
+	std::cout << "|  index   |   Name   |Last name | Nickname |" << std::endl;
 	while (i < 8)
 	{
 		if (i < ind_max - 1)
@@ -80,15 +80,15 @@ void	PhoneBook::add()
 
 	if (current_contact == 8)
 		current_contact = 0;
-	res = demand_string("Prénom : ");
+	res = demand_string("Name : ");
 	tab[current_contact].setFstName(res);
-	res = demand_string("Nom : ");
+	res = demand_string("Last name : ");
 	tab[current_contact].setLstName(res);
-	res = demand_string("Surnom : ");
+	res = demand_string("Nickname : ");
 	tab[current_contact].setNickname(res);
-	res = demand_string("Numéro de téléphone : ");
+	res = demand_string("Telephone number : ");
 	tab[current_contact].setPhoneNumber(res);
-	res = demand_string("Son plus lourd secret : ");
+	res = demand_string("Biggest secret : ");
 	tab[current_contact].setSecret(res);
 	current_contact++;
 	if (ind_max < 9)
@@ -107,7 +107,7 @@ static std::string	demand_string(std::string str)
 	while (res == "")
 	{
 		c = std::tolower(str[0]);
-		std::cout << "Veuillez entrer le " << c << &str[1];
+		std::cout << "Please enter the " << c << &str[1];
 		std::getline(std::cin, res);
 		if (std::cin.eof())
 			exit(1);

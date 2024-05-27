@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 09:57:27 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/18 15:37:15 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/14 15:02:20 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ std::string	Contact::getNickname() const
 // Fonctions membres
 void	Contact::afficher()
 {
-	std::cout << "   Prénom    : " << fst_name << std::endl;
-	std::cout << "     Nom     : " << lst_name << std::endl;
-	std::cout << "   Surnom    : " << nickname << std::endl;
-	std::cout << "Numéros tel. : " << number << std::endl;
-	std::cout << "   secret    : " << secret << std::endl;
+	std::cout << "    Name     : " << fst_name << std::endl;
+	std::cout << "  Last Name  : " << lst_name << std::endl;
+	std::cout << "  Nickname   : " << nickname << std::endl;
+	std::cout << "Telephone nb.: " << number << std::endl;
+	std::cout << "   Secret    : " << secret << std::endl;
 }

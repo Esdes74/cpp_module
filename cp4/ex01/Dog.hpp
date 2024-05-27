@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:21:24 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/23 17:16:27 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:14:40 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,4 @@ class Dog: public Animal
 		// Destructeur
 		~Dog();
 };
-
-std::ostream	&operator<<(std::ostream &os, const Dog &dog);
-
 #endif

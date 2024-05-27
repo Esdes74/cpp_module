@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:55:44 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/24 19:56:46 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/22 10:35:05 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 // Constructeurs
 WrongAnimal::WrongAnimal()
 {
-	std::cout << "Constructeur par défaut de la classe WrongAnimal appelé" << std::endl;
+	std::cout << "Default constructor from WrongAnimal class called" << std::endl;
 	type = "animal";
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &cpy)
 {
-	std::cout << "Constructeur par copie de la classe WrongAnimal appelé" << std::endl;
+	std::cout << "Copy constructor from WrongAnimal class called" << std::endl;
 	*this = cpy;
 }
 
 // Surcharge d'opérateur
 WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &cpy)
 {
-	std::cout << "Opérateur d'affectation de la classe WrongAnimal appelé" << std::endl;
+	std::cout << "Assignation operator from WrongAnimal class called" << std::endl;
 	if (this != &cpy)
 		this->type = cpy.type;
 	return (*this);
@@ -37,18 +37,18 @@ WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &cpy)
 // Getters
 const std::string	&WrongAnimal::getType() const
 {
-	std::cout << "Getter de la classe animal appelé" << std::endl;
+	std::cout << "Getter from WrongAnimal class called" << std::endl;
 	return (this->type);
 }
 
 // Fonctions membres
 void	WrongAnimal::makeSound(void) const
 {
-	std::cout << "Un animal quelconque fait un bruit quelconque" << std::endl;
+	std::cout << "Any wrong animal makes any wrong noise" << std::endl;
 }
 
 // Destructeurs
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "Destructeur de la classe WrongAnimal appelé" << std::endl;
+	std::cout << "Destructor from WrongAnimal class called" << std::endl;
 }

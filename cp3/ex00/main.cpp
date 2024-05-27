@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:38:45 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/24 19:36:48 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/21 13:14:23 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,12 @@ int	main()
 	charle->beRepaired(3);
 	charle->takeDamage(broint->getHIT());
 	charle->takeDamage(broint->getHIT());
+	charle->takeDamage(8);
+	charle->takeDamage(3);
+	charle->beRepaired(3);
+	delete charle;
 	test.beRepaired(3);
+	test.takeDamage(14);
 	delete broint;
 	return (0);
 }

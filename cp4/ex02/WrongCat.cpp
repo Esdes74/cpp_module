@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:58:28 by eslamber          #+#    #+#             */
-/*   Updated: 2024/03/01 15:00:56 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/22 10:51:41 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 // Constructeur
 WrongCat::WrongCat()
 {
-	std::cout << "Constructeur par defaut de la classe WrongCat appelé" << std::endl;
+	std::cout << "Default constructor from WrongCat class called" << std::endl;
 	this->type = "cat";
 }
 
 WrongCat::WrongCat(const WrongCat &cpy) : WrongAnimal(cpy)
 {
-	std::cout << "Constructeur par copie de la classe WrongCat appelé" << std::endl;
+	std::cout << "Copy constructor from WrongCat class called" << std::endl;
 	*this = cpy;
 }
 
 // Surcharge d'opérateur
 WrongCat	&WrongCat::operator=(const WrongCat &cpy)
 {
-	std::cout << "Surcharge d'opérateur d'affectation de la classe WrongCat appelé" << std::endl;
+	std::cout << "Assignation operator from WrongCat class called" << std::endl;
 	if (this != &cpy)
 		*this = cpy;
 	return (*this);
@@ -37,11 +37,11 @@ WrongCat	&WrongCat::operator=(const WrongCat &cpy)
 // Fonctions membres
 void	WrongCat::makeSound(void) const
 {
-	std::cout << "Miiiiaaaou !!" << std::endl;
+	std::cout << "RIiiioooouuuu !!" << std::endl;
 }
 
 // Destructeur
 WrongCat::~WrongCat()
 {
-	std::cout << "Destructeur de la classe WrongCat appelé" << std::endl;
+	std::cout << "Destructor from WrongCat class called" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:20:58 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/24 19:56:16 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/22 10:33:01 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 // Constructeur
 Dog::Dog()
 {
-	std::cout << "Constructeur par défaut de la classe Dog appelé" << std::endl;
+	std::cout << "Default constructor from Dog class called" << std::endl;
 	this->type = "dog";
 }
 
 Dog::Dog(const Dog &cpy) : Animal(cpy)
 {
-	std::cout << "Constructeur par copie de la classe Dog appelé" << std::endl;
+	std::cout << "Copy constructor from Dog class called" << std::endl;
 	*this = cpy;
 }
 
 // Surcharge d'opérateur
 Dog		&Dog::operator=(const Dog &cpy)
 {
-	std::cout << "Surcharge d'opérateur d'affectation de la classe Dog appelé" << std::endl;
+	std::cout << "Assignation operator from Dog class called" << std::endl;
 	if (this != &cpy)
 		Animal::operator=(cpy);
 	return (*this);
@@ -43,5 +43,5 @@ void	Dog::makeSound(void) const
 // Destructeur
 Dog::~Dog()
 {
-	std::cout << "Destructeur de la classe Dog appelé" << std::endl;
+	std::cout << "Destructor from Dog class called" << std::endl;
 }
