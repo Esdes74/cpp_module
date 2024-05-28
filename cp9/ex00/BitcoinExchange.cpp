@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 11:57:21 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/28 11:21:53 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/28 13:41:20 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <sstream>
 #include <algorithm>
 #include <cctype>
+#include <new>
 
 static void	make_map(std::multimap<std::string, float> &mymap, const std::string &file_name, char sep);
 static void	verif_line(const std::pair<std::string, float> &myline, int mod);
@@ -53,6 +54,8 @@ void	BitcoinExchange::printChange(const std::string &file_name)
 	float							f;
 	std::pair<std::string, float>	inputLine;
 
+	if (_change == 0)
+		throw std::logic_error("Error : No instance of class BitcoinExchange");
 	std::ifstream	file(file_name);
 	if (!file.is_open())
 		throw std::ifstream::failure("Error : Fail when opening file");
