@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 11:57:03 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/27 10:11:37 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:23:40 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,19 @@
 int	main(int ac, char *av[])
 {
 	if (ac != 2)
+	{
+		std::cerr << "Please give an input file to treat\n";
 		return (1);
+	}
 
 	try
 	{
-		const BitcoinExchange	*bit = BitcoinExchange::getInstance();
-		bit->printChange(av[1]);
+		BitcoinExchange::initilize();
+		BitcoinExchange::printChange(av[1]);
 	}
 	catch (const std::exception &expt)
 	{
-		std::cout << expt.what() << std::endl;;
+		std::cerr << expt.what() << std::endl;;
 	}
 	return (0);
 }

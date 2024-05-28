@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 11:57:21 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/28 11:12:39 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:21:53 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ BitcoinExchange::BitcoinExchange()
 }
 
 // Fonctions membres
-const BitcoinExchange	*BitcoinExchange::getInstance()
+void	BitcoinExchange::initilize()
 {
 	std::multimap<std::string, float>::iterator	it;
 
@@ -43,7 +43,6 @@ const BitcoinExchange	*BitcoinExchange::getInstance()
 	do
 		verif_line(*(it++), 0);
 	while (it != _change->end());
-	return (&neww);
 }
 
 void	BitcoinExchange::printChange(const std::string &file_name)
@@ -73,9 +72,9 @@ void	BitcoinExchange::printChange(const std::string &file_name)
 				}
 				else
 					throw std::domain_error("¤¤ " + line + " -> Error : Wrong line format");
+				verif_line(inputLine, 1);
+				printLine(inputLine);
 			}
-			verif_line(inputLine, 1);
-			printLine(inputLine);
 		}
 		catch (const std::exception &expt)
 		{
