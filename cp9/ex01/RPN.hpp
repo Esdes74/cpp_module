@@ -13,4 +13,31 @@
 #ifndef RPN_HPP
 # define RPN_HPP
 
+# include <stack>
+
+class RPN
+{
+	private:
+		std::stack<int>	stk;
+
+	public:
+		// Constructeur
+		RPN();
+		RPN(const RPN &cpy);
+
+		// Surcharge d'operateur
+		RPN		&operator=(const RPN &cpy);
+
+		// Fonctions membres
+		void	pushNumber(int nb);
+		void	addNumber();
+		void	mulNumber();
+		void	divNumber();
+		void	susNumber();
+		void	printRes();
+
+		// Destructeur
+		~RPN();
+};
+
 #endif

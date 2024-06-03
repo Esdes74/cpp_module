@@ -12,10 +12,11 @@
 
 FLAGS := -Wall -Wextra -Werror -std=c++98
 
-NAME := MutantStack
+NAME := PmergeMe
 
-HEADERS := MutantStack.hpp
-SRC := main.cpp
+HEADERS := PmergeMe.hpp
+SRC := main.cpp \
+	   PmergeMe.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
 all: $(NAME)
