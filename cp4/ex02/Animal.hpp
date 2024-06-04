@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:54:02 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/22 14:36:52 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/04 09:36:05 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class Animal
 		virtual std::string	lastIdea(void) const = 0;
 
 		// Destructeurs
-		virtual	~Animal();
+		virtual	~Animal() = 0;
 };
 
 std::ostream	&operator<<(std::ostream &os, const Animal &animal);

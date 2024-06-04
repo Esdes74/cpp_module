@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:47:34 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/22 14:43:08 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/04 09:43:02 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,29 @@ int	main()
 	std::cout << "\n============= Tests Leaks ==============" << std::endl;
 	const Animal	*test = new Dog();
 	delete test;
+
+	std::cout << "\n=========== Tests Deep Copy ============" << std::endl;
+	Dog	*test2 = new Dog;
+	test2->putIdea("jouer a la baballe");
+	Dog	deep(*test2);
+	test2->putIdea("dormir");
+	std::cout << test2->lastIdea() << std::endl;
+	std::cout << deep.lastIdea() << std::endl;
+	delete test2;
+	std::cout << deep.lastIdea() << std::endl;
+	deep.putIdea("jouer");
+	std::cout << deep.lastIdea() << std::endl;
+
+	std::cout << "---------------------------------------------------\n";
+	Cat	*test3 = new Cat;
+	test3->putIdea("attraper des souris");
+	Cat	deep2(*test3);
+	test3->putIdea("dormir");
+	std::cout << test3->lastIdea() << std::endl;
+	std::cout << deep2.lastIdea() << std::endl;
+	delete test3;
+	std::cout << deep2.lastIdea() << std::endl;
+	deep2.putIdea("attraper");
+	std::cout << deep2.lastIdea() << std::endl;
 	return 0;
 }
