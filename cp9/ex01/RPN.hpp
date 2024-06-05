@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:00:44 by eslamber          #+#    #+#             */
-/*   Updated: 2024/06/05 13:30:01 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/05 15:11:17 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class RPN
 {
 	private:
-		std::stack<int>	stk;
+		std::stack<int>	_stk;
 
 	public:
 		// Constructeur

@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:00:29 by eslamber          #+#    #+#             */
-/*   Updated: 2024/06/05 13:34:24 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/05 16:01:14 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ RPN		&RPN::operator=(const RPN &cpy) // TODO: vérifier que la copie soit bien u
 {
 	if (this != &cpy)
 	{
-		this->stk = cpy.stk;
+		this->_stk = cpy._stk;
 	}
 	return (*this);
 }
@@ -36,7 +36,7 @@ RPN		&RPN::operator=(const RPN &cpy) // TODO: vérifier que la copie soit bien u
 // Fonctions membres
 void	RPN::pushNumber(int nb)
 {
-	stk.push(nb);
+	_stk.push(nb);
 }
 
 void	RPN::addNumber()
@@ -44,13 +44,13 @@ void	RPN::addNumber()
 	int	a;
 	int	b;
 
-	if (stk.size() < 2)
+	if (_stk.size() < 2)
 		throw std::out_of_range("Error: not enought numbers");
-	a = stk.top();
-	stk.pop();
-	b = stk.top();
-	stk.pop();
-	stk.push(a + b);
+	a = _stk.top();
+	_stk.pop();
+	b = _stk.top();
+	_stk.pop();
+	_stk.push(a + b);
 }
 
 void	RPN::mulNumber()
@@ -58,13 +58,13 @@ void	RPN::mulNumber()
 	int	a;
 	int	b;
 
-	if (stk.size() < 2)
+	if (_stk.size() < 2)
 		throw std::out_of_range("Error: not enought numbers");
-	a = stk.top();
-	stk.pop();
-	b = stk.top();
-	stk.pop();
-	stk.push(a * b);
+	a = _stk.top();
+	_stk.pop();
+	b = _stk.top();
+	_stk.pop();
+	_stk.push(a * b);
 }
 
 void	RPN::divNumber()
@@ -72,13 +72,13 @@ void	RPN::divNumber()
 	int	a;
 	int	b;
 
-	if (stk.size() < 2)
+	if (_stk.size() < 2)
 		throw std::out_of_range("Error: not enought numbers");
-	a = stk.top();
-	stk.pop();
-	b = stk.top();
-	stk.pop();
-	stk.push(a / b);
+	a = _stk.top();
+	_stk.pop();
+	b = _stk.top();
+	_stk.pop();
+	_stk.push(a / b);
 }
 
 void	RPN::susNumber()
@@ -86,23 +86,23 @@ void	RPN::susNumber()
 	int	a;
 	int	b;
 
-	if (stk.size() < 2)
+	if (_stk.size() < 2)
 		throw std::out_of_range("Error: not enought numbers");
-	a = stk.top();
-	stk.pop();
-	b = stk.top();
-	stk.pop();
-	stk.push(a - b);
+	a = _stk.top();
+	_stk.pop();
+	b = _stk.top();
+	_stk.pop();
+	_stk.push(a - b);
 }
 
 void	RPN::printRes()
 {
 	int	res;
 
-	if (stk.size() != 1)
-		throw std::out_of_range("Error: bad arguments");
-	res = stk.top();
-	stk.pop();
+	if (_stk.size() != 1)
+		throw std::out_of_range("Error: mot enought operands");
+	res = _stk.top();
+	_stk.pop();
 	std::cout << res << std::endl;
 }
 

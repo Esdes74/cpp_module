@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 11:58:48 by eslamber          #+#    #+#             */
-/*   Updated: 2024/06/05 13:33:08 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/05 16:02:42 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	main(int ac, char *av[])
 			j = 0;
 			while (av[i][j])
 			{
-				std::cout << i << " : " << j << " = |" << av[i][j] << "|" << std::endl;
 				if ((av[i][j] != ' ' && av[i][j + 1] != ' ' && av[i][j + 1] != '\0'))
 					throw std::invalid_argument("Error: bad arguments: missing space");
 				else if (av[i][j] == '+')
