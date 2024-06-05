@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:47:34 by eslamber          #+#    #+#             */
-/*   Updated: 2024/06/04 09:43:46 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/04 14:07:26 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main()
 	Dog	dog1;
 	Cat	cat;
 
-	dog1.putIdea("manger des fraises");
+	dog1.putIdea("eat some strawberries");
 	dog0 = dog1;
 	Dog dog2(dog1);
 	std::cout << "------------- Test type -----------------" << std::endl;
@@ -44,17 +44,17 @@ int	main()
 	std::cout << dog1.lastIdea() << std::endl;
 	std::cout << dog2.lastIdea() << std::endl;
 	std::cout << "-----------------------------------------" << std::endl;
-	dog1.putIdea("manger des cerises");
+	dog1.putIdea("eat some cherries");
 	std::cout << dog0.lastIdea() << std::endl;
 	std::cout << dog1.lastIdea() << std::endl;
 	std::cout << dog2.lastIdea() << std::endl;
 	std::cout << "-----------------------------------------" << std::endl;
-	dog2.putIdea("manger des chats");
+	dog2.putIdea("eat some cats");
 	std::cout << dog0.lastIdea() << std::endl;
 	std::cout << dog1.lastIdea() << std::endl;
 	std::cout << dog2.lastIdea() << std::endl;
 	std::cout << "-----------------------------------------" << std::endl;
-	dog0.putIdea("manger des framboises");
+	dog0.putIdea("eat some raspberries");
 	std::cout << dog0 << std::endl;
 	std::cout << dog1 << std::endl;
 	std::cout << dog2 << std::endl;
@@ -66,26 +66,26 @@ int	main()
 
 	std::cout << "\n=========== Tests Deep Copy ============" << std::endl;
 	Dog	*test2 = new Dog;
-	test2->putIdea("jouer a la baballe");
+	test2->putIdea("play with his baball");
 	Dog	deep(*test2);
-	test2->putIdea("dormir");
+	test2->putIdea("sleep");
 	std::cout << test2->lastIdea() << std::endl;
 	std::cout << deep.lastIdea() << std::endl;
 	delete test2;
 	std::cout << deep.lastIdea() << std::endl;
-	deep.putIdea("jouer");
+	deep.putIdea("play");
 	std::cout << deep.lastIdea() << std::endl;
 
 	std::cout << "---------------------------------------------------\n";
 	Cat	*test3 = new Cat;
-	test3->putIdea("attraper des souris");
+	test3->putIdea("catch some rats");
 	Cat	deep2(*test3);
-	test3->putIdea("dormir");
+	test3->putIdea("sleep");
 	std::cout << test3->lastIdea() << std::endl;
 	std::cout << deep2.lastIdea() << std::endl;
 	delete test3;
 	std::cout << deep2.lastIdea() << std::endl;
-	deep2.putIdea("attraper");
+	deep2.putIdea("catch");
 	std::cout << deep2.lastIdea() << std::endl;
 	return 0;
 }
