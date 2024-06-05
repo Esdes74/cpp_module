@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:00:29 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/06 12:00:39 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/05 13:34:24 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	RPN::addNumber()
 	stk.pop();
 	b = stk.top();
 	stk.pop();
-	stk.push(b + a);
+	stk.push(a + b);
 }
 
 void	RPN::mulNumber()
@@ -64,7 +64,7 @@ void	RPN::mulNumber()
 	stk.pop();
 	b = stk.top();
 	stk.pop();
-	stk.push(b * a);
+	stk.push(a * b);
 }
 
 void	RPN::divNumber()
@@ -78,7 +78,7 @@ void	RPN::divNumber()
 	stk.pop();
 	b = stk.top();
 	stk.pop();
-	stk.push(b / a);
+	stk.push(a / b);
 }
 
 void	RPN::susNumber()
@@ -92,7 +92,7 @@ void	RPN::susNumber()
 	stk.pop();
 	b = stk.top();
 	stk.pop();
-	stk.push(b - a);
+	stk.push(a - b);
 }
 
 void	RPN::printRes()
