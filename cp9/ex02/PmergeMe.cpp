@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:02:01 by eslamber          #+#    #+#             */
-/*   Updated: 2024/06/05 16:15:00 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/05 16:28:05 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,17 +75,19 @@ void		PmergeMe::pushNumber(int nb)
 
 void		PmergeMe::sort()
 {
-	clock_t	start;
-	clock_t	end;
+	clock_t	start_vec;
+	clock_t	end_vec;
+	clock_t	start_lst;
+	clock_t	end_lst;
 
-	start = clock();
+	start_vec = clock();
 	// Todo: faire l'algo de trie du vecteur
-	end = clock();
-	_timeVec = double(end - start) / CLOCKS_PER_SEC;
-	start = clock();
+	end_vec = clock();
+	_timeVec = double(end_vec - start_vec) / CLOCKS_PER_SEC;
+	start_lst = clock();
 	// Todo: faire l'algo de trie de la liste
-	end = clock();
-	_timeLst = double(end - start) / CLOCKS_PER_SEC;
+	end_lst = clock();
+	_timeLst = double(end_lst - start_lst) / CLOCKS_PER_SEC;
 }
 
 // Destructeur
@@ -114,8 +116,8 @@ std::ostream	&operator<<(std::ostream &os, PmergeMe &out)
 	print_vector(os, out.getVecAfter());
 	os << std::endl << "Time to process a range of " << out.getVec().size();
 	os << " elements with std::vector : " << out.getTimeVec() << " us\n";
-	os << std::endl << "Time to process a range of " << out.getLst().size();
-	os << " elements with std::list : " << out.getTimeLst() << " us\n";
+	os << "Time to process a range of " << out.getLst().size();
+	os << " elements with std::list : " << out.getTimeLst() << " us";
 	return (os);
 }
 
@@ -126,7 +128,7 @@ static void	print_vector(std::ostream &os, std::vector<int> vec)
 	i = 0;
 	while (i < vec.size())
 	{
-		os << vec[i];
+		os << vec[i] << " ";
 		i++;
 	}
 }
