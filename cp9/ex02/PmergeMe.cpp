@@ -18,7 +18,8 @@ static void	print_vector(std::ostream &os, const std::vector<int> &vec);
 static void	print_vector(std::ostream &os, const std::vector<std::pair<int, int> > &vec);
 static void	make_vector_pair(const std::vector<int> &vec, std::vector<std::pair<int, int> > &vec_pair);
 static void	pre_sort(std::vector<int> &vec_after, std::vector<std::pair<int, int> > &vec_pair);
-// static void	pre_sort(std::vector<int> &vec_after, const std::vector<std::pair<int, int> > &vec_pair);
+static void	dicho(std::vector<int>::iterator &it, std::vector<int> vec, int elem);
+// static std::vector<int>::iterator	dicho(std::vector<int> vec, int elem);
 
 // Constructeur
 PmergeMe::PmergeMe()
@@ -173,7 +174,7 @@ static void	make_vector_pair(const std::vector<int> &vec, std::vector<std::pair<
 		vec_pair.push_back(std::make_pair(std::min(vec[i], vec[i + 1]), std::max(vec[i], vec[i + 1])));
 		i += 2;
 	}
-	// Ajoute une paire spéciale pour le nombre solo si la taille est impaire
+	// Ajoute une paire spéciale pour l'element solo si la taille est impaire
 	if (vec.size() % 2 == 1)
 		vec_pair.push_back(std::make_pair(vec[i],vec[i]));
 }
@@ -182,7 +183,6 @@ static void	make_vector_pair(const std::vector<int> &vec, std::vector<std::pair<
 // Supprime les paire obsoletes
 static void	pre_sort(std::vector<int> &vec_after, std::vector<std::pair<int, int> > &vec_pair)
 {
-	int											flag;
 	size_t										i;
 	size_t										save_i;
 	std::vector<int>::iterator					it;
@@ -193,25 +193,11 @@ static void	pre_sort(std::vector<int> &vec_after, std::vector<std::pair<int, int
 	i = 1;
 	while (i < vec_pair.size())
 	{
-		flag = 0;
 		it = vec_after.begin();
-		while (flag == 0 && it != vec_after.end())
-		{
-			if (vec_pair[i].second < *it)
-			{
-				if ((it != vec_after.begin() && vec_pair[i].second > *(it - 1)) \
-				|| it == vec_after.begin())
-				{
-					flag = 1;
-					if (it == vec_after.begin())
-						save_i = i; // Récupération de l'indice de la premiere paire
-					vec_after.insert(it, vec_pair[i].second);
-				}
-			}
-			it++;
-		}
-		if (it == vec_after.end())
-			vec_after.push_back(vec_pair[i].second);
+		dicho(it, vec_after, vec_pair[i].second);	// Appel de l'algo de recherche dichotomique pour inserer l'element
+		if (it == vec_after.begin())
+			save_i = i;								// Récupération de l'indice de la premiere paire
+		vec_after.insert(it, vec_pair[i].second);
 		i++;
 	}
 
@@ -229,6 +215,34 @@ static void	pre_sort(std::vector<int> &vec_after, std::vector<std::pair<int, int
 	it_p--;								// Récupération de la derniere paire du vecteur
 	if (it_p->first == it_p->second)	// Si c'est un tous seul (si la taille du vecteur est impaire)
 		vec_pair.erase(it_p);			// Suppression du solo
+}
+
+static void	dicho(std::vector<int>::iterator &it, std::vector<int> vec, int elem)
+{
+	size_t						div;
+	size_t						i;
+
+	div = 2;
+	i = vec.size() / div;
+	while (i < vec.size())
+	{
+		if (elem < vec[i])
+		{
+			if ((i != 0 && elem > vec[i - 1]) || (i == 0))
+			{
+				it += i;
+				return ;
+			}
+			div *= 2;
+			i -= std::max((int) (vec.size() / div), 1);
+		}
+		else
+		{
+			div *= 2;
+			i += std::max((int) (vec.size() / div), 1);
+		}
+	}
+	it += i;
 }
 
 static void	print_vector(std::ostream &os, const std::vector<std::pair<int, int> > &vec)
