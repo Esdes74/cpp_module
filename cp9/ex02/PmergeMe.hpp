@@ -17,16 +17,19 @@
 # include <list>
 # include <iostream>
 # include <stdexcept>
+# include <utility>
 
 class PmergeMe
 {
 	private:
-		std::vector<int>	_vec;
-		std::vector<int>	_vecAfter;
-		std::list<int>		_lst;
-		std::list<int>		_lstAfter;
-		double				_timeVec;
-		double				_timeLst;
+		std::vector<int>					_vec;
+		std::vector<int>					_vecAfter;
+		std::vector<std::pair<int, int> >	_vecPair;
+		std::list<int>						_lst;
+		std::list<int>						_lstAfter;
+		std::list<std::pair<int, int> >		_lstPair;
+		double								_timeVec;
+		double								_timeLst;
 	
 	public:
 		// Constructeur
@@ -34,18 +37,20 @@ class PmergeMe
 		PmergeMe(const PmergeMe &cpy);
 
 		// Surcharge d'operateur
-		PmergeMe				&operator=(const PmergeMe &cpy);
+		PmergeMe								&operator=(const PmergeMe &cpy);
 
 		// Getters
-		const std::vector<int>	&getVec() const;
-		const std::vector<int>	&getVecAfter() const;
-		const std::list<int>	&getLst() const;
-		const double			&getTimeVec() const;
-		const double			&getTimeLst() const;
+		const std::vector<int>					&getVec() const;
+		const std::vector<int>					&getVecAfter() const;
+		const std::vector<std::pair<int, int> >	&getVecPair() const;
+		const std::list<int>					&getLst() const;
+		const std::list<std::pair<int, int> >	&getLstPair() const;
+		const double							&getTimeVec() const;
+		const double							&getTimeLst() const;
 		
 		// Fonctions membres
-		void					pushNumber(int nb);
-		void					sort();
+		void									pushNumber(int nb);
+		void									sort();
 
 		// Classes d'exceptions
 		class DoubleException: public std::exception
