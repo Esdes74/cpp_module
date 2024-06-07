@@ -15,11 +15,11 @@
 #include <algorithm>
 
 static void	print_vector(std::ostream &os, const std::vector<int> &vec);
-static void	print_vector(std::ostream &os, const std::vector<std::pair<int, int> > &vec);
+// static void	print_vector(std::ostream &os, const std::vector<std::pair<int, int> > &vec);
 static void	make_vector_pair(const std::vector<int> &vec, std::vector<std::pair<int, int> > &vec_pair);
 static void	pre_sort(std::vector<int> &vec_after, std::vector<std::pair<int, int> > &vec_pair);
 static void	dicho(std::vector<int>::iterator &it, std::vector<int> vec, int elem);
-// static std::vector<int>::iterator	dicho(std::vector<int> vec, int elem);
+// static void	final_sort(std::vector<int> &_vecAfter, std::vector<std::pair<int, int> > &_vecPair);
 
 // Constructeur
 PmergeMe::PmergeMe()
@@ -103,6 +103,7 @@ void		PmergeMe::sort()
 	// Todo: finir l'algo de trie du vecteur
 	make_vector_pair(_vec, _vecPair);
 	pre_sort(_vecAfter, _vecPair);
+	// final_sort(_vecAfter, _vecPair);
 	end_vec = clock();
 	_timeVec = double(end_vec - start_vec) / CLOCKS_PER_SEC;
 	start_lst = clock();
@@ -144,7 +145,6 @@ std::ostream	&operator<<(std::ostream &os, PmergeMe &out)
 	print_vector(os, out.getVec());
 	os << std::endl << "After: ";
 	print_vector(os, out.getVecAfter());
-	print_vector(os, out.getVecPair());
 	os << std::endl << "Time to process a range of " << out.getVec().size();
 	os << " elements with std::vector : " << out.getTimeVec() << " us\n";
 	os << "Time to process a range of " << out.getLst().size();
@@ -226,6 +226,7 @@ static void	dicho(std::vector<int>::iterator &it, std::vector<int> vec, int elem
 	i = vec.size() / div;
 	while (i < vec.size())
 	{
+		std::cout << i << " : " << vec.size() << " = " << elem << std::endl;
 		if (elem < vec[i])
 		{
 			if ((i != 0 && elem > vec[i - 1]) || (i == 0))
@@ -245,14 +246,49 @@ static void	dicho(std::vector<int>::iterator &it, std::vector<int> vec, int elem
 	it += i;
 }
 
-static void	print_vector(std::ostream &os, const std::vector<std::pair<int, int> > &vec)
-{
-	size_t	i;
+// static void	final_sort(std::vector<int> &vec_after, std::vector<std::pair<int, int> > &vec_pair)
+// {
+// 	int											flag;
+// 	int											i;
+// 	size_t										ind_suit;
+// 	size_t										nb_ite;
+// 	std::vector<int>::iterator					it;
+// 	std::vector<std::pair<int, int> >::iterator	it_p;
 
-	i = 0;
-	while (i < vec.size())
-	{
-		os << "(" << vec[i].first << ", " << vec[i].second << ") ";
-		i++;
-	}
-}
+// 	it = vec_after.begin();
+// 	ind_suit = 2;
+// 	flag = 0;
+// 	nb_ite = 1;
+// 	i = 1;
+// 	while (flag == 0)
+// 	{
+// 		if (ind_suit > vec_pair.size())
+// 		{
+// 			i = vec_pair.size() - 1;
+// 			flag = 1;
+// 		}
+// 		while (i >= 0)
+// 		{
+// 			it_p = vec_pair.begin() + static_cast<size_t>(i);
+// 			// dicho(it, vec_after, it_p->first);
+// 			vec_after.insert(it, it_p->first);
+// 			vec_pair.erase(it_p);
+// 			i--;
+// 		}
+// 		nb_ite++;
+// 		ind_suit = (2 ^ nb_ite) - ind_suit;
+// 		i = ind_suit - 1;
+// 	}
+// }
+
+// static void	print_vector(std::ostream &os, const std::vector<std::pair<int, int> > &vec)
+// {
+// 	size_t	i;
+
+// 	i = 0;
+// 	while (i < vec.size())
+// 	{
+// 		os << "(" << vec[i].first << ", " << vec[i].second << ") ";
+// 		i++;
+// 	}
+// }
