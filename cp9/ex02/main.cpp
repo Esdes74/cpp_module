@@ -15,23 +15,32 @@
 
 int	main(int ac, char **av)
 {
-	int			j;
-	int			i;
-	PmergeMe	sort;
-
-	i = 1;
-	while (i < ac)
+	try
 	{
-		j = 0;
-		while (av[i][j])
+		int			j;
+		int			i;
+		PmergeMe	sort;
+
+		i = 1;
+		while (i < ac)
 		{
-			sort.pushNumber(std::atoi(&av[i][j]));
-			while (av[i][j] != ' ' && av[i][j] != '\0')
-				j++;
+			j = 0;
+			while (av[i][j])
+			{
+				sort.pushNumber(std::atoi(&av[i][j]));
+				while (av[i][j] != ' ' && av[i][j] != '\0')
+					j++;
+				while (av[i][j] == ' ' && av[i][j] != '\0')
+					j++;
+			}
+			i++;
 		}
-		i++;
+		sort.sort();
+		std::cout << sort << std::endl;
 	}
-	sort.sort();
-	std::cout << sort << std::endl;
+	catch (const std::exception &expt)
+	{
+		std::cerr << expt.what() << std::endl;
+	}
 	return (0);
 }

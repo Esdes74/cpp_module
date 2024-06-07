@@ -12,7 +12,7 @@
 
 #include "PmergeMe.hpp"
 #include <ctime>
-#include <iostream>
+#include <algorithm>
 
 static void	print_vector(std::ostream &os, std::vector<int> vec);
 
@@ -69,6 +69,10 @@ const double			&PmergeMe::getTimeLst() const
 // Fonctions membres
 void		PmergeMe::pushNumber(int nb)
 {
+	std::vector<int>::iterator	it;
+	it = std::find(_vec.begin(), _vec.end(), nb);
+	if (it != _vec.end())
+		throw PmergeMe::DoubleException();
 	_vec.push_back(nb);
 	_lst.push_back(nb);
 }
@@ -90,11 +94,20 @@ void		PmergeMe::sort()
 	_timeLst = double(end_lst - start_lst) / CLOCKS_PER_SEC;
 }
 
+// Classe d'exception
+const char	*PmergeMe::DoubleException::what() const throw()
+{
+	return ("Error: There is double");
+}
+
+
 // Destructeur
 PmergeMe::~PmergeMe()
 {
 }
 
+
+// Surcharge d'operateur d'impression
 std::ostream	&operator<<(std::ostream &os, const PmergeMe &out)
 {
 	os << "Before: ";

@@ -16,6 +16,7 @@
 # include <vector>
 # include <list>
 # include <iostream>
+# include <stdexcept>
 
 class PmergeMe
 {
@@ -45,6 +46,13 @@ class PmergeMe
 		// Fonctions membres
 		void					pushNumber(int nb);
 		void					sort();
+
+		// Classes d'exceptions
+		class DoubleException: public std::exception
+		{
+			public:
+				virtual const char	*what() const throw();
+		};
 
 		// Destructeur
 		~PmergeMe();
