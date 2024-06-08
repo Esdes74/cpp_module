@@ -19,7 +19,9 @@ static void	print_vector(std::ostream &os, const std::vector<int> &vec);
 static void	make_vector_pair(const std::vector<int> &vec, std::vector<std::pair<int, int> > &vec_pair);
 static void	make_list_pair(const std::list<int> &lst, std::list<std::pair<int, int> > &lst_pair);
 static void	pre_sort(std::vector<int> &vec_after, std::vector<std::pair<int, int> > &vec_pair);
+static void	pre_sort(std::list<int> &lst_after, std::list<std::pair<int, int> > &lst_pair);
 static void	dicho(std::vector<int>::iterator &it, const std::vector<int> &vec, const int &elem);
+static void	dicho(std::list<int>::iterator &it, const std::list<int> &lst, const int &elem);
 static void	final_sort(std::vector<int> &_vecAfter, std::vector<std::pair<int, int> > &_vecPair);
 
 // Constructeur
@@ -109,6 +111,10 @@ void		PmergeMe::sort()
 	start_lst = clock();
 	// Todo: finir l'algo de trie de la liste
 	make_list_pair(_lst, _lstPair);
+	pre_sort(_lstAfter, _lstPair); // TODO: faire une impression de la liste pour voir
+								   // si tous va bien (refaire une fonction print_vector 
+								   // dans la surcharge <<)
+								   // /!\ IMPRIMER aussi _lstPair
 	end_lst = clock();
 	_timeLst = double(end_lst - start_lst) / CLOCKS_PER_SEC;
 }
@@ -238,10 +244,50 @@ static void	pre_sort(std::vector<int> &vec_after, std::vector<std::pair<int, int
 		vec_pair.erase(it_p);			// Suppression du solo
 }
 
+static void	pre_sort(std::list<int> &lst_after, std::list<std::pair<int, int> > &lst_pair)
+{
+	size_t										i;
+	size_t										save_i;
+	std::list<int>::iterator					it;
+	std::list<std::pair<int, int> >::iterator	it_p;
+
+	it_p = lst_pair.begin();
+	lst_after.push_back(it_p->second);
+	save_i = 0;
+	std::advance(it_p, 1);
+	i = 1;
+	while (it_p != lst_pair.end())
+	{
+		it = lst_after.begin();
+		dicho(it, lst_after, it_p->second);	// Appel de l'algo de recherche dichotomique pour inserer l'element
+		if (it == lst_after.begin())
+			save_i = i;								// Récupération de l'indice de la premiere paire
+		lst_after.insert(it, it_p->second);
+		std::advance(it_p, 1);
+		i++;
+	}
+
+	// Ajout du min de la premiere paire si c'est pas le solo
+	// Puis suppression de cette paire
+	it_p = lst_pair.begin();
+	std::advance(it_p, save_i);
+	if (it_p->first != it_p->second)
+	{
+		lst_after.insert(lst_after.begin(), it_p->first);
+		lst_pair.erase(it_p);				// Suppression de la paire la plus petite (plus besoin)
+	}
+
+	// Suppression du solo s'il y en a un
+	it_p = lst_pair.end();
+	std::advance(it_p, -1);				// Récupération de la derniere paire du vecteur
+	if (it_p->first == it_p->second)	// Si c'est un tous seul (si la taille du vecteur est impaire)
+		lst_pair.erase(it_p);			// Suppression du solo
+}
+
 static void	dicho(std::vector<int>::iterator &it, const std::vector<int> &vec, const int &elem)
 {
-	size_t						div;
-	size_t						i;
+	size_t	div;
+	size_t	i;
 
 	div = 2;
 	i = vec.size() / div;
@@ -264,6 +310,38 @@ static void	dicho(std::vector<int>::iterator &it, const std::vector<int> &vec, c
 		}
 	}
 	it += i;
+}
+
+static void	dicho(std::list<int>::iterator &it, const std::list<int> &lst, const int &elem)
+{
+	size_t							div;
+	size_t							i;
+	std::list<int>::const_iterator	it_l;
+
+	div = 2;
+	i = lst.size() / div;
+	while (i < lst.size())
+	{
+		it_l = lst.begin();
+		std::advance(it_l, i);
+		if (elem < *it_l)
+		{
+			std::advance(it_l, -1);
+			if ((i != 0 && elem > *it_l) || (i == 0))
+			{
+				std::advance(it, i);
+				return ;
+			}
+			div *= 2;
+			i -= std::max((int) (lst.size() / div), 1);
+		}
+		else
+		{
+			div *= 2;
+			i += std::max((int) (lst.size() / div), 1);
+		}
+	}
+	std::advance(it, i);
 }
 
 static void	final_sort(std::vector<int> &vec_after, std::vector<std::pair<int, int> > &vec_pair)
