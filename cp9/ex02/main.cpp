@@ -27,7 +27,7 @@ int	main(int ac, char **av)
 			j = 0;
 			while (av[i][j])
 			{
-				sort.pushNumber(std::atoi(&av[i][j]));
+				sort.pushNumberThrow(std::atoi(&av[i][j]));
 				while (av[i][j] != ' ' && av[i][j] != '\0')
 					j++;
 				while (av[i][j] == ' ' && av[i][j] != '\0')
