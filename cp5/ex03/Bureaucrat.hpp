@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:05:05 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/30 16:17:42 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/17 15:15:34 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ class AForm;
 class Bureaucrat
 {
 	private:
-		std::string	_name;
-		int			_grade;
-
+		const std::string	_name;
+		int					_grade;
 	
 	public:
 		// Constructeurs

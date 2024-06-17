@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:05:13 by eslamber          #+#    #+#             */
-/*   Updated: 2024/04/30 16:23:39 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/17 15:20:26 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,17 @@
 
 // Constructeurs
 Bureaucrat::Bureaucrat()
+	:_name(""), _grade(149)
 {
-	_name = "";
-	_grade = 149;
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade)
+	:_name(name), _grade(grade)
 {
-	this->_name = name;
-	this->_grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &cpy)
+	:_name(cpy._name)
 {
 	if (this != &cpy)
 		*this = cpy;
@@ -35,7 +34,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat &cpy)
 // Surcharge d'opérateur
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &cpy)
 {
-	this->_name = cpy._name;
 	this->_grade = cpy._grade;
 	return (*this);
 }
