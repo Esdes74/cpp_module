@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 16:33:18 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/27 10:08:50 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/17 18:06:43 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static Base	*generate()
 	// Initilisation du random
     std::srand(std::time(NULL));
 
-	// Choix du rendom, et conséquences
+	// Choix du random, et conséquences
 	nb = std::rand() % 3;
 	switch (nb)
 	{
@@ -52,8 +52,9 @@ static void	identify(Base &base)
 {
 	try
 	{
-		dynamic_cast<A&>(base);
+		A a = dynamic_cast<A&>(base);
 		std::cout << "A\n";
+		(void) a;
 		return ;
 	}
 	catch (const std::exception &expt)
@@ -61,8 +62,9 @@ static void	identify(Base &base)
 	}
 	try
 	{
-		dynamic_cast<B&>(base);
+		B b = dynamic_cast<B&>(base);
 		std::cout << "B\n";
+		(void) b;
 		return ;
 	}
 	catch (const std::exception &expt)
@@ -70,8 +72,9 @@ static void	identify(Base &base)
 	}
 	try
 	{
-		dynamic_cast<C&>(base);
+		C c = dynamic_cast<C&>(base);
 		std::cout << "C\n";
+		(void) c;
 		return ;
 	}
 	catch (const std::exception &expt)
