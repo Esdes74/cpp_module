@@ -6,14 +6,14 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 16:01:15 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/02 12:51:34 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/18 13:16:52 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-static void	printChar(const std::string &str);
-static void	printNB(const std::string &str);
+static void	printChar(const char &c);
+// static void	printNB(const std::string &str);
 static int	checkDoubleOrFloat(const std::string &str);
 static int	checkInt(const std::string &str);
 static bool	checkChar(const std::string &str);
@@ -39,15 +39,42 @@ ScalarConverter	&ScalarConverter::operator=(const ScalarConverter &cpy)
 // Fonctions membres
 void	ScalarConverter::convert(const std::string &str)
 {
-	int	ck_float;
-	int	ck_int;
+	int					ck_float;
+	int					ck_int;
+	char				c;
+	int					elem_int;
+	double				elem_double;
+	float				elem_float;
+	long double			val;
+	std::istringstream	printv(str);
 
 	ck_float = checkDoubleOrFloat(str);
 	ck_int = checkInt(str);
+
+	printv >> val;
+	if (ck_float == 0 && ck_int == 1)	// Convert in int
+	{
+		elem_int = static_cast<int>(val);
+		printNB(elem_int);
+	}
+	else if (ck_float == 1)				// Convert in double
+	{
+		elem_double = static_cast<double>(val);
+		printNB(elem_double);
+	}
+	else if (ck_float == 2)				// Convert in float
+	{
+		elem_float = static_cast<float>(val);
+		printNB(elem_float);
+	}
+
 	if (checkChar(str))
-		printChar(str);
+	{
+		c = static_cast<char>(str[0]);
+		printChar(c);
+	}
 	else if ((ck_float == 0 && ck_int == 1) || ck_float == 1 || ck_float == 2)
-		printNB(str);
+		return ;
 	else if (checkException(str))
 		return ;
 	else if (ck_float == 3 || ck_int == 2)
@@ -60,39 +87,12 @@ ScalarConverter::~ScalarConverter()
 }
 
 // Static
-static void	printChar(const std::string &str)
+static void	printChar(const char &c)
 {
-	std::cout << "char: " << str[0] << std::endl;
-	std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
-	std::cout << "float: " << static_cast<float>(str[0]) << std::endl;
-	std::cout << "double: " << static_cast<double>(str[0]) << std::endl;
-}
-
-static void	printNB(const std::string &str)
-{
-	long double			val;
-	std::istringstream	printv(str);
-	
-	printv >> val;
-	if (val <= 255 && val >= 0 && std::isprint(val))
-		std::cout << "char : " << static_cast<char>(val) << std::endl;
-	else
-		std::cout << "char : " << "impossible" << std::endl;
-	if (val >= std::numeric_limits<int>::min() \
-	&& val <= std::numeric_limits<int>::max())
-		std::cout << "int : " << static_cast<int>(val) << std::endl;
-	else
-		std::cout << "int : " << "impossible" << std::endl;
-	if (val >= -1 * std::numeric_limits<float>::max() \
-	&& val <= std::numeric_limits<float>::max())
-		std::cout << "float : " << static_cast<float>(val) << "f" << std::endl;
-	else
-		std::cout << "float : " << "impossible" << std::endl;
-	if (val >= -1 * std::numeric_limits<double>::max() \
-	&& val <= std::numeric_limits<double>::max())
-		std::cout << "double : " << static_cast<double>(val) << std::endl;
-	else
-		std::cout << "double : " << "impossible" << std::endl;
+	std::cout << "char: " << c << std::endl;
+	std::cout << "int: " << static_cast<int>(c) << std::endl;
+	std::cout << "float: " << static_cast<float>(c) << std::endl;
+	std::cout << "double: " << static_cast<double>(c) << std::endl;
 }
 
 // Retourne 0 si aucun des deux, 1 si double, 2 si float et 3 si problème
