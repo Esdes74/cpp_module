@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 19:07:56 by eslamber          #+#    #+#             */
-/*   Updated: 2024/06/18 20:21:58 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/19 12:24:51 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ class Array
 					delete[] _array;
 				_array = new T[_size];
 				i = 0;
-				while (i < _size)
+				while (i <= _size)
 				{
 					_array[i] = cpy._array[i];
 					i++;
