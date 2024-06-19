@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 19:07:05 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/03 10:51:27 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/19 10:41:56 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 #include <string>
 #include <cstring>
 
-static int	toUpperChar(const char &c)
-{
-	return std::toupper(static_cast<unsigned char>(c));
-}
+// static std::string	print(std::string &str)
+// {
+// 	std::cout << str << std::endl;
+// 	return (str);
+// }
 
-static std::string	print(const std::string &str)
+static const std::string	print(const std::string &str)
 {
 	std::cout << str << std::endl;
 	return (str);
@@ -36,22 +37,21 @@ int	main()
 {
 	// Premier test
 	std::cout << "------------------ Test 1 ---------------------" << std::endl;
-	char	test[] = "quoi ? je parle fort ?";
-	
-	iter(test, strlen(test), toUpperChar);
-	std::cout << test << std::endl;
+	std::string	test1[3] = {"Bonjour", "je m'appel", "Gestrude"};
 
-	// Seconde test
+	iter(test1, 3, print);
+
+	// Deuxieme test
 	std::cout << std::endl << "------------------ Test 2 ---------------------" << std::endl;
 	std::string	test2[3] = {"Bonjour", "je m'appel", "Gestrude"};
 
+	iter(test2, 3, add);
 	iter(test2, 3, print);
 
 	// Troisieme test
 	std::cout << std::endl << "------------------ Test 3 ---------------------" << std::endl;
-	std::string	test3[3] = {"Bonjour", "je m'appel", "Gestrude"};
+	const std::string	test3[3] = {"Bonjour", "je m'appel", "Gestrude"};
 
-	iter(test3, 3, add);
 	iter(test3, 3, print);
 	return (0);
 }

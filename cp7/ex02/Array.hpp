@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 19:07:56 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/03 16:32:44 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/18 20:21:58 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Array
 			:_array(new T[n]), _size(n) {};
 
 		Array(const Array &cpy)
+			:_array(new T[0]), _size(0)
 		{
 			*this = cpy;
 		}
@@ -44,7 +45,8 @@ class Array
 			if (this != &cpy)
 			{
 				_size = cpy.size();
-				delete[] _array;
+				if (_array != NULL)
+					delete[] _array;
 				_array = new T[_size];
 				i = 0;
 				while (i < _size)
