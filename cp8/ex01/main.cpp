@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 09:46:26 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/05 11:30:42 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/24 10:41:24 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,21 @@ int	main()
 		test4.addNumber(1, 50);
 		std::cout << "shortest : " << test4.shortestSpan() << std::endl;
 		std::cout << "longest : " <<  test4.longestSpan() << std::endl;
+	}
+	catch (const std::exception &expt)
+	{
+		std::cerr << expt.what() << std::endl;
+	}
+
+	Span	test5(13000);
+
+	try
+	{
+		std::cout << "\n------------------------ Cinquieme test ------------------------" << std::endl;
+		test5.addNumber(1, 12999);
+		test5.addNumber(-8);
+		std::cout << "shortest : " << test5.shortestSpan() << std::endl;
+		std::cout << "longest : " <<  test5.longestSpan() << std::endl;
 	}
 	catch (const std::exception &expt)
 	{
