@@ -36,7 +36,7 @@ int	main(int ac, char **av)
 			i++;
 		}
 		sort.sort();
-		std::cout << sort << std::endl;
+		// std::cout << sort << std::endl;
 	}
 	catch (const std::exception &expt)
 	{

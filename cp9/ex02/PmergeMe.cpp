@@ -14,6 +14,9 @@
 #include <ctime>
 #include <algorithm>
 
+static void	merge_sort(std::vector<int> &After);
+static void	merge_sort(std::list<int> &After);
+
 // Constructeur
 PmergeMe::PmergeMe()
 	:_timeVec(0), _timeLst(0)
@@ -101,13 +104,17 @@ void		PmergeMe::sort()
 
 	start_vec = clock();
 	make_pair_list(_vec, _vecPair);
-	pre_sort(_vecAfter, _vecPair);
+	pre_merge(_vecAfter, _vecPair);
+	merge_sort(_vecAfter);
+	post_merge(_vecAfter, _vecPair);
 	final_sort(_vecAfter, _vecPair);
 	end_vec = clock();
 	_timeVec = double(end_vec - start_vec) / CLOCKS_PER_SEC;
 	start_lst = clock();
 	make_pair_list(_lst, _lstPair);
-	pre_sort(_lstAfter, _lstPair);
+	pre_merge(_lstAfter, _lstPair);
+	merge_sort(_lstAfter);
+	post_merge(_lstAfter, _lstPair);
 	final_sort(_lstAfter, _lstPair);
 	end_lst = clock();
 	_timeLst = double(end_lst - start_lst) / CLOCKS_PER_SEC;
@@ -149,4 +156,158 @@ std::ostream	&operator<<(std::ostream &os, PmergeMe &out)
 	os << "Time to process a range of " << out.getLst().size();
 	os << " elements with std::list : " << out.getTimeLst() << " us";
 	return (os);
+}
+
+static void	merge_sort(std::vector<int> &After)
+{
+	int							flag;
+	size_t						jump;
+	size_t						i;
+	std::vector<int>			save;
+	std::vector<int>::iterator	it_save;
+	std::vector<int>::iterator	first;
+	std::vector<int>::iterator	end_first;
+	std::vector<int>::iterator	second;
+	std::vector<int>::iterator	end_second;
+
+	jump = 1;
+	while (jump < After.size())
+	{
+		flag = 0;
+		i = 0;
+		first = After.begin();
+		do
+		{
+			if (i + jump < After.size())
+			{
+				end_first = first;
+				std::advance(end_first, jump);
+				i += jump;
+			}
+			else
+			{
+				flag = 1;
+				end_first = After.end();
+				std::advance(end_first, -1);
+			}
+			if (i + 1 < After.size() && flag == 0)
+			{
+				second = end_first;
+				std::advance(second, 1);
+				i++;
+			}
+			else
+			{
+				flag = 1;
+				second = After.end();
+				std::advance(second, -1);
+			}
+			if (i + jump < After.size() && flag == 0)
+			{
+				end_second = second;
+				std::advance(end_second, jump);
+				i += jump;
+			}
+			else
+			{
+				flag = 2;
+				end_second = After.end();
+				std::advance(end_second, -1);
+			}
+			// si flag false pas de merge on arrete la et on recommence la boucle de base avec le jump incrementee
+			if (flag != 1)
+			{
+				it_save = save.begin();
+			std::cout << "first = " << *first << " end_first = " << *end_first << " second = " << *second << " end_second = " << *end_second << std::endl;
+				std::merge(first, end_first, second, end_second, it_save);
+				After = save;
+				if (i + 1 < After.size())
+				{
+					first = end_second;
+					first++;
+				}
+			}
+		}
+		while (flag == 0);
+		jump = jump * 2 + 1;
+
+		std::vector<int>::iterator	it = After.begin();
+		while (it != After.end())
+		{
+			std::cout << *it << "; ";
+			std::advance(it, 1);
+		}
+		std::cout << "\n";
+	}
+}
+
+static void	merge_sort(std::list<int> &After)
+{
+	int							flag;
+	size_t						jump;
+	size_t						i;
+	std::list<int>			save;
+	std::list<int>::iterator	it_save;
+	std::list<int>::iterator	first;
+	std::list<int>::iterator	end_first;
+	std::list<int>::iterator	second;
+	std::list<int>::iterator	end_second;
+
+	jump = 3;
+	while (jump < After.size())
+	{
+		flag = 0;
+		i = 0;
+		first = After.begin();
+		do
+		{
+			if (i + jump < After.size())
+			{
+				end_first = first;
+				std::advance(end_first, jump);
+				i += jump;
+			}
+			else
+			{
+				flag = 1;
+				end_first = After.end();
+			}
+			if (i + 1 < After.size() && flag == 0)
+			{
+				second = end_first;
+				second++;
+				i++;
+			}
+			else
+			{
+				flag = 1;
+				second = After.end();
+			}
+			if (i + jump < After.size() && flag == 0)
+			{
+				end_second = second;
+				std::advance(end_second, jump);
+				i += jump;
+			}
+			else
+			{
+				flag = 1;
+				end_second = After.end();
+			}
+			// si flag false pas de merge on arrete la et on recommence la boucle de base avec le jump incrementee
+			if (flag != 1)
+			{
+				it_save = save.begin();
+				std::merge(first, end_first, second, end_second, it_save);
+				After = save;
+				if (i + 1 < After.size())
+				{
+					first = end_second;
+					first++;
+				}
+			}
+		}
+		while (flag == 0);
+		jump = jump * 2 + 1;
+	}
 }

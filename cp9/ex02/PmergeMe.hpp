@@ -123,33 +123,62 @@ void	dicho(typename C::iterator &it, const C &lst, const int &elem)
 // Trie les plus grands éléments de chaque paire de int dans le vecteur _vecPair
 // Supprime les paire obsoletes
 template <typename C, typename DC>
-static void	pre_sort(C &lst_after, DC &lst_pair)
+static void	pre_merge(C &lst_after, DC &lst_pair)
 {
-	size_t					i;
-	size_t					save_i;
-	typename C::iterator	it;
+	typename C::iterator	it_a;
+	typename C::iterator	it_sa;
 	typename DC::iterator	it_p;
 
 	it_p = lst_pair.begin();
-	lst_after.push_back(it_p->second);
-	save_i = 0;
-	std::advance(it_p, 1);
-	i = 1;
 	while (it_p != lst_pair.end())
 	{
-		it = lst_after.begin();
-		dicho(it, lst_after, it_p->second);	// Appel de l'algo de recherche dichotomique pour inserer l'element
-		if (it == lst_after.begin())
-			save_i = i;						// Récupération de l'indice de la premiere paire
-		lst_after.insert(it, it_p->second);
+		lst_after.push_back(it_p->second);								// Creer la liste a merge
 		std::advance(it_p, 1);
-		i++;
 	}
+	it_a = lst_after.begin();
+	it_sa = lst_after.begin();
+	std::advance(it_sa, 1);
+	while (it_a != lst_after.end() && it_sa != lst_after.end())	// Boucle qui trie deux par deux
+	{
+		if (*it_a >= *it_sa)
+			std::iter_swap(it_a, it_sa);
+		std::advance(it_a, 2);
+		std::advance(it_sa, 2);
+	}
+}
+
+// Trie les plus grands éléments de chaque paire de int dans le vecteur _vecPair
+// Supprime les paire obsoletes
+template <typename C, typename DC>
+static void	post_merge(C &lst_after, DC &lst_pair)
+{
+	typename C::iterator	it;
+	typename DC::iterator	it_p;
+
+	// it_p = lst_pair.begin();
+	// lst_after.push_back(it_p->second);
+	// save_i = 0;
+	// std::advance(it_p, 1);
+	// i = 1;
+	// while (it_p != lst_pair.end())
+	// {
+	// 	it = lst_after.begin();
+	// 	dicho(it, lst_after, it_p->second);	// Appel de l'algo de recherche dichotomique pour inserer l'element
+	// 	if (it == lst_after.begin())
+	// 		save_i = i;						// Récupération de l'indice de la premiere paire
+	// 	lst_after.insert(it, it_p->second);
+	// 	std::advance(it_p, 1);
+	// 	i++;
+	// }
+
+	// Recherche la paire du premier element de la liste after
+	it_p = lst_pair.begin();
+	it = lst_after.begin();
+	while (it_p->second != *it)
+		std::advance(it_p, 1);
 
 	// Ajout du min de la premiere paire si c'est pas le solo
 	// Puis suppression de cette paire
-	it_p = lst_pair.begin();
-	std::advance(it_p, save_i);
 	if (it_p->first != it_p->second)
 	{
 		lst_after.insert(lst_after.begin(), it_p->first);

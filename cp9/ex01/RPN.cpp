@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:00:29 by eslamber          #+#    #+#             */
-/*   Updated: 2024/06/05 16:01:14 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/24 13:31:00 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,10 @@ void	RPN::divNumber()
 	a = _stk.top();
 	_stk.pop();
 	b = _stk.top();
+	if (a == 0)
+		throw std::out_of_range("Error: can't divise by zero");
 	_stk.pop();
-	_stk.push(a / b);
+	_stk.push(b / a);
 }
 
 void	RPN::susNumber()
@@ -92,7 +94,7 @@ void	RPN::susNumber()
 	_stk.pop();
 	b = _stk.top();
 	_stk.pop();
-	_stk.push(a - b);
+	_stk.push(b - a);
 }
 
 void	RPN::printRes()
