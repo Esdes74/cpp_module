@@ -6,16 +6,15 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:02:01 by eslamber          #+#    #+#             */
-/*   Updated: 2024/06/26 14:48:09 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/26 14:57:37 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 #include <ctime>
-#include <algorithm>
 
-static void	merge_sort(std::vector<int> &After);
-static void	merge_sort(std::list<int> &After);
+// static void	merge_sort(std::vector<int> &After);
+// static void	merge_sort(std::list<int> &After);
 
 // Constructeur
 PmergeMe::PmergeMe()
@@ -158,132 +157,132 @@ std::ostream	&operator<<(std::ostream &os, PmergeMe &out)
 	return (os);
 }
 
-static void	merge_sort(std::list<int> &After)
-{
-	int							flag;
-	size_t						jump;
-	size_t						i;
-	std::list<int>			save(After.size());
-	std::list<int>::iterator	it_save;
-	std::list<int>::iterator	first;
-	std::list<int>::iterator	second;
-	std::list<int>::iterator	end;
+// static void	merge_sort(std::list<int> &After)
+// {
+// 	int							flag;
+// 	size_t						jump;
+// 	size_t						i;
+// 	std::list<int>			save(After.size());
+// 	std::list<int>::iterator	it_save;
+// 	std::list<int>::iterator	first;
+// 	std::list<int>::iterator	second;
+// 	std::list<int>::iterator	end;
 
-	jump = 1;
-	while (jump < After.size())
-	{
-		save = After;
-		flag = 0;
-		i = 0;
-		it_save = save.begin();
-		first = After.begin();
-		second = first;
-		end = first;
-		do
-		{
-			if (i + jump + 1 < After.size() && flag == 0)
-			{
-				second = first;
-				std::advance(second, jump + 1);
-				i += jump + 1;
-			}
-			else
-			{
-				flag = 1;
-				second = After.end();
-				i = After.size();
-				end = second;
-			}
-			if (i + jump + 1 < After.size() && flag == 0)
-			{
-				end = second;
-				std::advance(end, jump + 1);
-				i += jump + 1;
-			}
-			else if (flag != 1)
-			{
-				flag = 2;
-				end = After.end();
-				i = After.size();
-			}
-			if (flag != 1)
-			{
-				std::merge(first, second, second, end, it_save);
-				if (i + 1 < After.size())
-				{
-					first = end;
-					std::advance(it_save, 2 * jump + 2);
-				}
-			}
-			std::copy(save.begin(), it_save, After.begin());
-		}
-		while (flag == 0);
-		jump = jump * 2 + 1;
-		After = save;
-	}
-}
+// 	jump = 1;
+// 	while (jump < After.size())
+// 	{
+// 		save = After;
+// 		flag = 0;
+// 		i = 0;
+// 		it_save = save.begin();
+// 		first = After.begin();
+// 		second = first;
+// 		end = first;
+// 		do
+// 		{
+// 			if (i + jump + 1 < After.size() && flag == 0)
+// 			{
+// 				second = first;
+// 				std::advance(second, jump + 1);
+// 				i += jump + 1;
+// 			}
+// 			else
+// 			{
+// 				flag = 1;
+// 				second = After.end();
+// 				i = After.size();
+// 				end = second;
+// 			}
+// 			if (i + jump + 1 < After.size() && flag == 0)
+// 			{
+// 				end = second;
+// 				std::advance(end, jump + 1);
+// 				i += jump + 1;
+// 			}
+// 			else if (flag != 1)
+// 			{
+// 				flag = 2;
+// 				end = After.end();
+// 				i = After.size();
+// 			}
+// 			if (flag != 1)
+// 			{
+// 				std::merge(first, second, second, end, it_save);
+// 				if (i + 1 < After.size())
+// 				{
+// 					first = end;
+// 					std::advance(it_save, 2 * jump + 2);
+// 				}
+// 			}
+// 			std::copy(save.begin(), it_save, After.begin());
+// 		}
+// 		while (flag == 0);
+// 		jump = jump * 2 + 1;
+// 		After = save;
+// 	}
+// }
 
-static void	merge_sort(std::vector<int> &After)
-{
-	int							flag;
-	size_t						jump;
-	size_t						i;
-	std::vector<int>			save(After.size());
-	std::vector<int>::iterator	it_save;
-	std::vector<int>::iterator	first;
-	std::vector<int>::iterator	second;
-	std::vector<int>::iterator	end;
+// static void	merge_sort(std::vector<int> &After)
+// {
+// 	int							flag;
+// 	size_t						jump;
+// 	size_t						i;
+// 	std::vector<int>			save(After.size());
+// 	std::vector<int>::iterator	it_save;
+// 	std::vector<int>::iterator	first;
+// 	std::vector<int>::iterator	second;
+// 	std::vector<int>::iterator	end;
 
-	jump = 1;
-	while (jump < After.size())
-	{
-		save = After;
-		flag = 0;
-		i = 0;
-		it_save = save.begin();
-		first = After.begin();
-		second = first;
-		end = first;
-		do
-		{
-			if (i + jump + 1 < After.size() && flag == 0)
-			{
-				second = first;
-				std::advance(second, jump + 1);
-				i += jump + 1;
-			}
-			else
-			{
-				flag = 1;
-				second = After.end();
-				i = After.size();
-				end = second;
-			}
-			if (i + jump + 1 < After.size() && flag == 0)
-			{
-				end = second;
-				std::advance(end, jump + 1);
-				i += jump + 1;
-			}
-			else if (flag != 1)
-			{
-				flag = 2;
-				end = After.end();
-				i = After.size();
-			}
-			if (flag != 1)
-			{
-				std::merge(first, second, second, end, it_save);
-				if (i + 1 < After.size())
-				{
-					first = end;
-					std::advance(it_save, 2 * jump + 2);
-				}
-			}
-			std::copy(save.begin(), it_save, After.begin());
-		}
-		while (flag == 0);
-		jump = jump * 2 + 1;
-		After = save;
-	}
-}
+// 	jump = 1;
+// 	while (jump < After.size())
+// 	{
+// 		save = After;
+// 		flag = 0;
+// 		i = 0;
+// 		it_save = save.begin();
+// 		first = After.begin();
+// 		second = first;
+// 		end = first;
+// 		do
+// 		{
+// 			if (i + jump + 1 < After.size() && flag == 0)
+// 			{
+// 				second = first;
+// 				std::advance(second, jump + 1);
+// 				i += jump + 1;
+// 			}
+// 			else
+// 			{
+// 				flag = 1;
+// 				second = After.end();
+// 				i = After.size();
+// 				end = second;
+// 			}
+// 			if (i + jump + 1 < After.size() && flag == 0)
+// 			{
+// 				end = second;
+// 				std::advance(end, jump + 1);
+// 				i += jump + 1;
+// 			}
+// 			else if (flag != 1)
+// 			{
+// 				flag = 2;
+// 				end = After.end();
+// 				i = After.size();
+// 			}
+// 			if (flag != 1)
+// 			{
+// 				std::merge(first, second, second, end, it_save);
+// 				if (i + 1 < After.size())
+// 				{
+// 					first = end;
+// 					std::advance(it_save, 2 * jump + 2);
+// 				}
+// 			}
+// 			std::copy(save.begin(), it_save, After.begin());
+// 		}
+// 		while (flag == 0);
+// 		jump = jump * 2 + 1;
+// 		After = save;
+// 	}
+// }
