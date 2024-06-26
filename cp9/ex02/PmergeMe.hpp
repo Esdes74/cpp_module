@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:02:21 by eslamber          #+#    #+#             */
-/*   Updated: 2024/06/05 16:11:42 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/26 13:46:54 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ void	make_pair_list(const C &lst, DC &lst_pair)
 	it_n = lst.begin();
 	std::advance(it_n, 1);
 	end = lst.end();
-	std::advance(end, -1);
 	while (it != end && it_n != end)
 	{
 		lst_pair.push_back(std::make_pair(std::min(*it, *it_n), std::max(*it, *it_n)));
@@ -132,7 +131,7 @@ static void	pre_merge(C &lst_after, DC &lst_pair)
 	it_p = lst_pair.begin();
 	while (it_p != lst_pair.end())
 	{
-		lst_after.push_back(it_p->second);								// Creer la liste a merge
+		lst_after.push_back(it_p->second);						// Creer la liste a merge
 		std::advance(it_p, 1);
 	}
 	it_a = lst_after.begin();

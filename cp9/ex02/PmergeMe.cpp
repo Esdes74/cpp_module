@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:02:01 by eslamber          #+#    #+#             */
-/*   Updated: 2024/06/05 16:28:05 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/26 13:52:07 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,9 +166,8 @@ static void	merge_sort(std::vector<int> &After)
 	std::vector<int>			save;
 	std::vector<int>::iterator	it_save;
 	std::vector<int>::iterator	first;
-	std::vector<int>::iterator	end_first;
 	std::vector<int>::iterator	second;
-	std::vector<int>::iterator	end_second;
+	std::vector<int>::iterator	end;
 
 	jump = 1;
 	while (jump < After.size())
@@ -178,23 +177,11 @@ static void	merge_sort(std::vector<int> &After)
 		first = After.begin();
 		do
 		{
-			if (i + jump < After.size())
+			if (i + jump + 1 < After.size() && flag == 0)
 			{
-				end_first = first;
-				std::advance(end_first, jump);
-				i += jump;
-			}
-			else
-			{
-				flag = 1;
-				end_first = After.end();
-				std::advance(end_first, -1);
-			}
-			if (i + 1 < After.size() && flag == 0)
-			{
-				second = end_first;
-				std::advance(second, 1);
-				i++;
+				second = first;
+				std::advance(second, jump + 1);
+				i += jump + 1;
 			}
 			else
 			{
@@ -204,26 +191,27 @@ static void	merge_sort(std::vector<int> &After)
 			}
 			if (i + jump < After.size() && flag == 0)
 			{
-				end_second = second;
-				std::advance(end_second, jump);
-				i += jump;
+				end = second;
+				std::advance(end, jump + 1);
+				i += jump + 1;
 			}
 			else
 			{
 				flag = 2;
-				end_second = After.end();
-				std::advance(end_second, -1);
+				end = After.end();
+				std::advance(end, -1);
 			}
 			// si flag false pas de merge on arrete la et on recommence la boucle de base avec le jump incrementee
+			std::cout << "flag = " << flag << std::endl;
 			if (flag != 1)
 			{
 				it_save = save.begin();
-			std::cout << "first = " << *first << " end_first = " << *end_first << " second = " << *second << " end_second = " << *end_second << std::endl;
-				std::merge(first, end_first, second, end_second, it_save);
+				std::cout << "first = " << *first << " end_first = " << *end_first << " second = " << *second << " end = " << *end << std::endl;
+				std::merge(first, second, second, end, it_save);
 				After = save;
 				if (i + 1 < After.size())
 				{
-					first = end_second;
+					first = end;
 					first++;
 				}
 			}
