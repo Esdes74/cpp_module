@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 11:57:21 by eslamber          #+#    #+#             */
-/*   Updated: 2024/05/28 13:41:20 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/26 16:12:52 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	BitcoinExchange::printChange(const std::string &file_name)
 					inputLine = std::make_pair(date, f);
 				}
 				else
-					throw std::domain_error("¤¤ " + line + " -> Error : Wrong line format");
+					throw std::domain_error(line + " -> Error : Wrong line format");
 				verif_line(inputLine, 1);
 				printLine(inputLine);
 			}
@@ -126,7 +126,7 @@ static void	make_map(std::multimap<std::string, float> &mymap, const std::string
 				mymap.insert(std::make_pair(date, f));
 			}
 			else
-				std::cerr << "¤¤ " << line << " -> " << "Error : Wrong line format" << std::endl;
+				std::cerr << line << " -> " << "Error : Wrong line format" << std::endl;
 		}
 	}
 }
@@ -142,7 +142,7 @@ static void	verif_line(const std::pair<std::string, float> &myline, int mod)
 	// (0 pour le fichier de data et 1 pour l'input qui doit etre compris entre 0 et 1000)
 	if (myline.second < 0 || (myline.second > 1000.0 && mod == 1))
 	{
-		std::cerr << "¤¤ " << myline.first << " : " << myline.second << " -> ";
+		std::cerr << myline.first << " : " << myline.second << " -> ";
 		if (mod != 1)
 			throw std::out_of_range("Error : Value can't be negatif");
 		throw std::out_of_range("Error : Value not in range [0, 1000]");
@@ -152,19 +152,19 @@ static void	verif_line(const std::pair<std::string, float> &myline, int mod)
 	get_date_values(myline.first, year, month, day);
 	if (year < 0 || year > 2024)
 	{
-		std::cerr << "¤¤ " << myline.first << " : " << myline.second << " -> ";
+		std::cerr << myline.first << " : " << myline.second << " -> ";
 		throw std::out_of_range("Error : Year not in range [0, 2024]");
 	}
 	if (month < 1 || month > 12)
 	{
-		std::cerr << "¤¤ " << myline.first << " : " << myline.second << " -> ";
+		std::cerr << myline.first << " : " << myline.second << " -> ";
 		throw std::out_of_range("Error : Month not in range [1, 12]");
 	}
 	if (day < 0 || day > daysInMonth[month - 1])
 	{
 		if (day == 29 && month == 2 && year % 4 == 0 && ((year % 100 != 0) || (year % 400 == 0)))
 			return ;
-		std::cerr << "¤¤ " << myline.first << " : " << myline.second << " -> ";
+		std::cerr << myline.first << " : " << myline.second << " -> ";
 		if (day == 29 && month == 2)
 			throw std::out_of_range("Error : Invalid day not a leap year");
 		throw std::out_of_range("Error : Invalid day");
@@ -179,7 +179,11 @@ static void	get_date_values(std::string line, int &year, int &month, int &day)
 
 	std::istringstream	date(line);
 	if (!std::getline(date, year_str, '-') || !std::getline(date, month_str, '-') || !std::getline(date, day_str, '-'))
-		throw std::ifstream::failure("¤¤ " + line + " -> Error : Wrong date format");
+		throw std::ifstream::failure(line + " -> Error : Wrong date format");
+	if (year_str.size() != 4)
+		throw std::ifstream::failure(line + " -> Error : Wrong date format");
+	else if (month_str.size() != 2 || day_str.size() != 2)
+		throw std::ifstream::failure(line + " -> Error : Wrong date format");
 	year = std::stoi(year_str);
 	month = std::stoi(month_str);
 	day = std::stoi(day_str);

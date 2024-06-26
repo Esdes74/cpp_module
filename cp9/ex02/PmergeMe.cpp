@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:02:01 by eslamber          #+#    #+#             */
-/*   Updated: 2024/06/26 14:57:37 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/26 15:55:27 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,16 @@ void		PmergeMe::sort()
 const char	*PmergeMe::DoubleException::what() const throw()
 {
 	return ("Error: There is double");
+}
+
+const char	*PmergeMe::CaractereException::what() const throw()
+{
+	return ("Error: There is a caractere");
+}
+
+const char	*PmergeMe::NegativeNumberException::what() const throw()
+{
+	return ("Error: There is a negative number");
 }
 
 // Destructeur

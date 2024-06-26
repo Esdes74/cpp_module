@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:02:21 by eslamber          #+#    #+#             */
-/*   Updated: 2024/06/26 15:22:16 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/26 15:55:31 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,18 @@ class PmergeMe
 				virtual const char	*what() const throw();
 		};
 
+		class CaractereException: public std::exception
+		{
+			public:
+				virtual const char	*what() const throw();
+		};
+
+		class NegativeNumberException: public std::exception
+		{
+			public:
+				virtual const char	*what() const throw();
+		};
+
 		// Destructeur
 		~PmergeMe();
 };
@@ -88,10 +100,10 @@ void	make_pair_list(const C &cont, DC &lpair)
 }
 
 template <typename C>
-void	dicho(typename C::iterator &it, const C &lst, const size_t &len, const int &elem)
+void	dicho(typename C::iterator &it, const C &lst, const long int &len, const int &elem)
 {
 	size_t						div;
-	size_t						i;
+	long int					i;
 	typename C::const_iterator	it_l;
 
 	div = 2;
@@ -123,7 +135,7 @@ void	dicho(typename C::iterator &it, const C &lst, const size_t &len, const int 
 // Trie les plus grands éléments de chaque paire de int dans le vecteur _vecPair
 // Supprime les paire obsoletes
 template <typename C, typename DC>
-static void	pre_merge(C &after, DC &pair)
+void	pre_merge(C &after, DC &pair)
 {
 	typename C::iterator	it_a;
 	typename C::iterator	it_sa;
@@ -148,7 +160,7 @@ static void	pre_merge(C &after, DC &pair)
 }
 
 template <typename T>
-static void	merge_sort(T &after)
+void	merge_sort(T &after)
 {
 	int							flag;
 	size_t						jump;
@@ -216,7 +228,7 @@ static void	merge_sort(T &after)
 // Trie les plus grands éléments de chaque paire de int dans le vecteur _vecPair
 // Supprime les paire obsoletes
 template <typename C, typename DC>
-static void	post_merge(C &after, DC &pair)
+void	post_merge(C &after, DC &pair)
 {
 	typename C::iterator	it;
 	typename DC::iterator	it_p;
@@ -261,9 +273,26 @@ static void	post_merge(C &after, DC &pair)
 // TODO: ecrire une fonction qui renvois l'indice auquel est l'element recherchee
 // arg : int elem (element recherchee dans le conteneur)
 //		 T cont (conteneur dans lequel l'element va pouvoir etre recherchee)
+template <typename C>
+long int	find_index(const C &cont, int elem)
+{
+	size_t						len;
+	typename C::const_iterator	it;
+
+	it = cont.begin();
+	len = 0;
+	while (it != cont.end())
+	{
+		if (*it == elem)
+			return (len);
+		std::advance(it, 1);
+		len++;
+	}
+	return (-1);
+}
 
 template <typename C, typename DC>
-static void	final_sort(C &after, DC &pair)
+void	final_sort(C &after, DC &pair)
 {
 	int						flag;
 	int						i;
@@ -289,7 +318,7 @@ static void	final_sort(C &after, DC &pair)
 			it = after.begin();
 			it_p = pair.begin();
 			std::advance (it_p, i);
-			dicho(it, after, it_p->first);
+			dicho(it, after, find_index(after, it_p->second), it_p->first);
 			after.insert(it, it_p->first);
 			pair.erase(it_p);
 			i--;
@@ -301,7 +330,7 @@ static void	final_sort(C &after, DC &pair)
 }
 
 template <typename C>
-static void	print(std::ostream &os, const C &cont)
+void	print(std::ostream &os, const C &cont)
 {
 	typename C::const_iterator	it;
 
@@ -314,7 +343,7 @@ static void	print(std::ostream &os, const C &cont)
 }
 
 template <typename P>
-static void	print_pair(std::ostream &os, const P &cont)
+void	print_pair(std::ostream &os, const P &cont)
 {
 	typename P::const_iterator	it;
 
