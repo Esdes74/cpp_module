@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:01:28 by eslamber          #+#    #+#             */
-/*   Updated: 2024/06/05 16:26:34 by eslamber         ###   ########.fr       */
+/*   Updated: 2024/06/26 14:46:02 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int ac, char **av)
 			i++;
 		}
 		sort.sort();
-		// std::cout << sort << std::endl;
+		std::cout << sort << std::endl;
 	}
 	catch (const std::exception &expt)
 	{
